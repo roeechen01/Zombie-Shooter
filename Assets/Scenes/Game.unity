@@ -113,6 +113,46 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19663426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19663428}
+  - component: {fileID: 19663427}
+  m_Layer: 0
+  m_Name: general
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &19663427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19663426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb54573c2a9db4eba34115ecae405c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &19663428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19663426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.065149, y: 1.8973925, z: -0.106061846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &42999532
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,9 +699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1194244b202c1842877798e0993b85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 114944868591565192, guid: 7d171f4854fb16d4bb6c60e51a8efc45,
+  prefabSimpleBullet: {fileID: 114944868591565192, guid: 7d171f4854fb16d4bb6c60e51a8efc45,
     type: 2}
-  heavyBulletPrefab: {fileID: 114946176741706330, guid: c1b6a5e512357964e9254f3d0d1e87c4,
+  prefabHeavyBullet: {fileID: 114946176741706330, guid: c1b6a5e512357964e9254f3d0d1e87c4,
     type: 2}
   gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
 --- !u!82 &1165173296

@@ -29,7 +29,6 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
             zombie.BulletHit(demage);
-
         }
     }
 
