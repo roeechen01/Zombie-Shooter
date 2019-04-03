@@ -702,6 +702,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabBullet: {fileID: 114480298229490706, guid: 7d171f4854fb16d4bb6c60e51a8efc45,
     type: 2}
+  reload: {fileID: 8300000, guid: 687062d0bcb77b5468a2f9216b81333d, type: 3}
+  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
 --- !u!1 &1363850690
 GameObject:
   m_ObjectHideFlags: 0
