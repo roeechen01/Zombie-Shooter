@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour {
 
-    public Bullet prefabBullet;
+    public Bullet prefabBullet, heavyBulletPrefab;
+
     private int ammo = 10;
     private int ammoMax;
     private Text ammoText;
@@ -52,17 +53,38 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (!reloading)
             {
-                if(ammo > 0) Fire();
+                if(ammo > 0) Fire(1);
                 else WaitBeforeReloadAll();
             }    
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!reloading)
+            {
+                if (ammo > 2) Fire(2);
+                else WaitBeforeReloadAll();
+            }
+        }
     }
 
-    void Fire()
+    void Fire(int type)
     {
-        AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-        Instantiate(prefabBullet, this.transform.position, transform.rotation);
-        AmmoChange(-1);
+        if(type == 1)
+        {
+            AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
+            Instantiate(prefabBullet, this.transform.position, transform.rotation);
+            AmmoChange(-1);
+            print("1");
+        }
+        if(type == 2)
+        {
+            AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
+            Instantiate(heavyBulletPrefab, this.transform.position, transform.rotation);
+            AmmoChange(-3);
+            print("2");
+        }
+        
     }
 
     // Update is called once per frame

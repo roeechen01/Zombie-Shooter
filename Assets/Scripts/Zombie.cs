@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour {
-    PlayerController player;
+    private PlayerController player;
     new Rigidbody2D rigidbody2D;
-    private float speed = 2f;
-    Vector3 direction;
+    private Vector3 direction;
+
+    protected float speed = 2f;
+    protected int life = 2;
+
     // Use this for initialization
     void Start () {
         player = FindObjectOfType<PlayerController>();
@@ -59,6 +62,13 @@ public class Zombie : MonoBehaviour {
         direction = Camera.main.ScreenToWorldPoint(player.transform.position) - Camera.main.ScreenToWorldPoint(transform.position);
         rigidbody2D.velocity = new Vector2(direction.x * speed, direction.y * speed);
         SetZombieSpeed();
+    }
+
+    public void BulletHit(int demage)
+    {
+        life -= demage;
+        if (life <= 0)
+            Destroy(gameObject);
     }
 
     // Update is called once per frame
