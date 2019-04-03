@@ -30,6 +30,16 @@ public class PlayerAttack : MonoBehaviour {
         ammoText.text = "AMMO: " + ammo;
     }
 
+    void AmmoChange(bool maxAmmo)
+    {
+        if (maxAmmo)
+        {
+            ammo = ammoMax;
+            ammoText.text = "AMMO: " + ammo;
+        }
+       
+    }
+
     void Reload()
     {
         if(ammo<ammoMax)
