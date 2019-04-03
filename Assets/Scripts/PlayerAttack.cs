@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (!reloading)
             {
-                if(ammo > 0) Fire(1);
+                if(ammo >= SimpleBullet.ammoRequired) Fire(1);
                 else WaitBeforeReloadAll();
             }    
         }
@@ -62,7 +62,7 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (!reloading)
             {
-                if (ammo > 2) Fire(2);
+                if (ammo >= HeavyBullet.ammoRequired) Fire(2);
                 else WaitBeforeReloadAll();
             }
         }
@@ -74,15 +74,13 @@ public class PlayerAttack : MonoBehaviour {
         {
             AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
             Instantiate(prefabBullet, this.transform.position, transform.rotation);
-            AmmoChange(-1);
-            print("1");
+            AmmoChange(-SimpleBullet.ammoRequired);
         }
         if(type == 2)
         {
             AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
             Instantiate(heavyBulletPrefab, this.transform.position, transform.rotation);
-            AmmoChange(-3);
-            print("2");
+            AmmoChange(-HeavyBullet.ammoRequired);
         }
         
     }
