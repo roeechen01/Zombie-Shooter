@@ -9,17 +9,24 @@ public class PlayerAttack : MonoBehaviour {
     private int ammo = 10;
     private int ammoMax;
     private Text ammoText;
+    private bool reloading = false;
 
-    public AudioClip reload;
+    private AudioSource reloadAudioSource;
     public AudioClip gunfire;
 
 
     // Use this for initialization
     void Start () {
+        reloadAudioSource = GetComponent<AudioSource>();
         ammoText = FindObjectOfType<Text>();
         ammoMax = ammo;
         ammoText.text = "AMMO: " + ammo;
-        //ReloadRepeat();
+    }
+
+    void PlayReloadClip()
+    {
+        if (!reloadAudioSource.isPlaying)
+            reloadAudioSource.Play();
     }
 
     void ReloadRepeat()
@@ -39,36 +46,32 @@ public class PlayerAttack : MonoBehaviour {
             AmmoChange(1);
     }
 
-    void Fire()
+    void FireCheck()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammo > 0)
+            if (!reloading)
             {
-                AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-                Instantiate(prefabBullet, this.transform.position, transform.rotation);
-                AmmoChange(-1);
-            }
-
-            else
-            {
-                Wait("ReloadAll", 1);
-                AudioSource.PlayClipAtPoint(reload, this.transform.position);
-            }
+                if(ammo > 0) Fire();
+                else WaitBeforeReloadAll();
+            }    
         }
     }
 
+    void Fire()
+    {
+        AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
+        Instantiate(prefabBullet, this.transform.position, transform.rotation);
+        AmmoChange(-1);
+    }
 
     // Update is called once per frame
     void Update () {
-        Fire();
+        FireCheck();
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (ammo != ammoMax)
-            {
-                AudioSource.PlayClipAtPoint(reload, this.transform.position);
-                Wait("ReloadAll", 1);
-            }
+                WaitBeforeReloadAll();
         }
     }
 
@@ -76,7 +79,9 @@ public class PlayerAttack : MonoBehaviour {
     {
         if(ammo != ammoMax)
         {
+            print("ammoMax");
             ammo = ammoMax;
+            reloading = false;
             ammoText.text = "AMMO: " + ammo;
         }
         
@@ -85,5 +90,12 @@ public class PlayerAttack : MonoBehaviour {
     void Wait(string methodName ,float seconds)
     {
         Invoke(methodName, seconds);
+    }
+
+    void WaitBeforeReloadAll()
+    {
+        reloading = true;
+        PlayReloadClip();
+        Wait("ReloadAll", 1);
     }
 }
