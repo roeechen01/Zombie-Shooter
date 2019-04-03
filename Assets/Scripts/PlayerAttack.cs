@@ -79,7 +79,6 @@ public class PlayerAttack : MonoBehaviour {
     {
         if(ammo != ammoMax)
         {
-            print("ammoMax");
             ammo = ammoMax;
             reloading = false;
             ammoText.text = "AMMO: " + ammo;
