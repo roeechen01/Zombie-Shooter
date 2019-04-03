@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     private float speed = 0.1f;
-    public Bullet prefabBullet;
 
 
     // Use this for initialization
@@ -33,13 +32,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void Fire()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(prefabBullet, this.transform.position, transform.rotation);
-        }
-    }
+   
 
     void Rotaion()
     {
@@ -53,7 +46,6 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Movement();
-        Fire();
         Rotaion();
     }
 }

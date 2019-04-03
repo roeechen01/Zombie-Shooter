@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
         rigidbody2D = GetComponent<Rigidbody2D>();
         SetVelocity();
     }
-
+    
     void OnBecameInvisible()
     {
         Destroy(gameObject);
