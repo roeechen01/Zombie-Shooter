@@ -4,21 +4,8 @@ using UnityEngine;
 
 public class SimpleBullet : Bullet {
 
-
-
-    // Use this for initialization
-    void Start () {
-        demage = 1;
-        speed = 12f;
-        gameObject.AddComponent<BulletController>();
-        GetComponent<BulletController>().speed = this.speed;
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    
+    void Start()
+    {
+        CreateBulletTypeInfo(1, 12f);
+    }
 }

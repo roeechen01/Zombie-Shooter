@@ -5,19 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    protected int demage = 1;
-    protected float speed = 12f;
+    protected int demage;
+    protected float speed;
 
-    // Use this for initialization
-    void Start()
+    protected void CreateBulletTypeInfo(int demage, float speed)
     {
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        this.demage = demage;
+        this.speed = speed;
+        AddBulletController();
     }
 
     private void OnTriggerEnter2D(Collider2D collider2D)
@@ -29,5 +24,11 @@ public class Bullet : MonoBehaviour
             zombie.BulletHit(demage);
 
         }
+    }
+
+    private void AddBulletController()
+    {
+        gameObject.AddComponent<BulletController>();
+        GetComponent<BulletController>().speed = this.speed;
     }
 }

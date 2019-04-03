@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class HeavyBullet : Bullet {
 
-    // Use this for initialization
-    void Start () {
-        demage = 2;
-        speed = 8f;
-        gameObject.AddComponent<BulletController>();
-        GetComponent<BulletController>().speed = this.speed;
-
+    void Start()
+    {
+        CreateBulletTypeInfo(2, 8f);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
 }
