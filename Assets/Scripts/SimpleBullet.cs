@@ -7,8 +7,14 @@ public class SimpleBullet : Bullet {
     new static int demage = 1;
     new static float speed = 12f;
     public new static int ammoRequired = 1;
+
     void Start()
     {
         CreateBulletTypeInfo(demage, speed, ammoRequired);
+    }
+
+    public override int GetAmmoRequired()
+    {
+        return ammoRequired;
     }
 }

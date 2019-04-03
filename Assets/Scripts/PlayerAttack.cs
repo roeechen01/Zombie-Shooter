@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour {
 
-    public Bullet prefabBullet, heavyBulletPrefab;
+    public Bullet prefabSimpleBullet, prefabHeavyBullet;
 
     private int ammo = 10;
     private int ammoMax;
@@ -43,46 +43,33 @@ public class PlayerAttack : MonoBehaviour {
 
     void Reload()
     {
-        if(ammo<ammoMax)
+        if(ammo < ammoMax)
             AmmoChange(1);
     }
 
     void FireCheck()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!reloading)
         {
-            if (!reloading)
+            if (Input.GetMouseButtonDown(0))
             {
-                if(ammo >= SimpleBullet.ammoRequired) Fire(1);
+                if (ammo >= SimpleBullet.ammoRequired) Fire(prefabSimpleBullet);
                 else WaitBeforeReloadAll();
-            }    
-        }
+            }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!reloading)
+            if (Input.GetMouseButtonDown(1))
             {
-                if (ammo >= HeavyBullet.ammoRequired) Fire(2);
+                if (ammo >= HeavyBullet.ammoRequired) Fire(prefabHeavyBullet);
                 else WaitBeforeReloadAll();
             }
         }
     }
 
-    void Fire(int type)
+    void Fire(Bullet bullet)
     {
-        if(type == 1)
-        {
             AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-            Instantiate(prefabBullet, this.transform.position, transform.rotation);
-            AmmoChange(-SimpleBullet.ammoRequired);
-        }
-        if(type == 2)
-        {
-            AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-            Instantiate(heavyBulletPrefab, this.transform.position, transform.rotation);
-            AmmoChange(-HeavyBullet.ammoRequired);
-        }
-        
+            Instantiate(bullet, this.transform.position, transform.rotation);
+            AmmoChange(-bullet.GetAmmoRequired());
     }
 
     // Update is called once per frame

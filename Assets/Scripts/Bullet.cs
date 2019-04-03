@@ -17,9 +17,9 @@ public class Bullet : MonoBehaviour
         AddBulletController();
     }
 
-    public int GetAmmoRequired()
+    public virtual int GetAmmoRequired()
     {
-        return this.ammoRequired;
+        return 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collider2D)
