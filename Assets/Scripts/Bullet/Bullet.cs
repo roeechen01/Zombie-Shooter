@@ -9,6 +9,9 @@ public class Bullet : MonoBehaviour
     protected float speed;
     protected int ammoRequired;
 
+     void Start() { 
+}
+
     protected void CreateBulletTypeInfo(int demage, float speed, int ammoRequired)
     {
         this.demage = demage;
