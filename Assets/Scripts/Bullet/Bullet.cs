@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         return 1;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider2D)
+    virtual protected void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.tag.Equals("Zombie"))
         {

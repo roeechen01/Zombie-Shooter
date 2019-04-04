@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        gameObject.AddComponent<PlayerController>();
         reloadAudioSource = GetComponent<AudioSource>();
         ammoText = FindObjectOfType<Text>();
         ammoMax = ammo;
@@ -101,6 +102,7 @@ public class PlayerAttack : MonoBehaviour {
     void WaitBeforeReloadAll()
     {
         reloading = true;
+        ammoText.text = "Reloading...";
         PlayReloadClip();
         Wait("ReloadAll", 1);
     }
