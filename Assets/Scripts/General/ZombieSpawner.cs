@@ -17,22 +17,22 @@ public class ZombieSpawner : MonoBehaviour {
         switch (rnd)
         {
             case 1:
-                if(Random.Range(1,5) == 1)
+                if(Random.Range(1,3) == 1)
                     Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
                 else Instantiate(prefabFastZombie, new Vector3(Random.Range(-20f, 20f), -21f, 0f), Quaternion.identity);
                 break;
             case 2:
-                if (Random.Range(1, 5) == 1)
+                if (Random.Range(1, 3) == 1)
                     Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
                 else Instantiate(prefabFastZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
                 break;
             case 3:
-                if (Random.Range(1, 5) == 1)
+                if (Random.Range(1, 3) == 1)
                     Instantiate(prefabSimpleZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 else Instantiate(prefabFastZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
             case 4:
-                if (Random.Range(1, 5) == 1)
+                if (Random.Range(1, 3) == 1)
                     Instantiate(prefabSimpleZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 else Instantiate(prefabFastZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;

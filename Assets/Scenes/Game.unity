@@ -1244,6 +1244,7 @@ GameObject:
   - component: {fileID: 1165173295}
   - component: {fileID: 1165173296}
   - component: {fileID: 1165173290}
+  - component: {fileID: 1165173293}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1384,6 +1385,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165173293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d0eaabbb10c5244a173efbf06978b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
 --- !u!50 &1165173294
 Rigidbody2D:
   serializedVersion: 4
@@ -1419,7 +1432,6 @@ MonoBehaviour:
     type: 2}
   prefabHeavyBullet: {fileID: 114946176741706330, guid: c1b6a5e512357964e9254f3d0d1e87c4,
     type: 2}
-  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
 --- !u!82 &1165173296
 AudioSource:
   m_ObjectHideFlags: 0
