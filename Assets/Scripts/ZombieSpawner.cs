@@ -16,16 +16,16 @@ public class ZombieSpawner : MonoBehaviour {
         switch (rnd)
         {
             case 1:
-                Instantiate(prefabZombie, new Vector3(Random.Range(-10, 11),-7f,0f), Quaternion.identity);
+                Instantiate(prefabZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(prefabZombie, new Vector3(Random.Range(-10, 11), 7f, 0f), Quaternion.identity);
+                Instantiate(prefabZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(prefabZombie, new Vector3(10f, Random.Range(-7, 7), 0f), Quaternion.identity);
+                Instantiate(prefabZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
             case 4:
-                Instantiate(prefabZombie, new Vector3(-10f, Random.Range(-7, 7), 0f), Quaternion.identity);
+                Instantiate(prefabZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
         }
 
