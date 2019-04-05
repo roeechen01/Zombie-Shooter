@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class SimpleZombie : Zombie {
 
-    new private int life = 2;
-    new private int demage = 1;
-    new private float speed = 2f;
+    new private static int life = 2;
+    new private static int demage = 1;
+    new private static float speed = 2f;
 
-	// Use this for initialization
-	void Start () {
+    protected override void CreateZombie()
+    {
         CreateZombieTypeInfo(life, demage, speed);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+
 }
