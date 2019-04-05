@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789da5a3a86517a439020e7fe5a7ab43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabZombie: {fileID: 114636141814764564, guid: 66904427c1e720246a1f89d99bce8b50,
+  prefabSimpleZombie: {fileID: 114572005609464174, guid: 66904427c1e720246a1f89d99bce8b50,
     type: 2}
 --- !u!4 &178920246
 Transform:
@@ -330,7 +330,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &278313794
 GameObject:
@@ -1118,7 +1118,7 @@ RectTransform:
   m_Children:
   - {fileID: 1479546026}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1276,7 +1276,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1165173294
 Rigidbody2D:
@@ -1762,5 +1762,5 @@ Transform:
   - {fileID: 1898575482}
   - {fileID: 724613627}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

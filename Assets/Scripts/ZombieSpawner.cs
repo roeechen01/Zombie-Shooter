@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour {
-    public Zombie prefabZombie;
+    public SimpleZombie prefabSimpleZombie;
 
 	// Use this for initialization
 	void Start () {
@@ -16,16 +16,16 @@ public class ZombieSpawner : MonoBehaviour {
         switch (rnd)
         {
             case 1:
-                Instantiate(prefabZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
+                Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(prefabZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
+                Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(prefabZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
+                Instantiate(prefabSimpleZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
             case 4:
-                Instantiate(prefabZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
+                Instantiate(prefabSimpleZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
         }
 
