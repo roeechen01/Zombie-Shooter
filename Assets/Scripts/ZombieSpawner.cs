@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour {
     public SimpleZombie prefabSimpleZombie;
+    public FastZombie prefabFastZombie;
 
 	// Use this for initialization
 	void Start () {
@@ -16,16 +17,24 @@ public class ZombieSpawner : MonoBehaviour {
         switch (rnd)
         {
             case 1:
-                Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
+                if(Random.Range(1,5) == 1)
+                    Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
+                else Instantiate(prefabFastZombie, new Vector3(Random.Range(-20f, 20f), -21f, 0f), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
+                if (Random.Range(1, 5) == 1)
+                    Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
+                else Instantiate(prefabFastZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(prefabSimpleZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
+                if (Random.Range(1, 5) == 1)
+                    Instantiate(prefabSimpleZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
+                else Instantiate(prefabFastZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
             case 4:
-                Instantiate(prefabSimpleZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
+                if (Random.Range(1, 5) == 1)
+                    Instantiate(prefabSimpleZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
+                else Instantiate(prefabFastZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
                 break;
         }
 

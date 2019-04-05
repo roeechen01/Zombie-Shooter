@@ -319,6 +319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabSimpleZombie: {fileID: 114710816814195798, guid: 66904427c1e720246a1f89d99bce8b50,
     type: 2}
+  prefabFastZombie: {fileID: 114361132664239954, guid: d65698fa86b2fe543a305292af779cd5,
+    type: 2}
 --- !u!4 &178920246
 Transform:
   m_ObjectHideFlags: 0
