@@ -69,7 +69,7 @@ public class PlayerAttack : MonoBehaviour {
     void Fire(Bullet bullet)
     {
             AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-            Instantiate(bullet, this.transform.position, transform.rotation);
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
             AmmoChange(-bullet.GetAmmoRequired());
     }
 
