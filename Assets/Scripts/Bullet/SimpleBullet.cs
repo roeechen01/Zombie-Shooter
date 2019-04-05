@@ -10,7 +10,7 @@ public class SimpleBullet : Bullet {
 
     void Start()
     {
-        CreateBulletTypeInfo(demage, speed, ammoRequired);
+        CreateBulletTypeInfo(demage, speed, ammoRequired, new Vector2(1, 1));
     }
 
     public override int GetAmmoRequired()

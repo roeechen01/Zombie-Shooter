@@ -12,12 +12,13 @@ public class Bullet : MonoBehaviour
      void Start() { 
 }
 
-    protected void CreateBulletTypeInfo(int demage, float speed, int ammoRequired)
+    protected void CreateBulletTypeInfo(int demage, float speed, int ammoRequired, Vector2 range)
     {
         this.demage = demage;
         this.speed = speed;
         this.ammoRequired = ammoRequired;
         AddBulletController();
+        GetComponent<BulletController>().SetVelocity(range);
     }
 
     public virtual int GetAmmoRequired()
@@ -37,7 +38,7 @@ public class Bullet : MonoBehaviour
 
     private void AddBulletController()
     {
-        gameObject.AddComponent<BulletController>();
-        GetComponent<BulletController>().speed = this.speed;
+        BulletController bc = gameObject.AddComponent<BulletController>();
+        bc.speed = this.speed;
     }
 }

@@ -10,7 +10,7 @@ public class HeavyBullet : Bullet {
 
     void Start()
     {
-        CreateBulletTypeInfo(demage, speed, ammoRequired);
+        CreateBulletTypeInfo(demage, speed, ammoRequired, new Vector2(0,0));
     }
 
     public override int GetAmmoRequired()

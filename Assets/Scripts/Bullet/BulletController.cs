@@ -6,13 +6,14 @@ public class BulletController : MonoBehaviour {
 
     Vector3 shootDirection;
     new Rigidbody2D rigidbody2D;
-    public float speed = 12;
+    public float speed = 12f;
+    public Vector2 range = new Vector2(0, 0);
+
 
 
     // Use this for initialization
     void Start () {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        SetVelocity();
     }
     
     void OnBecameInvisible()
@@ -55,13 +56,17 @@ public class BulletController : MonoBehaviour {
         
     }
 
-    protected void SetVelocity()
+
+
+    public void SetVelocity(Vector2 range)
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
         shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        shootDirection += new Vector3(Random.Range(-range.x, range.x),Random.Range(-range.y, range.y) , 0f);
         rigidbody2D.velocity = new Vector2(shootDirection.x * speed, shootDirection.y * speed);
         SetBulletSpeed();
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 	}
