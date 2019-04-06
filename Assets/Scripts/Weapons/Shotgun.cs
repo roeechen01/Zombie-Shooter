@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shotgun : Weapon {
 
     public HeavyBullet heavyBullet;
+
     bool onCoolddown = false;
     
     private float ratio = 0.75f;
@@ -17,15 +18,17 @@ public class Shotgun : Weapon {
         bullet = heavyBullet;
     }
 
-    void SetCooldown()
+    void CooldownOver()
     {
         onCoolddown = false;
     }
 
-    void Wait(string methodName, float seconds)
+    void Cooldwon()
     {
-        Invoke(methodName, seconds);
+        onCoolddown = true;
+        Invoke("CooldownOver", 1f);
     }
+
 
     public override void Fire()
     {
@@ -36,8 +39,7 @@ public class Shotgun : Weapon {
             Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(ratio, ratio), false);
             Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(-ratio, -ratio), false);
             AmmoChange(-GetAmmoRequired());
-            onCoolddown = true;
-            Invoke("SetCooldown", 1f);
+            Cooldwon();
         }        
         
     }

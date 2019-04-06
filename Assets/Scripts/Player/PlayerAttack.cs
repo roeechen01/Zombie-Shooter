@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour {
 
     private Gun gun;
     private Shotgun shotgun;
+    private Rifle rifle;
 
     private List<Weapon> weapons = new List<Weapon>();
     public List<Sprite> weaponsSprites = new List<Sprite>();
@@ -24,7 +25,8 @@ public class PlayerAttack : MonoBehaviour {
     void Start () {
         SetComponents();
         weapons.Add(gun);
-        weapons.Add(shotgun);
+        //weapons.Add(shotgun);
+        weapons.Add(rifle);
         foreach (Weapon weapon in weapons)
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
@@ -38,6 +40,7 @@ public class PlayerAttack : MonoBehaviour {
         gameObject.AddComponent<PlayerController>();
         gun = GetComponent<Gun>();
         shotgun = GetComponent<Shotgun>();
+        rifle = GetComponent<Rifle>();
     }
 
     void SwitchWeapn()

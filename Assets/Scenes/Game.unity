@@ -1245,6 +1245,7 @@ GameObject:
   - component: {fileID: 1165173290}
   - component: {fileID: 1165173293}
   - component: {fileID: 1165173297}
+  - component: {fileID: 1165173296}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1438,7 +1439,23 @@ MonoBehaviour:
     type: 2}
   weaponsSprites:
   - {fileID: 21300000, guid: 8f89f85091796144cb11c9981846ca3c, type: 3}
-  - {fileID: 21300000, guid: 17350c61415a2094c993a0db1c829f35, type: 3}
+  - {fileID: 21300000, guid: 015a491637163ce40a489485d8ed872b, type: 3}
+--- !u!114 &1165173296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f46d49804cbd945930adbd0e547df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
+  reloadClip: {fileID: 8300000, guid: 687062d0bcb77b5468a2f9216b81333d, type: 3}
+  reloading: 0
+  simpleBullet: {fileID: 114944868591565192, guid: 7d171f4854fb16d4bb6c60e51a8efc45,
+    type: 2}
 --- !u!114 &1165173297
 MonoBehaviour:
   m_ObjectHideFlags: 0

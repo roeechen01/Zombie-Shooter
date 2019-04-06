@@ -78,11 +78,7 @@ public class Weapon : MonoBehaviour {
         ammoMax = ammo;
         ammoText.text = "AMMO: " + ammo;
     }
-    void Update()
-    {
 
-        
-    }
     void PlayReloadClip()
     {
         AudioSource.PlayClipAtPoint(reloadClip, this.transform.position);
