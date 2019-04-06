@@ -9,9 +9,9 @@ public class Weapon : MonoBehaviour {
     public AudioClip gunfire;
     protected Bullet bullet;
     protected int shotsNumber;
+    public AudioClip reloadClip;
 
     public bool reloading = false;
-    private AudioSource reloadAudioSource;
     protected int reloadTime;
 
     protected int ammo;
@@ -74,7 +74,6 @@ public class Weapon : MonoBehaviour {
 
     void Start()
     {
-        reloadAudioSource = GetComponent<AudioSource>();
         ammoText = FindObjectOfType<Text>();
         ammoMax = ammo;
         ammoText.text = "AMMO: " + ammo;
@@ -86,8 +85,7 @@ public class Weapon : MonoBehaviour {
     }
     void PlayReloadClip()
     {
-        if (!reloadAudioSource.isPlaying)
-            reloadAudioSource.Play();
+        AudioSource.PlayClipAtPoint(reloadClip, this.transform.position);
     }
 
     void ReloadRepeat()

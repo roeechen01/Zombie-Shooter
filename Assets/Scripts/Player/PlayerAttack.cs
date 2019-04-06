@@ -23,8 +23,6 @@ public class PlayerAttack : MonoBehaviour {
     // Use this for initialization
     void Start () {
         SetComponents();
-
-
         weapons.Add(gun);
         weapons.Add(shotgun);
         foreach (Weapon weapon in weapons)
@@ -38,7 +36,6 @@ public class PlayerAttack : MonoBehaviour {
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.AddComponent<PlayerController>();
-
         gun = GetComponent<Gun>();
         shotgun = GetComponent<Shotgun>();
     }
