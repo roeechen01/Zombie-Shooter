@@ -6,9 +6,11 @@ public class Gun : Weapon {
 
     public SimpleBullet simpleBullet;
 
-    void Start()
+    void Awake()
     {
+        ammo = 25;
         shotsNumber = 1;
+        reloadTime = 1;
         bullet = simpleBullet;
     }
 
@@ -16,7 +18,7 @@ public class Gun : Weapon {
     {
         AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
         Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
-        playerAttack.AmmoChange(-GetAmmoRequired());
+        AmmoChange(-GetAmmoRequired());
     }
 
 

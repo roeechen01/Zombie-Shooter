@@ -8,9 +8,11 @@ public class Shotgun : Weapon {
 
     private float ratio = 0.75f;
 
-    void Start()
+    void Awake()
     {
+        ammo = 18;
         shotsNumber = 3;
+        reloadTime = 2;
         bullet = heavyBullet;
     }
 
@@ -20,7 +22,7 @@ public class Shotgun : Weapon {
         Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
         Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(ratio, ratio), false);
         Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(-ratio, -ratio), false);
-        playerAttack.AmmoChange(-GetAmmoRequired());
+        AmmoChange(-GetAmmoRequired());
     }
 
 }

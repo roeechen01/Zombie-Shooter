@@ -17,19 +17,13 @@ public class PlayerAttack : MonoBehaviour {
     private Weapon weapon;
     private int weapnIndex = 0;
 
-    private int ammo = 25;
-    private int ammoMax;
-    private Text ammoText;
-    private bool reloading = false;
 
-    private AudioSource reloadAudioSource;
 
 
     // Use this for initialization
     void Start () {
         SetComponents();
-        ammoMax = ammo;
-        ammoText.text = "AMMO: " + ammo;
+
 
         weapons.Add(gun);
         weapons.Add(shotgun);
@@ -37,14 +31,14 @@ public class PlayerAttack : MonoBehaviour {
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
         spriteRenderer.sprite = weaponsSprites[0];
+        weapon.WaitBeforeReloadAll();
     }
 
     void SetComponents()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.AddComponent<PlayerController>();
-        reloadAudioSource = GetComponent<AudioSource>();
-        ammoText = FindObjectOfType<Text>();
+
         gun = GetComponent<Gun>();
         shotgun = GetComponent<Shotgun>();
     }
@@ -53,50 +47,35 @@ public class PlayerAttack : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(weapnIndex == 0)
+            if (!weapon.reloading)
             {
-                weapon = weapons[++weapnIndex];
-                spriteRenderer.sprite = weaponsSprites[weapnIndex];
+                if (weapnIndex == 0)
+                {
+                    weapon = weapons[++weapnIndex];
+                    spriteRenderer.sprite = weaponsSprites[weapnIndex];
+                }
+                else
+                {
+                    weapon = weapons[--weapnIndex];
+                    spriteRenderer.sprite = weaponsSprites[weapnIndex];
+                }
+                weapon.WaitBeforeReloadAll();
             }
-            else 
-            {
-                weapon = weapons[--weapnIndex];
-                spriteRenderer.sprite = weaponsSprites[weapnIndex];
-            }
+            
+
         }
     }
 
-    void PlayReloadClip()
-    {
-        if (!reloadAudioSource.isPlaying)
-            reloadAudioSource.Play();
-    }
-
-    void ReloadRepeat()
-    {
-        InvokeRepeating("Reload", 0f, 1f);
-    }
-
-    public void AmmoChange(int ammoChange)
-    {
-        ammo += ammoChange;
-        ammoText.text = "AMMO: " + ammo;
-    }
-
-    void Reload()
-    {
-        if(ammo < ammoMax)
-            AmmoChange(1);
-    }
+    
 
     void FireCheck()
     {
-        if (!reloading)
+        if (!weapon.reloading)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (weapon.CanFire(ammo)) weapon.Fire();
-                else WaitBeforeReloadAll();
+                if (weapon.CanFire()) weapon.Fire();
+                else weapon.WaitBeforeReloadAll();
             }
         }
     }
@@ -106,33 +85,9 @@ public class PlayerAttack : MonoBehaviour {
         FireCheck();
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (ammo != ammoMax)
-                WaitBeforeReloadAll();
+            weapon.WaitBeforeReloadAll();
         }
         SwitchWeapn();
     }
 
-    void ReloadAll()
-    {
-        if(ammo != ammoMax)
-        {
-            ammo = ammoMax;
-            reloading = false;
-            ammoText.text = "AMMO: " + ammo;
-        }
-        
-    }
-
-    void Wait(string methodName ,float seconds)
-    {
-        Invoke(methodName, seconds);
-    }
-
-    void WaitBeforeReloadAll()
-    {
-        reloading = true;
-        ammoText.text = "Reloading...";
-        PlayReloadClip();
-        Wait("ReloadAll", 1);
-    }
 }
