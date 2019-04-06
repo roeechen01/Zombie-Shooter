@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Shotgun : Weapon {
 
-    public SimpleBullet simpleBullet;
+    public HeavyBullet heavyBullet;
 
     private float ratio = 0.75f;
 
     void Start()
     {
         shotsNumber = 3;
-        bullet = simpleBullet;
+        bullet = heavyBullet;
     }
 
     public override void Fire()

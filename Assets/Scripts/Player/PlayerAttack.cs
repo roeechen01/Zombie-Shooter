@@ -27,20 +27,26 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        gameObject.AddComponent<PlayerController>();
-        reloadAudioSource = GetComponent<AudioSource>();
-        ammoText = FindObjectOfType<Text>();
+        SetComponents();
         ammoMax = ammo;
         ammoText.text = "AMMO: " + ammo;
-        gun = GetComponent<Gun>();
+
         weapons.Add(gun);
-        shotgun = GetComponent<Shotgun>();
         weapons.Add(shotgun);
         foreach (Weapon weapon in weapons)
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
         spriteRenderer.sprite = weaponsSprites[0];
+    }
+
+    void SetComponents()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        gameObject.AddComponent<PlayerController>();
+        reloadAudioSource = GetComponent<AudioSource>();
+        ammoText = FindObjectOfType<Text>();
+        gun = GetComponent<Gun>();
+        shotgun = GetComponent<Shotgun>();
     }
 
     void SwitchWeapn()
@@ -92,12 +98,6 @@ public class PlayerAttack : MonoBehaviour {
                 if (weapon.CanFire(ammo)) weapon.Fire();
                 else WaitBeforeReloadAll();
             }
-            /*
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (ammo >= HeavyBullet.ammoRequired) gun.Fire();
-                else WaitBeforeReloadAll();
-            }*/
         }
     }
 

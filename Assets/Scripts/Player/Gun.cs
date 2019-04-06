@@ -16,8 +16,6 @@ public class Gun : Weapon {
     {
         AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
         Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
-        //Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0.5f, 0.5f), false);
-        //Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(-0.5f, -0.5f), false);
         playerAttack.AmmoChange(-GetAmmoRequired());
     }
 
