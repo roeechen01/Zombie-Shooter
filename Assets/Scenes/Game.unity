@@ -1397,6 +1397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
+  simpleBullet: {fileID: 114944868591565192, guid: 7d171f4854fb16d4bb6c60e51a8efc45,
+    type: 2}
 --- !u!50 &1165173294
 Rigidbody2D:
   serializedVersion: 4
@@ -1432,6 +1434,9 @@ MonoBehaviour:
     type: 2}
   prefabHeavyBullet: {fileID: 114946176741706330, guid: c1b6a5e512357964e9254f3d0d1e87c4,
     type: 2}
+  weaponsSprites:
+  - {fileID: 21300000, guid: 8f89f85091796144cb11c9981846ca3c, type: 3}
+  - {fileID: 21300000, guid: 17350c61415a2094c993a0db1c829f35, type: 3}
 --- !u!82 &1165173296
 AudioSource:
   m_ObjectHideFlags: 0

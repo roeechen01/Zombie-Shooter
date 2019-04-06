@@ -6,9 +6,18 @@ using UnityEngine.UI;
 public class PlayerAttack : MonoBehaviour {
 
     public Bullet prefabSimpleBullet, prefabHeavyBullet;
-    private Gun gun;
 
-    private int ammo = 10;
+    private Gun gun;
+    private Shotgun shotgun;
+
+    private List<Weapon> weapons = new List<Weapon>();
+    public List<Sprite> weaponsSprites = new List<Sprite>();
+    SpriteRenderer spriteRenderer;
+
+    private Weapon weapon;
+    private int weapnIndex = 0;
+
+    private int ammo = 25;
     private int ammoMax;
     private Text ammoText;
     private bool reloading = false;
@@ -18,12 +27,37 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gun = GetComponent<Gun>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.AddComponent<PlayerController>();
         reloadAudioSource = GetComponent<AudioSource>();
         ammoText = FindObjectOfType<Text>();
         ammoMax = ammo;
         ammoText.text = "AMMO: " + ammo;
+        gun = GetComponent<Gun>();
+        weapons.Add(gun);
+        shotgun = GetComponent<Shotgun>();
+        weapons.Add(shotgun);
+        foreach (Weapon weapon in weapons)
+            weapon.SetPlayerAttack(this);
+        weapon = weapons[0];
+        spriteRenderer.sprite = weaponsSprites[0];
+    }
+
+    void SwitchWeapn()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(weapnIndex == 0)
+            {
+                weapon = weapons[++weapnIndex];
+                spriteRenderer.sprite = weaponsSprites[weapnIndex];
+            }
+            else 
+            {
+                weapon = weapons[--weapnIndex];
+                spriteRenderer.sprite = weaponsSprites[weapnIndex];
+            }
+        }
     }
 
     void PlayReloadClip()
@@ -55,15 +89,15 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (ammo >= SimpleBullet.ammoRequired) gun.Fire(prefabSimpleBullet);
+                if (weapon.CanFire(ammo)) weapon.Fire();
                 else WaitBeforeReloadAll();
             }
-
+            /*
             if (Input.GetMouseButtonDown(1))
             {
-                if (ammo >= HeavyBullet.ammoRequired) gun.Fire(prefabHeavyBullet);
+                if (ammo >= HeavyBullet.ammoRequired) gun.Fire();
                 else WaitBeforeReloadAll();
-            }
+            }*/
         }
     }
 
@@ -75,6 +109,7 @@ public class PlayerAttack : MonoBehaviour {
             if (ammo != ammoMax)
                 WaitBeforeReloadAll();
         }
+        SwitchWeapn();
     }
 
     void ReloadAll()
