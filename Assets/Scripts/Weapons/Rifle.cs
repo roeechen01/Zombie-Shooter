@@ -9,12 +9,13 @@ public class Rifle : Weapon {
 
     bool onCoolddown = false;
 
-    void Awake()
+    void Start()
     {
         ammo = 50;
         shotsNumber = 1;
         reloadTime = 2;
         bullet = simpleBullet;
+        SetAmmo();
     }
 
     void CooldownOver()
@@ -31,13 +32,6 @@ public class Rifle : Weapon {
     public override void Fire()
     {
         fireActive = true;
-        //while (Input.GetMouseButtonDown(0) && ammo >= shotsNumber && !onCoolddown)
-        //{
-        //    AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-        //    Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
-        //    AmmoChange(-GetAmmoRequired());
-        //    Cooldwon();
-        //}
         
     }
 
@@ -48,7 +42,7 @@ public class Rifle : Weapon {
             if (!onCoolddown)
             {
                 AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-                Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
+                Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0.2f, 0.2f), true);
                 AmmoChange(-GetAmmoRequired());
                 Cooldwon();
             }

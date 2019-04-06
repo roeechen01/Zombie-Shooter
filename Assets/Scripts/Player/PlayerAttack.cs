@@ -12,25 +12,22 @@ public class PlayerAttack : MonoBehaviour {
     private Rifle rifle;
 
     private List<Weapon> weapons = new List<Weapon>();
-    public List<Sprite> weaponsSprites = new List<Sprite>();
     SpriteRenderer spriteRenderer;
 
     private Weapon weapon;
-    private int weapnIndex = 0;
-
-
-
+    private int weaponIndex = 0;
 
     // Use this for initialization
     void Start () {
         SetComponents();
         weapons.Add(gun);
-        //weapons.Add(shotgun);
+        weapons.Add(shotgun);
         weapons.Add(rifle);
+
         foreach (Weapon weapon in weapons)
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
-        spriteRenderer.sprite = weaponsSprites[0];
+        spriteRenderer.sprite = weapons[0].sprite;
         weapon.WaitBeforeReloadAll();
     }
 
@@ -49,16 +46,29 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (!weapon.reloading)
             {
-                if (weapnIndex == 0)
+                //if (weapnIndex == 0)
+                //{
+                //    weapon = weapons[++weapnIndex];
+                //    spriteRenderer.sprite = weapons[weapnIndex].sprite;
+                //}
+                //else
+                //{
+                //    weapon = weapons[--weapnIndex];
+                //    spriteRenderer.sprite = weapons[weapnIndex].sprite;
+                //}
+                if (weaponIndex != weapons.Count-1)
                 {
-                    weapon = weapons[++weapnIndex];
-                    spriteRenderer.sprite = weaponsSprites[weapnIndex];
+                    weapon = weapons[++weaponIndex];
+                    spriteRenderer.sprite = weapons[weaponIndex].sprite;
                 }
                 else
                 {
-                    weapon = weapons[--weapnIndex];
-                    spriteRenderer.sprite = weaponsSprites[weapnIndex];
+                    weapon = weapons[0];
+                    spriteRenderer.sprite = weapons[0].sprite;
+                    weaponIndex = 0;
                 }
+                
+
                 weapon.WaitBeforeReloadAll();
             }
             

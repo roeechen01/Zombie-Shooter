@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
         this.speed = speed;
         this.ammoRequired = ammoRequired;
         this.range = range;
-        this.randomRange = false;
+        this.randomRange = randomRange;
         SetVelocity();
     }
 

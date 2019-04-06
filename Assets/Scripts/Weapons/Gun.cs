@@ -6,12 +6,13 @@ public class Gun : Weapon {
 
     public SimpleBullet simpleBullet;
 
-    void Awake()
+    void Start()
     {
         ammo = 25;
         shotsNumber = 1;
         reloadTime = 1;
         bullet = simpleBullet;
+        SetAmmo();
     }
 
     public override void Fire()

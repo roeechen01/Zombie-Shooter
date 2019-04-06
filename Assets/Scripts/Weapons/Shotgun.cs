@@ -10,12 +10,13 @@ public class Shotgun : Weapon {
     
     private float ratio = 0.75f;
 
-    void Awake()
+    void Start()
     {
         ammo = 12;
         shotsNumber = 3;
         reloadTime = 2;
         bullet = heavyBullet;
+        SetAmmo();
     }
 
     void CooldownOver()

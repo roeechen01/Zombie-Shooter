@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour {
     protected Bullet bullet;
     protected int shotsNumber;
     public AudioClip reloadClip;
+    public Sprite sprite;
 
     public bool reloading = false;
     protected int reloadTime;
@@ -72,9 +73,13 @@ public class Weapon : MonoBehaviour {
 
     }
 
-    void Start()
+    void Awake()
     {
         ammoText = FindObjectOfType<Text>();
+    }
+
+   protected void SetAmmo()
+    {
         ammoMax = ammo;
         ammoText.text = "AMMO: " + ammo;
     }
