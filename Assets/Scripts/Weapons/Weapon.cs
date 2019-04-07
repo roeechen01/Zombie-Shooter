@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour {
 
     protected int GetAmmoRequired()
     {
-        return bullet.GetAmmoRequired() * shotsNumber;
+        return shotsNumber;
     }
 
 
@@ -81,7 +81,6 @@ public class Weapon : MonoBehaviour {
    protected void SetAmmo()
     {
         ammoMax = ammo;
-        ammoText.text = "AMMO: " + ammo;
     }
 
     void PlayReloadClip()

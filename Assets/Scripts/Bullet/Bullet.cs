@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
 
     protected int demage;
     protected float speed;
-    protected int ammoRequired;
     Vector3 shootDirection;
     new Rigidbody2D rigidbody2D;
 
@@ -18,28 +17,25 @@ public class Bullet : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    protected void CreateBulletTypeInfo(int demage, float speed, int ammoRequired)
+    protected void CreateBulletTypeInfo(int demage, float speed)
     {
         this.demage = demage;
         this.speed = speed;
-        this.ammoRequired = ammoRequired;
         SetVelocity();
     }
 
-    protected void CreateBulletTypeInfo(int demage, float speed, int ammoRequired, Vector2 range)
+    protected void CreateBulletTypeInfo(int demage, float speed, Vector2 range)
     {
         this.demage = demage;
         this.speed = speed;
-        this.ammoRequired = ammoRequired;
         this.range = range;
         SetVelocity();
     }
 
-    protected void CreateBulletTypeInfo(int demage, float speed, int ammoRequired, Vector2 range, bool randomRange)
+    protected void CreateBulletTypeInfo(int demage, float speed, Vector2 range, bool randomRange)
     {
         this.demage = demage;
         this.speed = speed;
-        this.ammoRequired = ammoRequired;
         this.range = range;
         this.randomRange = randomRange;
         SetVelocity();
@@ -103,16 +99,6 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-    }
-
-   
-
-    
-
-    public virtual int GetAmmoRequired()
-    {
-        return 1;
     }
 
     public virtual void CreateBullet(Vector2 range, bool random)
