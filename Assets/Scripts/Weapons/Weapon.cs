@@ -87,7 +87,7 @@ public class Weapon : MonoBehaviour {
             }
             else
             {
-                ammoOnStack = ammoLeft;
+                ammoOnStack += ammoLeft;
                 ammoLeft = 0;
             }
             reloading = false;
