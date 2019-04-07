@@ -11,11 +11,11 @@ public class Rifle : Weapon {
 
     void Start()
     {
-        ammo = 50;
+        ammoOnStack = 50;
         shotsNumber = 1;
         reloadTime = 2;
         bullet = simpleBullet;
-        SetAmmo();
+        SetAmmo(250, 50);
     }
 
     void CooldownOver()
@@ -37,7 +37,7 @@ public class Rifle : Weapon {
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && ammo >= shotsNumber && fireActive)
+        if (Input.GetMouseButton(0) && ammoOnStack >= shotsNumber && fireActive)
         {
             if (!onCoolddown)
             {

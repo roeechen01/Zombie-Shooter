@@ -12,11 +12,11 @@ public class Shotgun : Weapon {
 
     void Start()
     {
-        ammo = 12;
+        ammoOnStack = 12;
         shotsNumber = 3;
         reloadTime = 2;
         bullet = heavyBullet;
-        SetAmmo();
+        SetAmmo(36, 12);
     }
 
     void CooldownOver()

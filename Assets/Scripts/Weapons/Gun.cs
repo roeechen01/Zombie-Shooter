@@ -8,12 +8,12 @@ public class Gun : Weapon {
 
     void Start()
     {
-        ammo = 25;
         shotsNumber = 1;
         reloadTime = 1;
         bullet = simpleBullet;
-        SetAmmo();
+        SetAmmo(50, 10);
     }
+
 
     public override void Fire()
     {

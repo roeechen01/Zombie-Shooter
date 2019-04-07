@@ -11,17 +11,16 @@ public class Weapon : MonoBehaviour {
     protected int shotsNumber;
     public AudioClip reloadClip;
     public Sprite sprite;
+    private Text ammoText;
 
     public bool reloading = false;
     protected int reloadTime;
 
-    protected int ammo;
-    private int ammoMax;
-    private Text ammoText;
+    protected int ammoOnStack, stackMax, ammoMax, ammoLeft;
 
     public bool CanFire()
     {
-        return ammo >= shotsNumber;
+        return ammoOnStack >= shotsNumber;
     }
 
     public virtual void Fire()
@@ -45,9 +44,16 @@ public class Weapon : MonoBehaviour {
         Invoke(methodName, seconds);
     }
 
+    void UpdateAmmoText()
+    {
+        if (reloading)
+            ammoText.text = "Reloading...";
+        else ammoText.text = ammoOnStack + "/" + ammoLeft;
+    }
+
     public void WaitBeforeReloadAll()
     {
-        if (ammo != ammoMax)
+        if (ammoOnStack != stackMax)
         {
 
             reloading = true;
@@ -58,19 +64,20 @@ public class Weapon : MonoBehaviour {
 
         else
         {
-            ammoText.text = "AMMO: " + ammo;
+            UpdateAmmoText();
         }
     }
 
     void ReloadAll()
     {
-        if (ammo != ammoMax)
+        if (ammoOnStack != stackMax)
         {
-            ammo = ammoMax;
-            reloading = false;
-            ammoText.text = "AMMO: " + ammo;
+                int bulletsToReload = stackMax - ammoOnStack;
+                ammoOnStack = stackMax;
+                ammoLeft -= bulletsToReload;
+                reloading = false;
+                UpdateAmmoText();
         }
-
     }
 
     void Awake()
@@ -78,9 +85,14 @@ public class Weapon : MonoBehaviour {
         ammoText = FindObjectOfType<Text>();
     }
 
-   protected void SetAmmo()
+   protected void SetAmmo(int ammoMax, int stackMax)
     {
-        ammoMax = ammo;
+        this.ammoMax = ammoMax;
+        this.ammoLeft = this.ammoMax;
+        this.stackMax = stackMax;
+        this.ammoOnStack = this.stackMax;
+        this.ammoLeft -= this.stackMax;
+
     }
 
     void PlayReloadClip()
@@ -95,13 +107,13 @@ public class Weapon : MonoBehaviour {
 
     public void AmmoChange(int ammoChange)
     {
-        ammo += ammoChange;
-        ammoText.text = "AMMO: " + ammo;
+        ammoOnStack += ammoChange;
+        UpdateAmmoText();
     }
 
     void Reload()
     {
-        if (ammo < ammoMax)
+        if (ammoOnStack < ammoMax)
             AmmoChange(1);
     }
 
