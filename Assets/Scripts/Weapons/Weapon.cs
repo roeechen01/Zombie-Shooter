@@ -51,12 +51,6 @@ public class Weapon : MonoBehaviour {
         return shotsNumber;
     }
 
-
-    void Wait(string methodName, float seconds)
-    {
-        Invoke(methodName, seconds);
-    }
-
     void UpdateAmmoText()
     {
         if (reloading)
@@ -72,7 +66,7 @@ public class Weapon : MonoBehaviour {
             reloading = true;
             UpdateAmmoText();
             PlayReloadClip();
-            Wait("ReloadAll", reloadTime);
+            Invoke("ReloadAll", reloadTime);
         }
 
         else

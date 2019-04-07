@@ -64,6 +64,11 @@ public class Bullet : MonoBehaviour
 
     void OnBecameInvisible()
     {
+        Invoke("DestroyBullet", 5f);
+    }
+
+    void DestroyBullet()
+    {
         Destroy(gameObject);
     }
 
