@@ -127,11 +127,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
+            //if (collider2D.Equals(zombie.GetComponent<HeadCollider>().collider2D))
+            //    zombie.HeadShot(demage);
             if (collider2D.Equals(zombie.head))
                 zombie.HeadShot(demage);
             else zombie.BulletHit(demage);
-
         }
-        
     }
 }

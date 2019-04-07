@@ -6,8 +6,8 @@ public class Zombie : MonoBehaviour {
 
     private PlayerAttack player;
     new Rigidbody2D rigidbody2D;
-    public Collider2D head;
     private Vector3 direction;
+    public Collider2D head;
 
     protected int life;
     protected int demage;
