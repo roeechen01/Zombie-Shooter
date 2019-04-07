@@ -53,11 +53,11 @@ public class Weapon : MonoBehaviour {
 
     public void WaitBeforeReloadAll()
     {
-        if (ammoOnStack != stackMax)
+        if (ammoOnStack != stackMax && ammoLeft > 0)
         {
 
             reloading = true;
-            ammoText.text = "Reloading...";
+            UpdateAmmoText();
             PlayReloadClip();
             Wait("ReloadAll", reloadTime);
         }
@@ -72,11 +72,19 @@ public class Weapon : MonoBehaviour {
     {
         if (ammoOnStack != stackMax)
         {
-                int bulletsToReload = stackMax - ammoOnStack;
+            int bulletsToReload = stackMax - ammoOnStack;
+            if (bulletsToReload <= ammoLeft)
+            {
                 ammoOnStack = stackMax;
                 ammoLeft -= bulletsToReload;
-                reloading = false;
-                UpdateAmmoText();
+            }
+            else
+            {
+                ammoOnStack = ammoLeft;
+                ammoLeft = 0;
+            }
+            reloading = false;
+            UpdateAmmoText();
         }
     }
 
@@ -116,6 +124,5 @@ public class Weapon : MonoBehaviour {
         if (ammoOnStack < ammoMax)
             AmmoChange(1);
     }
-
 
 }
