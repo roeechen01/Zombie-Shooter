@@ -17,6 +17,8 @@ public class Weapon : MonoBehaviour {
     protected float cooldownTime;
     public bool reloading = false;
     protected int reloadTime;
+    protected float rangeRatio;
+
 
     protected int ammoOnStack, stackMax, ammoMax, ammoLeft;
 

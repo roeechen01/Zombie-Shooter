@@ -7,7 +7,6 @@ public class Shotgun : Weapon {
     public HeavyBullet heavyBullet;
 
     
-    private float ratio = 0.35f;
 
     void Start()
     {
@@ -15,6 +14,7 @@ public class Shotgun : Weapon {
         ammoOnStack = 12;
         shotsNumber = 3;
         reloadTime = 2;
+        rangeRatio = 0.35f;
         bullet = heavyBullet;
         SetAmmo(36, 12);
     }
@@ -28,8 +28,8 @@ public class Shotgun : Weapon {
         {
             AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
             Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
-            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(ratio, ratio), false);
-            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(-ratio, -ratio), false);
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(rangeRatio, rangeRatio), false);
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(-rangeRatio, -rangeRatio), false);
             AmmoChange(-GetAmmoRequired());
             Cooldwon();
         }        

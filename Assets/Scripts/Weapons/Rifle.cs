@@ -5,7 +5,9 @@ using UnityEngine;
 public class Rifle : Weapon {
 
     public SimpleBullet simpleBullet;
-    bool fireActive = false;
+    private bool fireActive = false;
+    private float rangeRatioIncrease = 0f;
+    private float rangeRatioToIncrease = 0.01f;
 
 
     void Start()
@@ -16,6 +18,7 @@ public class Rifle : Weapon {
         reloadTime = 2;
         bullet = simpleBullet;
         SetAmmo(250, 50);
+        rangeRatio = 0.08f;
     }
 
     public override void Fire()
@@ -31,11 +34,16 @@ public class Rifle : Weapon {
             if (!onCoolddown)
             {
                 AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-                Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0.2f, 0.2f), true);
+                Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(rangeRatio + rangeRatioIncrease, rangeRatio + rangeRatioIncrease), true);
                 AmmoChange(-GetAmmoRequired());
+                rangeRatioIncrease += 0.02f;
                 Cooldwon();
             }
         }
-        else fireActive = false;
+        else
+        {
+            fireActive = false;
+            rangeRatioIncrease = 0f;
+        }
     }
 }
