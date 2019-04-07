@@ -6,6 +6,7 @@ public class Zombie : MonoBehaviour {
 
     private PlayerAttack player;
     new Rigidbody2D rigidbody2D;
+    public Collider2D head;
     private Vector3 direction;
 
     protected int life;
@@ -86,6 +87,12 @@ public class Zombie : MonoBehaviour {
         life -= demage;
         if (life <= 0)
             Destroy(gameObject);
+    }
+
+    public virtual void HeadShot(int demage)
+    {
+        BulletHit(demage * 2);
+        print("headshot: " + gameObject.name);
     }
 
     // Update is called once per frame

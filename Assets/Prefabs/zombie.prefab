@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50129281263466806}
   - component: {fileID: 61692831797359778}
   - component: {fileID: 114710816814195798}
+  - component: {fileID: 60043648334507962}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Zombie
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1363476470609798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.122765, y: -5.6345043, z: 0}
+  m_LocalPosition: {x: 40.93246, y: -8.502314, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,8 +64,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61692831797359778
-BoxCollider2D:
+--- !u!60 &60043648334507962
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -85,8 +86,38 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.89458466, y: 1.1242962}
+      - {x: -0.69223404, y: 1.933496}
+      - {x: 0.6314373, y: 1.9540429}
+      - {x: 0.9209633, y: 1.2486815}
+      - {x: 0.76558113, y: 0.5488992}
+      - {x: -0.30703545, y: 0.41487455}
+--- !u!61 &61692831797359778
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363476470609798}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.78337675}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.14, y: 3.91}
+    newSize: {x: 2.14, y: 3.91}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.14, y: 3.91}
+  m_Size: {x: 2.14, y: 2.3432465}
   m_EdgeRadius: 0
 --- !u!114 &114710816814195798
 MonoBehaviour:
@@ -99,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe5ba3d6be345bdea4dc7a46ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!212 &212649129227060536
 SpriteRenderer:
   m_ObjectHideFlags: 1

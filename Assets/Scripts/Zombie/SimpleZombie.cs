@@ -11,7 +11,10 @@ public class SimpleZombie : Zombie {
     protected override void CreateZombie()
     {
         CreateZombieTypeInfo(life, demage, speed);
+        head = GetComponent<PolygonCollider2D>();
     }
+
+
 
 
 }

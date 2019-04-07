@@ -11,5 +11,6 @@ public class FastZombie :  Zombie{
     protected override void CreateZombie()
     {
         CreateZombieTypeInfo(life, demage, speed);
+        head = GetComponent<BoxCollider2D>();
     }
 }
