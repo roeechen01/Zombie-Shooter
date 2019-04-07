@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour {
     protected Bullet bullet;
     protected int shotsNumber;
     public AudioClip reloadClip;
+    private bool playing;
     public Sprite sprite;
     private Text ammoText;
 
@@ -120,7 +121,17 @@ public class Weapon : MonoBehaviour {
 
     void PlayReloadClip()
     {
-        AudioSource.PlayClipAtPoint(reloadClip, this.transform.position);
+        if (!playing)
+        {
+            this.playing = true;
+            AudioSource.PlayClipAtPoint(reloadClip, this.transform.position);
+            Invoke("SetNotPlaying", reloadClip.length);
+        }
+    }
+
+    void SetNotPlaying()
+    {
+        this.playing = false;
     }
 
     void ReloadRepeat()

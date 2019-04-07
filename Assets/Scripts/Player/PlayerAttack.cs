@@ -42,8 +42,6 @@ public class PlayerAttack : MonoBehaviour {
 
     void SwitchWeapn()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
             if (!weapon.reloading)
             {
                 //if (weapnIndex == 0)
@@ -71,9 +69,6 @@ public class PlayerAttack : MonoBehaviour {
 
                 weapon.WaitBeforeReloadAll();
             }
-            
-
-        }
     }
 
     
@@ -94,10 +89,9 @@ public class PlayerAttack : MonoBehaviour {
     void Update () {
         FireCheck();
         if (Input.GetKeyDown(KeyCode.R))
-        {
             weapon.WaitBeforeReloadAll();
-        }
-        SwitchWeapn();
+        if(Input.GetKeyDown(KeyCode.E))
+            SwitchWeapn();
     }
 
 }
