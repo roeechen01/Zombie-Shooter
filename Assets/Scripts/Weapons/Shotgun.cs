@@ -6,12 +6,12 @@ public class Shotgun : Weapon {
 
     public HeavyBullet heavyBullet;
 
-    bool onCoolddown = false;
     
     private float ratio = 0.75f;
 
     void Start()
     {
+        cooldownTime = 1f;
         ammoOnStack = 12;
         shotsNumber = 3;
         reloadTime = 2;
@@ -19,16 +19,7 @@ public class Shotgun : Weapon {
         SetAmmo(36, 12);
     }
 
-    void CooldownOver()
-    {
-        onCoolddown = false;
-    }
 
-    void Cooldwon()
-    {
-        onCoolddown = true;
-        Invoke("CooldownOver", 1f);
-    }
 
 
     public override void Fire()

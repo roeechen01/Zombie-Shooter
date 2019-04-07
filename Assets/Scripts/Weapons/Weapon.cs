@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour {
     public Sprite sprite;
     private Text ammoText;
 
+    protected bool onCoolddown = false;
+    protected float cooldownTime;
     public bool reloading = false;
     protected int reloadTime;
 
@@ -21,6 +23,17 @@ public class Weapon : MonoBehaviour {
     public bool CanFire()
     {
         return ammoOnStack >= shotsNumber;
+    }
+
+    protected void CooldownOver()
+    {
+        onCoolddown = false;
+    }
+
+    protected void Cooldwon()
+    {
+        onCoolddown = true;
+        Invoke("CooldownOver", cooldownTime);
     }
 
     public virtual void Fire()
@@ -100,7 +113,13 @@ public class Weapon : MonoBehaviour {
         this.stackMax = stackMax;
         this.ammoOnStack = this.stackMax;
         this.ammoLeft -= this.stackMax;
+    }
 
+    public void SetUpWeapon()
+    {
+        this.ammoLeft = this.ammoMax;
+        this.ammoOnStack = this.stackMax;
+        this.ammoLeft -= this.stackMax;
     }
 
     void PlayReloadClip()
