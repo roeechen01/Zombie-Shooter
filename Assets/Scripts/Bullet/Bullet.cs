@@ -44,9 +44,9 @@ public class Bullet : MonoBehaviour
     void SetVelocity()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        shootDirection = FixVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         ChangeRange();
-        rigidbody2D.velocity = new Vector2(shootDirection.x * speed, shootDirection.y * speed);
+        rigidbody2D.velocity = new Vector2(shootDirection.x, shootDirection.y);
         SetBulletSpeed();
     }
 
@@ -76,6 +76,13 @@ public class Bullet : MonoBehaviour
     {
         float x = rigidbody2D.velocity.x;
         float y = rigidbody2D.velocity.y;
+        rigidbody2D.velocity = new Vector2(x * speed, y * speed);
+    }
+
+    Vector2 FixVelocity(Vector2 velocity)
+    {
+        float x = velocity.x;
+        float y = velocity.y;
         if (x != 0 || y != 0)
         {
             if (x > 1 || x < -1 || y > 1 || y < -1)
@@ -85,7 +92,7 @@ public class Bullet : MonoBehaviour
                     x /= 1.001f;
                     y /= 1.001f;
                 }
-                rigidbody2D.velocity = new Vector2(x * speed, y * speed);
+                velocity = new Vector2(x, y);
             }
             else
             {
@@ -96,13 +103,16 @@ public class Bullet : MonoBehaviour
                         x *= 1.001f;
                         y *= 1.001f;
                     }
-                    rigidbody2D.velocity = new Vector2(x * speed, y * speed);
+                    velocity = new Vector2(x, y);
                 }
             }
+            return velocity;
         }
         else
         {
             Destroy(gameObject);
+            return new Vector2(0f, 0f);
+
         }
     }
 
