@@ -7,7 +7,7 @@ public class Shotgun : Weapon {
     public HeavyBullet heavyBullet;
 
     
-    private float ratio = 0.75f;
+    private float ratio = 0.35f;
 
     void Start()
     {

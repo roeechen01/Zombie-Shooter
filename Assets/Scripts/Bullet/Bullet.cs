@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         shootDirection = FixVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         ChangeRange();
-        rigidbody2D.velocity = new Vector2(shootDirection.x, shootDirection.y);
+        rigidbody2D.velocity = FixVelocity(new Vector2(shootDirection.x, shootDirection.y));
         SetBulletSpeed();
     }
 
