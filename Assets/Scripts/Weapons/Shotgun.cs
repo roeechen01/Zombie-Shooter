@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Shotgun : Weapon {
 
-    public HeavyBullet heavyBullet;
-
-    
-
     void Start()
     {
         cooldownTime = 1f;
@@ -15,12 +11,8 @@ public class Shotgun : Weapon {
         shotsNumber = 3;
         reloadTime = 2;
         rangeRatio = 0.35f;
-        bullet = heavyBullet;
         SetAmmo(36, 12);
     }
-
-
-
 
     public override void Fire()
     {

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Rifle : Weapon {
 
-    public SimpleBullet simpleBullet;
     private bool fireActive = false;
-    private float rangeRatioIncrease = 0f;
-    private float rangeRatioToIncrease = 0.01f;
+    protected float rangeRatioIncrease = 0f;
+    protected float rangeRatioToIncrease = 0.01f;
 
 
     void Start()
@@ -16,7 +15,6 @@ public class Rifle : Weapon {
         ammoOnStack = 50;
         shotsNumber = 1;
         reloadTime = 2;
-        bullet = simpleBullet;
         SetAmmo(250, 50);
         rangeRatio = 0.08f;
     }

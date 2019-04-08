@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour {
     private Gun gun;
     private Shotgun shotgun;
     private Rifle rifle;
+    private Rpg rpg;
 
     private List<Weapon> weapons = new List<Weapon>();
     SpriteRenderer spriteRenderer;
@@ -23,6 +24,7 @@ public class PlayerAttack : MonoBehaviour {
         weapons.Add(gun);
         weapons.Add(shotgun);
         weapons.Add(rifle);
+        weapons.Add(rpg);
 
         foreach (Weapon weapon in weapons)
             weapon.SetPlayerAttack(this);
@@ -38,11 +40,12 @@ public class PlayerAttack : MonoBehaviour {
         gun = GetComponent<Gun>();
         shotgun = GetComponent<Shotgun>();
         rifle = GetComponent<Rifle>();
+        rpg = GetComponent<Rpg>();
     }
 
     void SwitchWeapn()
     {
-            if (!weapon.reloading)
+            if (!weapon.IsReloading())
             {
                 //if (weapnIndex == 0)
                 //{
@@ -65,7 +68,6 @@ public class PlayerAttack : MonoBehaviour {
                     spriteRenderer.sprite = weapons[0].sprite;
                     weaponIndex = 0;
                 }
-                
 
                 weapon.WaitBeforeReloadAll();
             }
@@ -75,7 +77,7 @@ public class PlayerAttack : MonoBehaviour {
 
     void FireCheck()
     {
-        if (!weapon.reloading)
+        if (!weapon.IsReloading())
         {
             if (Input.GetMouseButtonDown(0))
             {

@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Gun : Weapon {
 
-    public SimpleBullet simpleBullet;
-
     void Start()
     {
         shotsNumber = 1;
         reloadTime = 1;
-        bullet = simpleBullet;
         SetAmmo(50, 10);
     }
-
 
     public override void Fire()
     {

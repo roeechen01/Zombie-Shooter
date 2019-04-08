@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
 
+    public Bullet bullet;
     protected PlayerAttack playerAttack;
     public AudioClip gunfire;
-    protected Bullet bullet;
     protected int shotsNumber;
     public AudioClip reloadClip;
     private bool playing;
@@ -16,9 +16,14 @@ public class Weapon : MonoBehaviour {
 
     protected bool onCoolddown = false;
     protected float cooldownTime;
-    public bool reloading = false;
+    bool reloading = false;
     protected int reloadTime;
     protected float rangeRatio;
+
+    public bool IsReloading()
+    {
+        return this.reloading;
+    }
 
 
     protected int ammoOnStack, stackMax, ammoMax, ammoLeft;
