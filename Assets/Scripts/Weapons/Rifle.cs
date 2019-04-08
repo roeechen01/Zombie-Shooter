@@ -14,7 +14,7 @@ public class Rifle : Weapon {
         ammoOnStack = 50;
         shotsNumber = 1;
         reloadTime = 2;
-        SetAmmo(250, 50);
+        SetAmmo(128, 32);
         rangeRatio = 0.08f;
     }
 

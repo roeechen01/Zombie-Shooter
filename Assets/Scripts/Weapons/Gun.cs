@@ -11,6 +11,7 @@ public class Gun : Weapon {
         SetAmmo(50, 10);
     }
 
+
     public override void Fire()
     {
         AudioSource.PlayClipAtPoint(gunfire, this.transform.position);

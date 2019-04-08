@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    public AudioClip explosionClip;
+
     // Start is called before the first frame update
     void Start()
     {
         Invoke("DestoryItself", 1f);
+        AudioSource.PlayClipAtPoint(explosionClip, this.transform.position);
     }
 
     void DestoryItself()

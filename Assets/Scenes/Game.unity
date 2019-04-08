@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4744596553098943936, guid: 28a03f12fcea8d94c945708fdc9eef4f, type: 3}
-  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
+  gunfire: {fileID: 8300000, guid: 4b765d7d0f6512f4aade3ab7cfb6aa97, type: 3}
   reloadClip: {fileID: 8300000, guid: 687062d0bcb77b5468a2f9216b81333d, type: 3}
   sprite: {fileID: 21300000, guid: bfe54c881742f32429e1c3b6257feb35, type: 3}
 --- !u!1 &1479546025
