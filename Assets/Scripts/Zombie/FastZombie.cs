@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FastZombie :  Zombie{
 
-    new private static int life = 1;
+    new private static int life = 2;
     new private static int demage = 2;
     new private static float speed = 3f;
 
