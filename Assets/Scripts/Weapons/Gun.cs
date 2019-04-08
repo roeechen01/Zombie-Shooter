@@ -8,7 +8,7 @@ public class Gun : Weapon {
     {
         shotsNumber = 1;
         reloadTime = 1;
-        SetAmmo(50, 10);
+        SetAmmo(72, 12);
     }
 
 

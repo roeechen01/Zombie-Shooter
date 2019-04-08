@@ -2056,6 +2056,7 @@ MonoBehaviour:
     type: 3}
   pickupRpg: {fileID: 175917108266524139, guid: ec450b5cd6ca35c42ad319072bd15c2e,
     type: 3}
+  pickupSound: {fileID: 8300000, guid: 02af31ee4f754114daa6147c632a8551, type: 3}
 --- !u!4 &2082329097
 Transform:
   m_ObjectHideFlags: 0

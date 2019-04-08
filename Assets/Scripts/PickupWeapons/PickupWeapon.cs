@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickupWeapon : MonoBehaviour
 {
     protected Weapon weapon;
+    public AudioClip pickupClip;
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
@@ -13,6 +14,7 @@ public class PickupWeapon : MonoBehaviour
             Destroy(gameObject);
             FindWeapon();
             weapon.SetUpWeapon();
+            AudioSource.PlayClipAtPoint(pickupClip, this.transform.position);
         }
     }
     protected virtual void FindWeapon() { }
