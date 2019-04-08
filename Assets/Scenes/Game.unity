@@ -2019,3 +2019,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2082329095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082329097}
+  - component: {fileID: 2082329096}
+  m_Layer: 0
+  m_Name: weaponSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2082329096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082329095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a306a19f2b0eac442a00a697b522a2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupGun: {fileID: 7714274492454335923, guid: 7734c120ab5f65d46b135c51f49f6b86,
+    type: 3}
+  pickupShotgun: {fileID: 2630543009384130296, guid: 984f4674daae71a49985c38d26fbeaaa,
+    type: 3}
+  pickupRifle: {fileID: 4848382861699370418, guid: 5a1114e576ead094e8bf885947ba7a66,
+    type: 3}
+  pickupRpg: {fileID: 175917108266524139, guid: ec450b5cd6ca35c42ad319072bd15c2e,
+    type: 3}
+--- !u!4 &2082329097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082329095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.917547, y: -1.1436403, z: -0.36103356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

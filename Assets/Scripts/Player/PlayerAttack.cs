@@ -20,6 +20,11 @@ public class PlayerAttack : MonoBehaviour {
     private Weapon weapon;
     private int weaponIndex = 0;
 
+    public Gun GetGun() { return this.gun; }
+    public Shotgun GetShotgun() { return this.shotgun; }
+    public Rifle GetRifle() { return this.rifle; }
+    public Rpg GetRpg() { return this.rpg; }
+
     // Use this for initialization
     void Start () {
         SetComponents();
@@ -45,6 +50,8 @@ public class PlayerAttack : MonoBehaviour {
         rifle = GetComponent<Rifle>();
         rpg = GetComponent<Rpg>();
     }
+
+    public Weapon GetWeapon() { return this.weapon; }
 
     void SwitchWeapn()
     {
