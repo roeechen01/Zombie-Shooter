@@ -15,7 +15,11 @@ public class Rocket : Bullet
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
-        Instantiate(explosion, this.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (!collider2D.gameObject.tag.Equals("Player"))
+        {
+            Instantiate(explosion, this.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
     }
 }

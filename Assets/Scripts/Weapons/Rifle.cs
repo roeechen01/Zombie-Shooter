@@ -8,7 +8,6 @@ public class Rifle : Weapon {
     protected float rangeRatioIncrease = 0f;
     protected float rangeRatioToIncrease = 0.01f;
 
-
     void Start()
     {
         cooldownTime = 0.1f;
