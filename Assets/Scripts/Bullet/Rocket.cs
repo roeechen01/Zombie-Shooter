@@ -7,16 +7,20 @@ public class Rocket : Bullet
     new static int demage = 1;
     new static float speed = 6;
     public Explosion explosion;
+    public Rpg rpg;
 
-    public override void CreateBullet(Vector2 range, bool random)
+    public override void CreateBullet(Weapon weapon ,Vector2 range, bool random)
     {
-        CreateBulletTypeInfo(demage, speed, range, random);
+        rpg = weapon.gameObject.GetComponent<Rpg>();
+        CreateBulletTypeInfo(weapon, demage, speed, range, random);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (!collider2D.gameObject.tag.Equals("Player"))
         {
+            if(rpg.GetAudioSource().isPlaying)
+                rpg.GetAudioSource().Stop();
             Instantiate(explosion, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

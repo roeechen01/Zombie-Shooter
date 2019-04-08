@@ -25,6 +25,11 @@ public class Weapon : MonoBehaviour {
         return this.reloading;
     }
 
+    public AudioSource GetGunFireAudioSource()
+    {
+        return this.playerAttack.gunFireAudioSource;
+    }
+
 
     protected int ammoOnStack, stackMax, ammoMax, ammoLeft;
 
@@ -82,6 +87,7 @@ public class Weapon : MonoBehaviour {
             UpdateAmmoText();
         }
     }
+
 
     void ReloadAll()
     {

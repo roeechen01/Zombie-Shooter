@@ -16,11 +16,17 @@ public class Rpg : Weapon
     {
         if (!onCoolddown)
         {
-            AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0.3f, 0.3f), true);
+            GetGunFireAudioSource().clip = gunfire;
+            GetGunFireAudioSource().Play();
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this ,new Vector2(0.3f, 0.3f), true);
             AmmoChange(-GetAmmoRequired());
             Cooldwon();
         }
 
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        return this.GetGunFireAudioSource();
     }
 }

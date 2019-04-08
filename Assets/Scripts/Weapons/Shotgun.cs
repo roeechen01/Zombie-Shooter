@@ -19,9 +19,9 @@ public class Shotgun : Weapon {
         if (!onCoolddown)
         {
             AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(0f, 0f), false);
-            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(rangeRatio, rangeRatio), false);
-            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(new Vector2(-rangeRatio, -rangeRatio), false);
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this, new Vector2(0f, 0f), false);
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this, new Vector2(rangeRatio, rangeRatio), false);
+            Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this, new Vector2(-rangeRatio, -rangeRatio), false);
             AmmoChange(-GetAmmoRequired());
             Cooldwon();
         }        

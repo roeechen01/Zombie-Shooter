@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerAttack : MonoBehaviour {
 
     public Bullet prefabSimpleBullet, prefabHeavyBullet;
+    public AudioSource gunFireAudioSource;
+
 
     private Gun gun;
     private Shotgun shotgun;
@@ -35,6 +37,7 @@ public class PlayerAttack : MonoBehaviour {
 
     void SetComponents()
     {
+        gunFireAudioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.AddComponent<PlayerController>();
         gun = GetComponent<Gun>();
