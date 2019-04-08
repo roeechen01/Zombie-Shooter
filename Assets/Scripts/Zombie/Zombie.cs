@@ -92,13 +92,11 @@ public class Zombie : MonoBehaviour {
     public virtual void HeadShot(int demage)
     {
         BulletHit(demage * 2);
-        print("headshot: " + gameObject.name);
     }
 
     // Update is called once per frame
     void Update () {
         Rotaion();
         SetVelocity();
-        
     }
 }
