@@ -143,8 +143,7 @@ public class Weapon : MonoBehaviour {
         else
         {
             SetAmmo(ammoMax, stackMax);
-            playerAttack.SwitchWeapon(this);
-            UpdateAmmoText();
+            playerAttack.PickupWeapon(this);
         }
     }
 

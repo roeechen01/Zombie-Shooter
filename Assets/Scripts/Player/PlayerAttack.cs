@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour {
 
     private Weapon weapon;
     private int weaponIndex = 0;
+    private Weapon[] inventory = new Weapon[2];
 
     public Gun GetGun() { return this.gun; }
     public Shotgun GetShotgun() { return this.shotgun; }
@@ -36,6 +37,7 @@ public class PlayerAttack : MonoBehaviour {
         foreach (Weapon weapon in weapons)
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
+        inventory[0] = weapon;
         spriteRenderer.sprite = weapons[0].sprite;
         weapon.WaitBeforeReloadAll();
     }
@@ -55,28 +57,43 @@ public class PlayerAttack : MonoBehaviour {
 
     void SwitchWeapn()
     {
-            //if (!weapon.IsReloading())
-            //{
-            //    if (weaponIndex != weapons.Count-1)
-            //    {
-            //        weapon = weapons[++weaponIndex];
-            //        spriteRenderer.sprite = weapons[weaponIndex].sprite;
-            //    }
-            //    else
-            //    {
-            //        weapon = weapons[0];
-            //        spriteRenderer.sprite = weapons[0].sprite;
-            //        weaponIndex = 0;
-            //    }
+        if (!weapon.IsReloading())
+        {
+            if(inventory[1] != null)
+            {
+                if (weaponIndex != inventory.Length - 1)
+                {
+                    weapon = inventory[++weaponIndex];
+                    spriteRenderer.sprite = inventory[weaponIndex].sprite;
+                }
+                else
+                {
+                    weapon = inventory[0];
+                    spriteRenderer.sprite = inventory[0].sprite;
+                    weaponIndex = 0;
+                }
+                weapon.WaitBeforeReloadAll();
 
-            //    weapon.WaitBeforeReloadAll();
-            //}
+            }
+        }
     }
 
-    public void SwitchWeapon(Weapon weapon)
+    public void PickupWeapon(Weapon weapon)
     {
-        this.weapon = weapon;
-        this.spriteRenderer.sprite = weapon.sprite;
+        if(inventory[1] != null)
+        {
+            if (weaponIndex == 0)
+                inventory[1] = weapon;
+            else inventory[0] = weapon;
+        }
+        else if(weapon != inventory[0])
+        {
+            if (weaponIndex == 0)
+                inventory[1] = weapon;
+            else inventory[0] = weapon;
+        }
+
+        
     }
 
     
