@@ -126,10 +126,17 @@ public class Weapon : MonoBehaviour {
     public void SetUpWeapon()
     {
         bool active = this.Equals(playerAttack.GetWeapon());
-        this.ammoLeft = this.ammoMax;
-        this.ammoLeft -= this.stackMax;
+        if (!active && (this.ammoLeft != ammoMax - this.stackMax || this.ammoOnStack != this.stackMax))
+        {
+            this.ammoLeft = this.ammoMax;
+            this.ammoOnStack = 0;
+        }
+        else
+            this.ammoLeft = ammoMax - this.stackMax;
         if(active)
             UpdateAmmoText();
+
+
     }
 
     void PlayReloadClip()
