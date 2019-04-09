@@ -8,7 +8,6 @@ public class PlayerAttack : MonoBehaviour {
     public Bullet prefabSimpleBullet, prefabHeavyBullet;
     public AudioSource gunFireAudioSource;
 
-
     private Gun gun;
     private Shotgun shotgun;
     private Rifle rifle;
@@ -95,8 +94,6 @@ public class PlayerAttack : MonoBehaviour {
 
         
     }
-
-    
 
     void FireCheck()
     {
