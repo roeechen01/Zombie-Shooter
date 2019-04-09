@@ -5,8 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    protected int demage;
+    protected int demageMax;
     protected float speed;
+    protected int hitsMax = 1;
+    protected int hitsLeft;
+
     Vector3 shootDirection;
     new Rigidbody2D rigidbody2D;
     public Weapon weapon;
@@ -16,15 +19,28 @@ public class Bullet : MonoBehaviour
 
     void Start() {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        hitsLeft = hitsMax;
     }
 
-    protected void CreateBulletTypeInfo(Weapon weapon, int demage, float speed, Vector2 range, bool randomRange)
+    protected void CreateBulletTypeInfo(Weapon weapon, int demage, float speed, Vector2 range, bool randomRange, int hitsLeft)
     {
-        this.demage = demage;
+        this.demageMax = demage;
         this.speed = speed;
         this.range = range;
         this.weapon = weapon;
         this.randomRange = randomRange;
+        this.hitsMax = hitsLeft;
+        SetVelocity();
+    }
+
+    protected void CreateBulletTypeInfo(Weapon weapon, int demage, float speed, Vector2 range, bool randomRange)
+    {
+        this.demageMax = demage;
+        this.speed = speed;
+        this.range = range;
+        this.weapon = weapon;
+        this.randomRange = randomRange;
+        this.hitsMax = 1;
         SetVelocity();
     }
 
@@ -108,15 +124,22 @@ public class Bullet : MonoBehaviour
 
     }
 
-    virtual protected void OnTriggerEnter2D(Collider2D collider2D)
+    protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.tag.Equals("Zombie"))
         {
-            Destroy(gameObject);
             Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
             if (collider2D.Equals(zombie.head))
-                zombie.HeadShot(demage);
-            else zombie.BulletHit(demage);
+                zombie.HeadShot((int)GetDemageBasedOnHits());
+            else zombie.BulletHit((int)GetDemageBasedOnHits());
+            this.hitsLeft--;
+            if (hitsLeft == 0)
+                Destroy(gameObject);
         }
+    }
+
+    double GetDemageBasedOnHits()
+    {
+        return demageMax * (double)hitsLeft / hitsMax;
     }
 }
