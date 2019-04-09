@@ -55,32 +55,28 @@ public class PlayerAttack : MonoBehaviour {
 
     void SwitchWeapn()
     {
-            if (!weapon.IsReloading())
-            {
-                //if (weapnIndex == 0)
-                //{
-                //    weapon = weapons[++weapnIndex];
-                //    spriteRenderer.sprite = weapons[weapnIndex].sprite;
-                //}
-                //else
-                //{
-                //    weapon = weapons[--weapnIndex];
-                //    spriteRenderer.sprite = weapons[weapnIndex].sprite;
-                //}
-                if (weaponIndex != weapons.Count-1)
-                {
-                    weapon = weapons[++weaponIndex];
-                    spriteRenderer.sprite = weapons[weaponIndex].sprite;
-                }
-                else
-                {
-                    weapon = weapons[0];
-                    spriteRenderer.sprite = weapons[0].sprite;
-                    weaponIndex = 0;
-                }
+            //if (!weapon.IsReloading())
+            //{
+            //    if (weaponIndex != weapons.Count-1)
+            //    {
+            //        weapon = weapons[++weaponIndex];
+            //        spriteRenderer.sprite = weapons[weaponIndex].sprite;
+            //    }
+            //    else
+            //    {
+            //        weapon = weapons[0];
+            //        spriteRenderer.sprite = weapons[0].sprite;
+            //        weaponIndex = 0;
+            //    }
 
-                weapon.WaitBeforeReloadAll();
-            }
+            //    weapon.WaitBeforeReloadAll();
+            //}
+    }
+
+    public void SwitchWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
+        this.spriteRenderer.sprite = weapon.sprite;
     }
 
     

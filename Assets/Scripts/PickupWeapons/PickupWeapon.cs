@@ -13,7 +13,9 @@ public class PickupWeapon : MonoBehaviour
         {
             Destroy(gameObject);
             FindWeapon();
-            weapon.SetUpWeapon();
+            if (weapon.gameObject.GetComponent<PlayerAttack>().GetWeapon() == weapon)
+                weapon.SetUpWeapon(true);
+            else weapon.SetUpWeapon(false);
             AudioSource.PlayClipAtPoint(pickupClip, this.transform.position);
         }
     }

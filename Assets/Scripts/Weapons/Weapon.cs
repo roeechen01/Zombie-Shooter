@@ -123,20 +123,29 @@ public class Weapon : MonoBehaviour {
         this.ammoLeft -= this.stackMax;
     }
 
-    public void SetUpWeapon()
+    public void SetUpWeapon(bool alreadyWeapon)
     {
-        bool active = this.Equals(playerAttack.GetWeapon());
-        if (!active && (this.ammoLeft != ammoMax - this.stackMax || this.ammoOnStack != this.stackMax))
+        //bool active = this.Equals(playerAttack.GetWeapon());
+        //if (!active && (this.ammoLeft != ammoMax - this.stackMax || this.ammoOnStack != this.stackMax))
+        //{
+        //    this.ammoLeft = this.ammoMax;
+        //    this.ammoOnStack = 0;
+        //}
+        //else
+        //    this.ammoLeft = ammoMax - this.stackMax;
+        //if(active)
+        //    UpdateAmmoText();
+        if (alreadyWeapon)
         {
-            this.ammoLeft = this.ammoMax;
-            this.ammoOnStack = 0;
+            this.ammoLeft = this.ammoMax - this.stackMax;
+            UpdateAmmoText();
         }
         else
-            this.ammoLeft = ammoMax - this.stackMax;
-        if(active)
+        {
+            SetAmmo(ammoMax, stackMax);
+            playerAttack.SwitchWeapon(this);
             UpdateAmmoText();
-
-
+        }
     }
 
     void PlayReloadClip()
