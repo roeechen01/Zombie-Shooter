@@ -7,6 +7,16 @@ public class PickupWeapon : MonoBehaviour
     protected Weapon weapon;
     public AudioClip pickupClip;
 
+    void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        Invoke("SelfDestroy", 30f);
+    }
+
     void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.tag.Equals("Player"))
