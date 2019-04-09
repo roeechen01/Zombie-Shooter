@@ -13,12 +13,18 @@ public class Weapon : MonoBehaviour {
     private bool playing;
     public Sprite sprite;
     private Text ammoText;
+    public AudioClip noAmmoClip;
 
     protected bool onCoolddown = false;
     protected float cooldownTime;
     bool reloading = false;
     protected int reloadTime;
     protected float rangeRatio;
+
+    void PlayNoAmmoClip()
+    {
+        AudioSource.PlayClipAtPoint(noAmmoClip, this.transform.position);
+    }
 
     public bool IsReloading()
     {
@@ -73,6 +79,8 @@ public class Weapon : MonoBehaviour {
 
     public void WaitBeforeReloadAll()
     {
+        if (ammoOnStack == 0 && ammoLeft == 0)
+            PlayNoAmmoClip();
         if (ammoOnStack != stackMax && ammoLeft > 0)
         {
 

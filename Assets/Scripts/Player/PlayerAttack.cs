@@ -104,8 +104,14 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (weapon.CanFire()) weapon.Fire();
-                else weapon.WaitBeforeReloadAll();
+                if (weapon.CanFire())
+                {
+                    weapon.Fire();
+                }
+                else
+                {
+                    weapon.WaitBeforeReloadAll();
+                }
             }
         }
     }

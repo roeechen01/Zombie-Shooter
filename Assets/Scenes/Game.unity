@@ -1467,6 +1467,7 @@ MonoBehaviour:
   gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
   reloadClip: {fileID: 8300000, guid: 687062d0bcb77b5468a2f9216b81333d, type: 3}
   sprite: {fileID: 21300000, guid: 8f89f85091796144cb11c9981846ca3c, type: 3}
+  noAmmoClip: {fileID: 8300000, guid: 2794e381ccd3c2f4e801b9fd48409e72, type: 3}
 --- !u!50 &1165173294
 Rigidbody2D:
   serializedVersion: 4
@@ -1521,6 +1522,7 @@ MonoBehaviour:
   gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
   reloadClip: {fileID: 8300000, guid: 0e67c60389abe594bae300707d50d3ce, type: 3}
   sprite: {fileID: 21300000, guid: 015a491637163ce40a489485d8ed872b, type: 3}
+  noAmmoClip: {fileID: 8300000, guid: 2794e381ccd3c2f4e801b9fd48409e72, type: 3}
 --- !u!114 &1165173297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,6 +1539,7 @@ MonoBehaviour:
   gunfire: {fileID: 8300000, guid: cba26870f0ee2894fb1ce2fc32504719, type: 3}
   reloadClip: {fileID: 8300000, guid: 051415c550b3f2740b70ae37fb3f10ed, type: 3}
   sprite: {fileID: 21300000, guid: 17350c61415a2094c993a0db1c829f35, type: 3}
+  noAmmoClip: {fileID: 8300000, guid: 2794e381ccd3c2f4e801b9fd48409e72, type: 3}
 --- !u!114 &1165173298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1553,6 +1556,7 @@ MonoBehaviour:
   gunfire: {fileID: 8300000, guid: 4b765d7d0f6512f4aade3ab7cfb6aa97, type: 3}
   reloadClip: {fileID: 8300000, guid: 631f933cff9c8e34cb53985b538dd869, type: 3}
   sprite: {fileID: 21300000, guid: bfe54c881742f32429e1c3b6257feb35, type: 3}
+  noAmmoClip: {fileID: 8300000, guid: 2794e381ccd3c2f4e801b9fd48409e72, type: 3}
 --- !u!82 &1165173299
 AudioSource:
   m_ObjectHideFlags: 0
