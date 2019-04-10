@@ -92,6 +92,11 @@ public class Weapon : MonoBehaviour {
         }
     }
 
+    public void CancelReload()
+    {
+        ReloadAll();
+    }
+
 
     void ReloadAll()
     {
@@ -130,7 +135,11 @@ public class Weapon : MonoBehaviour {
     public void SetUpWeapon(bool alreadyWeapon)
     {
         SetAmmo(ammoMax, stackMax);
-        if (alreadyWeapon) UpdateAmmoText();
+        if (alreadyWeapon)
+        {
+            ReloadAll();
+            UpdateAmmoText();
+        }
         else playerAttack.PickupWeapon(this);
     }
 
