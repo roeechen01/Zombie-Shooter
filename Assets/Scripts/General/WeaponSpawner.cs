@@ -14,7 +14,7 @@ public class WeaponSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("RandomWeapon", 15f, 15f);
+        InvokeRepeating("RandomWeapon", 0f, 15f);
         pickupGun.pickupClip = pickupSound;
         pickupShotgun.pickupClip = pickupSound;
         pickupRifle.pickupClip = pickupSound;

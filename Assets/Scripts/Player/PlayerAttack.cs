@@ -12,7 +12,9 @@ public class PlayerAttack : MonoBehaviour {
     private Shotgun shotgun;
     private Rifle rifle;
     private Rpg rpg;
-    private double life = 100;
+
+    private double life;
+    private double maxLife = 200;
 
 
     private List<Weapon> weapons = new List<Weapon>();
@@ -32,7 +34,8 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        lifeText.text = "LIFE: " + this.life;
+        life = maxLife;
+        UpdateText();
         SetComponents();
         weapons.Add(gun);
         weapons.Add(shotgun);
@@ -45,6 +48,14 @@ public class PlayerAttack : MonoBehaviour {
         inventory[0] = weapon;
         spriteRenderer.sprite = weapons[0].sprite;
         weapon.WaitBeforeReloadAll();
+    }
+
+    void UpdateText()
+    {
+        double lifeIn100 = life / maxLife * 100;
+        if ((int)lifeIn100 <= 0)
+            lifeText.text = "DEAD";
+        else lifeText.text = "LIFE: " + (int)lifeIn100;
     }
 
     void SetComponents()
@@ -62,7 +73,7 @@ public class PlayerAttack : MonoBehaviour {
     public void Demage(double demage)
     {
         this.life -= demage;
-        lifeText.text = "LIFE: " + (int)this.life;
+        UpdateText();
     }
 
     public Weapon GetWeapon() { return this.weapon; }
@@ -126,6 +137,18 @@ public class PlayerAttack : MonoBehaviour {
         }
     }
 
+    public bool Alive()
+    {
+        try
+        {
+            return this.life >= 0;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     // Update is called once per frame
     void Update () {
         FireCheck();
@@ -133,8 +156,18 @@ public class PlayerAttack : MonoBehaviour {
             weapon.WaitBeforeReloadAll();
         if(Input.GetKeyDown(KeyCode.E))
             SwitchWeapn();
-        if (life == 0)
-            Destroy(gameObject);
+        if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
+            Death();
+    }
+
+    void Death()
+    {
+        Zombie[] zombies = FindObjectsOfType<Zombie>();
+        foreach (Zombie zombie in zombies)
+            Destroy(zombie.gameObject);
+        Destroy(FindObjectOfType<ZombieSpawner>());
+        Destroy(FindObjectOfType<WeaponSpawner>());
+        Destroy(gameObject);
     }
 
 }
