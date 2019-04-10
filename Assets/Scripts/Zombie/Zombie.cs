@@ -91,7 +91,7 @@ public class Zombie : MonoBehaviour {
 
     public virtual void HeadShot(int demage)
     {
-        BulletHit(demage * 2);
+        BulletHit(demage * 3);
     }
 
     // Update is called once per frame

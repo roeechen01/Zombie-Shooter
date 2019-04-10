@@ -8,12 +8,13 @@ public class Weapon : MonoBehaviour {
     public Bullet bullet;
     protected PlayerAttack playerAttack;
     public AudioClip gunfire;
-    protected int shotsNumber;
+    protected int shotsAmount;
     public AudioClip reloadClip;
     private bool playing;
     public Sprite sprite;
     private Text ammoText;
     public AudioClip noAmmoClip;
+
 
     protected bool onCoolddown = false;
     protected float cooldownTime;
@@ -41,7 +42,7 @@ public class Weapon : MonoBehaviour {
 
     public bool CanFire()
     {
-        return ammoOnStack >= shotsNumber;
+        return ammoOnStack >= shotsAmount;
     }
 
     protected void CooldownOver()
@@ -65,11 +66,6 @@ public class Weapon : MonoBehaviour {
         this.playerAttack = playerAttack;
     }
 
-    protected int GetAmmoRequired()
-    {
-        return shotsNumber;
-    }
-
     void UpdateAmmoText()
     {
         if (reloading)
@@ -79,7 +75,7 @@ public class Weapon : MonoBehaviour {
 
     public void WaitBeforeReloadAll()
     {
-        if (ammoOnStack == 0 && ammoLeft == 0)
+        if (ammoLeft == 0)
             PlayNoAmmoClip();
         if (ammoOnStack != stackMax && ammoLeft > 0)
         {
@@ -99,8 +95,8 @@ public class Weapon : MonoBehaviour {
 
     void ReloadAll()
     {
-        if (ammoOnStack != stackMax)
-        {
+        //if (ammoOnStack != stackMax)
+        //{
             int bulletsToReload = stackMax - ammoOnStack;
             if (bulletsToReload <= ammoLeft)
             {
@@ -114,7 +110,7 @@ public class Weapon : MonoBehaviour {
             }
             reloading = false;
             UpdateAmmoText();
-        }
+        //}
     }
 
     void Awake()
@@ -153,21 +149,9 @@ public class Weapon : MonoBehaviour {
         this.playing = false;
     }
 
-    void ReloadRepeat()
-    {
-        InvokeRepeating("Reload", 0f, 1f);
-    }
-
     public void AmmoChange(int ammoChange)
     {
         ammoOnStack += ammoChange;
         UpdateAmmoText();
     }
-
-    void Reload()
-    {
-        if (ammoOnStack < ammoMax)
-            AmmoChange(1);
-    }
-
 }

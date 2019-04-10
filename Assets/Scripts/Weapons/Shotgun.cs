@@ -8,7 +8,7 @@ public class Shotgun : Weapon {
     {
         cooldownTime = 1f;
         ammoOnStack = 12;
-        shotsNumber = 3;
+        shotsAmount = 3;
         reloadTime = 2;
         rangeRatio = 0.35f;
         SetAmmo(36, 12);
@@ -22,7 +22,7 @@ public class Shotgun : Weapon {
             Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this, new Vector2(0f, 0f), false);
             Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this, new Vector2(rangeRatio, rangeRatio), false);
             Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this, new Vector2(-rangeRatio, -rangeRatio), false);
-            AmmoChange(-GetAmmoRequired());
+            AmmoChange(-shotsAmount);
             Cooldwon();
         }        
         

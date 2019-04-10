@@ -12,7 +12,7 @@ public class Rifle : Weapon {
     {
         cooldownTime = 0.1f;
         ammoOnStack = 50;
-        shotsNumber = 1;
+        shotsAmount = 1;
         reloadTime = 2;
         SetAmmo(128, 32);
         rangeRatio = 0.08f;
@@ -26,13 +26,13 @@ public class Rifle : Weapon {
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && ammoOnStack >= shotsNumber && fireActive)
+        if (Input.GetMouseButton(0) && ammoOnStack >= shotsAmount && fireActive)
         {
             if (!onCoolddown)
             {
                 AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
                 Instantiate(bullet, this.transform.position, transform.rotation).CreateBullet(this ,new Vector2(rangeRatio + rangeRatioIncrease, rangeRatio + rangeRatioIncrease), true);
-                AmmoChange(-GetAmmoRequired());
+                AmmoChange(-shotsAmount);
                 rangeRatioIncrease += 0.02f;
                 Cooldwon();
             }
