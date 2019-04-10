@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour {
     private Shotgun shotgun;
     private Rifle rifle;
     private Rpg rpg;
+    private double life = 100;
+
 
     private List<Weapon> weapons = new List<Weapon>();
     SpriteRenderer spriteRenderer;
@@ -20,6 +22,9 @@ public class PlayerAttack : MonoBehaviour {
     private int weaponIndex = 0;
     private Weapon[] inventory = new Weapon[2];
 
+    public Text ammoText;
+    public Text lifeText;
+
     public Gun GetGun() { return this.gun; }
     public Shotgun GetShotgun() { return this.shotgun; }
     public Rifle GetRifle() { return this.rifle; }
@@ -27,6 +32,7 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        lifeText.text = "LIFE: " + this.life;
         SetComponents();
         weapons.Add(gun);
         weapons.Add(shotgun);
@@ -50,6 +56,13 @@ public class PlayerAttack : MonoBehaviour {
         shotgun = GetComponent<Shotgun>();
         rifle = GetComponent<Rifle>();
         rpg = GetComponent<Rpg>();
+    }
+
+
+    public void Demage(double demage)
+    {
+        this.life -= demage;
+        lifeText.text = "LIFE: " + (int)this.life;
     }
 
     public Weapon GetWeapon() { return this.weapon; }
@@ -120,6 +133,8 @@ public class PlayerAttack : MonoBehaviour {
             weapon.WaitBeforeReloadAll();
         if(Input.GetKeyDown(KeyCode.E))
             SwitchWeapn();
+        if (life == 0)
+            Destroy(gameObject);
     }
 
 }

@@ -120,7 +120,7 @@ public class Weapon : MonoBehaviour {
 
     void Awake()
     {
-        ammoText = FindObjectOfType<Text>();
+        ammoText = FindObjectOfType<PlayerAttack>().ammoText;
     }
 
    protected void SetAmmo(int ammoMax, int stackMax)

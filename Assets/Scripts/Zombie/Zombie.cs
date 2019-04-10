@@ -12,6 +12,7 @@ public class Zombie : MonoBehaviour {
     protected int life;
     protected int demage;
     protected float speed;
+    private bool staying = false;
 
 
 
@@ -96,7 +97,43 @@ public class Zombie : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Rotaion();
-        SetVelocity();
+
+        if (!staying)
+        {
+            Rotaion();
+            SetVelocity();
+        }
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag.Equals("Player"))
+        {
+            CancelInvoke("DemagingPlayer");
+            InvokeRepeating("DemagingPlayer", 0f, 1f);
+            staying = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag.Equals("Player"))
+        {
+            staying = true;
+        }
+        
+    }
+
+    void OnTriggerExit2D(Collider2D collider2D)
+    {
+        CancelInvoke("DemagingPlayer");
+        staying = false;
+    }
+
+    void DemagingPlayer()
+    {
+        PlayerAttack player = FindObjectOfType<PlayerAttack>();
+        player.Demage(demage);
     }
 }
