@@ -1235,7 +1235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5877f8a6c2284ab40ad1983a467f1d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 5382489577196048427, guid: 7c481da65e9816b4fb4f60e5a5559796, type: 3}
+  healthPack: {fileID: 5382489577196048427, guid: 7c481da65e9816b4fb4f60e5a5559796,
+    type: 3}
   smallHealthPack: {fileID: 6206528963422191052, guid: 9f9bcf3d3baec8f4685802bfe5d8b5bf,
     type: 3}
 --- !u!1 &798621575

@@ -12,6 +12,7 @@ public class Zombie : MonoBehaviour {
     protected int life;
     protected double demage;
     protected float speed;
+    protected bool canHit = true;
 
 
     // Use this for initialization
@@ -81,6 +82,10 @@ public class Zombie : MonoBehaviour {
         SetZombieSpeed();
     }
 
+    public bool CanHit()
+    {
+        return this.canHit;
+    }
 
     public void BulletHit(int demage)
     {

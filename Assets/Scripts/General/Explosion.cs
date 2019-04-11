@@ -23,7 +23,8 @@ public class Explosion : MonoBehaviour
         if (collider2D.GetComponent<Zombie>())
         {
             Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
-            Destroy(zombie.gameObject);
+            if(zombie.CanHit())
+                Destroy(zombie.gameObject);
         }
     }
 

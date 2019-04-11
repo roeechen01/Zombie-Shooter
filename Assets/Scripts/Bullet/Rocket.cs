@@ -19,10 +19,15 @@ public class Rocket : Bullet
     {
         if (!collider2D.gameObject.tag.Equals("Player"))
         {
-            if(rpg.GetAudioSource().isPlaying)
-                rpg.GetAudioSource().Stop();
-            Instantiate(explosion, this.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Zombie zombie = collider2D.GetComponent<Zombie>();
+            if(!(zombie && !zombie.CanHit()))
+            {
+                if (rpg.GetAudioSource().isPlaying)
+                    rpg.GetAudioSource().Stop();
+                Instantiate(explosion, this.transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            
         }
 
     }

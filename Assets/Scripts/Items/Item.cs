@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerAttack>();
+        Invoke("DestroyItself", 30f);
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)
@@ -24,5 +25,10 @@ public class Item : MonoBehaviour
     virtual protected void Ability()
     {
 
+    }
+
+    void DestroyItself()
+    {
+        Destroy(gameObject);
     }
 }
