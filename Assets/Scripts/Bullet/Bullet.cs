@@ -11,14 +11,14 @@ public class Bullet : MonoBehaviour
     protected int hitsLeft;
 
     Vector3 shootDirection;
-    new Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidBody2d;
     public Weapon weapon;
 
     public bool randomRange = false;
     public Vector2 range = new Vector2(0, 0);
 
     void Start() {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidBody2d = GetComponent<Rigidbody2D>();
         hitsLeft = hitsMax;
     }
 
@@ -46,10 +46,10 @@ public class Bullet : MonoBehaviour
 
     void SetVelocity()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidBody2d = GetComponent<Rigidbody2D>();
         shootDirection = FixVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         ChangeRange();
-        rigidbody2D.velocity = FixVelocity(new Vector2(shootDirection.x, shootDirection.y));
+        rigidBody2d.velocity = FixVelocity(new Vector2(shootDirection.x, shootDirection.y));
         SetBulletSpeed();
     }
 
@@ -77,9 +77,9 @@ public class Bullet : MonoBehaviour
 
     void SetBulletSpeed()
     {
-        float x = rigidbody2D.velocity.x;
-        float y = rigidbody2D.velocity.y;
-        rigidbody2D.velocity = new Vector2(x * speed, y * speed);
+        float x = rigidBody2d.velocity.x;
+        float y = rigidBody2d.velocity.y;
+        rigidBody2d.velocity = new Vector2(x * speed, y * speed);
     }
 
     Vector2 FixVelocity(Vector2 velocity)

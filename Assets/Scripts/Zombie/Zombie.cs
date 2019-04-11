@@ -5,22 +5,20 @@ using UnityEngine;
 public class Zombie : MonoBehaviour {
 
     private PlayerAttack player;
-    new Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidBody2d;
     private Vector3 direction;
     public Collider2D head;
 
     protected int life;
     protected int demage;
     protected float speed;
-    private bool staying = false;
-
 
 
     // Use this for initialization
     protected void Start () {
         CreateZombie();
         player = FindObjectOfType<PlayerAttack>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidBody2d = GetComponent<Rigidbody2D>();
     }
 
     protected void CreateZombieTypeInfo(int life, int demage, float speed)
@@ -47,8 +45,8 @@ public class Zombie : MonoBehaviour {
 
     void SetZombieSpeed()
     {
-        float x = rigidbody2D.velocity.x;
-        float y = rigidbody2D.velocity.y;
+        float x = rigidBody2d.velocity.x;
+        float y = rigidBody2d.velocity.y;
         if (x != 0 || y != 0)
         {
             if (x > 1 || x < -1 || y > 1 || y < -1)
@@ -58,7 +56,7 @@ public class Zombie : MonoBehaviour {
                     x /= 1.001f;
                     y /= 1.001f;
                 }
-                rigidbody2D.velocity = new Vector2(x * speed, y * speed);
+                rigidBody2d.velocity = new Vector2(x * speed, y * speed);
             }
             else
             {
@@ -69,7 +67,7 @@ public class Zombie : MonoBehaviour {
                         x *= 1.001f;
                         y *= 1.001f;
                     }
-                    rigidbody2D.velocity = new Vector2(x * speed, y * speed);
+                    rigidBody2d.velocity = new Vector2(x * speed, y * speed);
                 }
             }
         }
@@ -79,7 +77,7 @@ public class Zombie : MonoBehaviour {
     void SetVelocity()
     {
         direction = Camera.main.ScreenToWorldPoint(player.transform.position) - Camera.main.ScreenToWorldPoint(transform.position);
-        rigidbody2D.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        rigidBody2d.velocity = new Vector2(direction.x * speed, direction.y * speed);
         SetZombieSpeed();
     }
 
@@ -97,12 +95,8 @@ public class Zombie : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        if (!staying)
-        {
             Rotaion();
             SetVelocity();
-        }
         
     }
 
@@ -111,8 +105,9 @@ public class Zombie : MonoBehaviour {
         if (collider2D.gameObject.tag.Equals("Player"))
         {
             CancelInvoke("DemagingPlayer");
-            InvokeRepeating("DemagingPlayer", 0f, 1f);
-            staying = true;
+            InvokeRepeating("DemagingPlayer", 0.5f, 0.8f);
+            rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+
         }
     }
 
@@ -120,7 +115,7 @@ public class Zombie : MonoBehaviour {
     {
         if (collider2D.gameObject.tag.Equals("Player"))
         {
-            staying = true;
+            rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
         }
         
     }
@@ -128,7 +123,7 @@ public class Zombie : MonoBehaviour {
     void OnTriggerExit2D(Collider2D collider2D)
     {
         CancelInvoke("DemagingPlayer");
-        staying = false;
+        rigidBody2d.constraints = RigidbodyConstraints2D.None;
     }
 
     void DemagingPlayer()

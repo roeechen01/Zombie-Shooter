@@ -20,7 +20,7 @@ public class Explosion : MonoBehaviour
 
     virtual protected void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Zombie"))
+        if (collider2D.GetComponent<Zombie>())
         {
             Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
             Destroy(zombie.gameObject);
