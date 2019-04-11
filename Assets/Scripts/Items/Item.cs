@@ -5,6 +5,8 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     protected PlayerAttack player;
+    public AudioClip audioClip;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class Item : MonoBehaviour
         if (collider2D.gameObject.tag.Equals("Player"))
         {
             Ability();
+            AudioSource.PlayClipAtPoint(audioClip, this.transform.position);
             Destroy(gameObject);
         }
     }

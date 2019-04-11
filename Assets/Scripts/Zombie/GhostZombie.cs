@@ -17,7 +17,7 @@ public class GhostZombie : Zombie
     {
         base.Start();
         sr = GetComponent<SpriteRenderer>();
-        InvokeRepeating("ToggleVisibility", 5f, 2f);
+        InvokeRepeating("ToggleVisibility", 2f, 2f);
     }
 
     void ToggleVisibility()
