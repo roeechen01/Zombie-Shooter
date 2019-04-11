@@ -51,6 +51,16 @@ public class PlayerAttack : MonoBehaviour {
         weapon.WaitBeforeReloadAll();
     }
 
+    public void AddLife(double life, bool all)
+    {
+        if (all)
+            this.life = this.maxLife;
+        else this.life += life;
+        if (this.life > this.maxLife)
+            this.life = this.maxLife;
+        UpdateText();
+    }
+
     void UpdateText()
     {
         double lifeIn100 = life / maxLife * 100;
