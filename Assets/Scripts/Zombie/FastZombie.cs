@@ -6,6 +6,6 @@ public class FastZombie :  Zombie
 {
     protected override void CreateZombie()
     {
-        CreateZombieTypeInfo(2, 2, 3f);
+        CreateZombieTypeInfo(2, 20, 3f);
     }
 }

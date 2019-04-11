@@ -6,6 +6,6 @@ public class SimpleZombie : Zombie {
 
     protected override void CreateZombie()
     {
-        CreateZombieTypeInfo(3, 1, 2f);
+        CreateZombieTypeInfo(3, 10, 2f);
     }
 }

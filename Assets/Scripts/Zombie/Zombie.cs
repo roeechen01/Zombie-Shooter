@@ -10,7 +10,7 @@ public class Zombie : MonoBehaviour {
     public Collider2D head;
 
     protected int life;
-    protected int demage;
+    protected double demage;
     protected float speed;
 
 
@@ -21,7 +21,7 @@ public class Zombie : MonoBehaviour {
         rigidBody2d = GetComponent<Rigidbody2D>();
     }
 
-    protected void CreateZombieTypeInfo(int life, int demage, float speed)
+    protected void CreateZombieTypeInfo(int life, double demage, float speed)
     {
         this.life = life;
         this.demage = demage;
@@ -80,6 +80,7 @@ public class Zombie : MonoBehaviour {
         rigidBody2d.velocity = new Vector2(direction.x * speed, direction.y * speed);
         SetZombieSpeed();
     }
+
 
     public void BulletHit(int demage)
     {
