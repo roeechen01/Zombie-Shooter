@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FastZombie :  Zombie
+public class GhostZombie : Zombie
 {
     protected override void CreateZombie()
     {
-        CreateZombieTypeInfo(2, 2, 3f);
+        CreateZombieTypeInfo(3, 3, 4f);
     }
 }

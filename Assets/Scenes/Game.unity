@@ -333,6 +333,8 @@ MonoBehaviour:
     type: 3}
   prefabFastZombie: {fileID: 114361132664239954, guid: d65698fa86b2fe543a305292af779cd5,
     type: 3}
+  prefabGhostZombie: {fileID: 3622604372688253277, guid: 500c0813942aa5f41814b8528092da93,
+    type: 3}
 --- !u!4 &178920246
 Transform:
   m_ObjectHideFlags: 0

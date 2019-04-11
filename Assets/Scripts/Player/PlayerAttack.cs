@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour {
     private Rpg rpg;
 
     private double life;
-    private double maxLife = 200;
+    private double maxLife = 100;
 
 
     private List<Weapon> weapons = new List<Weapon>();
