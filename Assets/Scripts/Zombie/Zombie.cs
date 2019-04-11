@@ -104,8 +104,11 @@ public class Zombie : MonoBehaviour {
     {
         if (collider2D.gameObject.tag.Equals("Player"))
         {
-            CancelInvoke("DemagingPlayer");
-            InvokeRepeating("DemagingPlayer", 0.5f, 0.8f);
+            SpriteRenderer sr = FindObjectOfType<PlayerAttack>().GetComponent<SpriteRenderer>();
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f);
+            //CancelInvoke("DemagingPlayer");
+            //InvokeRepeating("DemagingPlayer", 0.2f, 0.8f);
+            DemagingPlayer();
             rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
         }
@@ -116,19 +119,24 @@ public class Zombie : MonoBehaviour {
         if (collider2D.gameObject.tag.Equals("Player"))
         {
             rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+            DemagingPlayer();
         }
-        
+
     }
 
     void OnTriggerExit2D(Collider2D collider2D)
     {
-        CancelInvoke("DemagingPlayer");
+        //CancelInvoke("DemagingPlayer");
         rigidBody2d.constraints = RigidbodyConstraints2D.None;
     }
 
     void DemagingPlayer()
     {
-        PlayerAttack player = FindObjectOfType<PlayerAttack>();
-        player.Demage(demage);
+        if (player.GetVulnerable())
+        {
+            PlayerAttack player = FindObjectOfType<PlayerAttack>();
+            player.Demage(demage);
+        }
+        
     }
 }

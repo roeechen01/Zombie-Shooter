@@ -14,7 +14,8 @@ public class PlayerAttack : MonoBehaviour {
     private Rpg rpg;
 
     private double life;
-    private double maxLife = 100;
+    private double maxLife = 5;
+    private bool vulnerable = true;
 
 
     private List<Weapon> weapons = new List<Weapon>();
@@ -52,7 +53,7 @@ public class PlayerAttack : MonoBehaviour {
 
     void UpdateText()
     {
-        double lifeIn100 = life / maxLife * 100;
+        double lifeIn100 = life / maxLife * 5;
         if ((int)lifeIn100 <= 0)
             lifeText.text = "DEAD";
         else lifeText.text = "LIFE: " + (int)lifeIn100;
@@ -72,8 +73,24 @@ public class PlayerAttack : MonoBehaviour {
 
     public void Demage(double demage)
     {
-        this.life -= demage;
+        //this.life -= demage;
+        //UpdateText();
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.4f);
+        this.life--;
         UpdateText();
+        Invoke("MakeVulnerable", 1f);
+        vulnerable = false;
+    }
+
+    void MakeVulnerable()
+    {
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
+        vulnerable = true;
+    }
+
+    public bool GetVulnerable()
+    {
+        return this.vulnerable;
     }
 
     public Weapon GetWeapon() { return this.weapon; }
