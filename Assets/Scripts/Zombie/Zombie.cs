@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour {
 
+    public static List<Zombie> aliveZombies = new List<Zombie>();
+    private ZombieSpawner zombieSpawner;
+
     private PlayerAttack player;
     Rigidbody2D rigidBody2d;
     private Vector3 direction;
@@ -17,10 +20,13 @@ public class Zombie : MonoBehaviour {
 
     // Use this for initialization
     protected void Start () {
+        zombieSpawner = FindObjectOfType<ZombieSpawner>();
+        aliveZombies.Add(this);
         General.MakeSmaller(gameObject);
         CreateZombie();
         player = FindObjectOfType<PlayerAttack>();
         rigidBody2d = GetComponent<Rigidbody2D>();
+        InvokeRepeating("CheckForSamePosZombies", 5f, 5f);
     }
 
     protected void CreateZombieTypeInfo(int life, double demage, float speed)
@@ -92,7 +98,15 @@ public class Zombie : MonoBehaviour {
     {
         life -= demage;
         if (life <= 0)
-            Destroy(gameObject);
+            Dead();
+    }
+
+    public void Dead()
+    {
+        aliveZombies.Remove(this);
+        print(gameObject.name);
+        zombieSpawner.CheckIfFinishedWave();
+        Destroy(gameObject);
     }
 
     public virtual void HeadShot(int demage)
@@ -104,7 +118,17 @@ public class Zombie : MonoBehaviour {
     void Update () {
             Rotaion();
             SetVelocity();
-        
+    }
+
+    void CheckForSamePosZombies()
+    {
+        foreach (Zombie zombie in aliveZombies)
+            if (zombie.transform.position == this.transform.position && zombie != this)
+            {
+                print("found zombies in same position");
+                Dead();
+                break;
+            }
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)

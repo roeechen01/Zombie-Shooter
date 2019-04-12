@@ -7,12 +7,29 @@ public class GhostZombie : Zombie
     private bool visible = true;
     private SpriteRenderer sr;
     private float speedFactor = 1.2f;
-    bool toggleStarted = false;
+    private bool toggleStarted = false;
+    //private int modeCounter = 0;
+    
 
     protected override void CreateZombie()
     {
         CreateZombieTypeInfo(1, 30, 4f);
     }
+
+    //void ChangeModeCounter()
+    //{
+    //    if (modeCounter == 3)
+    //        modeCounter = 0;
+    //    modeCounter++;
+    //    if(modeCounter == 1)
+    //    {
+    //        ToggleVisibility();
+    //    }
+    //    if(modeCounter == 2)
+    //    {
+    //        ToggleVisibility();
+    //    }
+    //}
 
     void ToggleVisibility()
     {
@@ -38,6 +55,7 @@ public class GhostZombie : Zombie
         {
             toggleStarted = true;
             sr = GetComponent<SpriteRenderer>();
+            //InvokeRepeating("ChangeModeCounter", 1f, 2f);
             InvokeRepeating("ToggleVisibility", 1f, 2f);
         }
         
