@@ -14,8 +14,12 @@ public class General : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             SceneManager.LoadScene("Game");
+            Zombie.aliveZombies.Clear();
+        }
+            
 	}
 
     public static void MakeSmaller(GameObject gameObject)
