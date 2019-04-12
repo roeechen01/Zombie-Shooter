@@ -31,9 +31,19 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.ghostCounter = 0;
                 break;
             case 2:
-                zombieSpawner.simpleCounter = 0;
-                zombieSpawner.fastCounter = 10;
+                zombieSpawner.simpleCounter = 10;
+                zombieSpawner.fastCounter = 5;
                 zombieSpawner.ghostCounter = 0;
+                break;
+            case 3:
+                zombieSpawner.simpleCounter = 20;
+                zombieSpawner.fastCounter = 10;
+                zombieSpawner.ghostCounter = 5;
+                break;
+            case 4:
+                zombieSpawner.simpleCounter = 30;
+                zombieSpawner.fastCounter = 20;
+                zombieSpawner.ghostCounter = 10;
                 break;
             default:
                 print("Finished");
