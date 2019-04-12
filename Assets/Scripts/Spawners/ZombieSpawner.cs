@@ -6,9 +6,11 @@ public class ZombieSpawner : MonoBehaviour {
     public SimpleZombie prefabSimpleZombie;
     public FastZombie prefabFastZombie;
     public GhostZombie prefabGhostZombie;
+    Portal[] portals;
 
 	// Use this for initialization
 	void Start () {
+        portals = FindObjectsOfType<Portal>();
         InvokeRepeating("SpawnSimpleZombie", 2f, 2f);
         InvokeRepeating("SpawnFastZombie", 5f, 5f);
         InvokeRepeating("SpawnGhostZombie", 10f, 10f);
@@ -16,65 +18,21 @@ public class ZombieSpawner : MonoBehaviour {
 
     void SpawnSimpleZombie()
     {
-        switch (Random.Range(1, 5))
-        {
-            case 1:
-                Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f),-21f,0f), Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(prefabSimpleZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(prefabSimpleZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
-                break;
-            case 4:
-                Instantiate(prefabSimpleZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
-                break;
-        }
-
-        
+        portals[Random.Range(0, portals.Length)].Spawn(prefabSimpleZombie);
     }
 
     void SpawnFastZombie()
     {
-        switch (Random.Range(1, 5))
-        {
-            case 1:
-                Instantiate(prefabFastZombie, new Vector3(Random.Range(-20f, 20f), -21f, 0f), Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(prefabFastZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(prefabFastZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
-                break;
-            case 4:
-                Instantiate(prefabFastZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
-                break;
-        }
+        portals[Random.Range(0, portals.Length)].Spawn(prefabFastZombie);
     }
 
     void SpawnGhostZombie()
     {
-        switch (Random.Range(1, 5))
-        {
-            case 1:
-                Instantiate(prefabGhostZombie, new Vector3(Random.Range(-20f, 20f), -21f, 0f), Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(prefabGhostZombie, new Vector3(Random.Range(-20f, 20f), 16.5f, 0f), Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(prefabGhostZombie, new Vector3(20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
-                break;
-            case 4:
-                Instantiate(prefabGhostZombie, new Vector3(-20f, Random.Range(16.5f, -20f), 0f), Quaternion.identity);
-                break;
-        }
+        portals[Random.Range(0, portals.Length)].Spawn(prefabGhostZombie);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
