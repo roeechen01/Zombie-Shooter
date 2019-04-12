@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
     public Vector2 range = new Vector2(0, 0);
 
     void Start() {
+        General.MakeSmaller(gameObject);
         rigidBody2d = GetComponent<Rigidbody2D>();
         hitsLeft = hitsMax;
     }

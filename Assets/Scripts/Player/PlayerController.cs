@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        General.MakeSmaller(gameObject);
 	}
 
     void Movement()

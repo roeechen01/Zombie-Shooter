@@ -16,6 +16,10 @@ public class General : MonoBehaviour {
             Application.Quit();
         if(Input.GetKeyDown(KeyCode.Space))
             SceneManager.LoadScene("Game");
-            
 	}
+
+    public static void MakeSmaller(GameObject gameObject)
+    {
+        gameObject.transform.localScale *= 0.9f;
+    }
 }

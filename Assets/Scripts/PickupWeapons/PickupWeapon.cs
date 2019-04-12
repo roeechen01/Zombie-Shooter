@@ -14,6 +14,7 @@ public class PickupWeapon : MonoBehaviour
 
     void Start()
     {
+        General.MakeSmaller(gameObject);
         Invoke("SelfDestroy", 30f);
     }
 

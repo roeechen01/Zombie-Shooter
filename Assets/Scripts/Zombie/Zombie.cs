@@ -17,6 +17,7 @@ public class Zombie : MonoBehaviour {
 
     // Use this for initialization
     protected void Start () {
+        General.MakeSmaller(gameObject);
         CreateZombie();
         player = FindObjectOfType<PlayerAttack>();
         rigidBody2d = GetComponent<Rigidbody2D>();

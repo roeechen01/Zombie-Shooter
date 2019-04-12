@@ -17,17 +17,13 @@ public class Rocket : Bullet
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (!collider2D.gameObject.tag.Equals("Player"))
+        Zombie zombie = collider2D.GetComponent<Zombie>();
+        if (collider2D.gameObject.tag.Equals("Wall") || (zombie && zombie.CanHit()))
         {
-            Zombie zombie = collider2D.GetComponent<Zombie>();
-            if(!(zombie && !zombie.CanHit()))
-            {
-                if (rpg.GetAudioSource().isPlaying)
-                    rpg.GetAudioSource().Stop();
-                Instantiate(explosion, this.transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            
+            if (rpg.GetAudioSource().isPlaying)
+                rpg.GetAudioSource().Stop();
+            Instantiate(explosion, this.transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
 
     }

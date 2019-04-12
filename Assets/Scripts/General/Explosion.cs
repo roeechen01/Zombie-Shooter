@@ -9,6 +9,7 @@ public class Explosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        General.MakeSmaller(gameObject);
         Invoke("DestoryItself", 1f);
         AudioSource.PlayClipAtPoint(explosionClip, this.transform.position);
     }
@@ -20,12 +21,9 @@ public class Explosion : MonoBehaviour
 
     virtual protected void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.GetComponent<Zombie>())
-        {
-            Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
-            if(zombie.CanHit())
-                Destroy(zombie.gameObject);
-        }
+        Zombie zombie = collider2D.GetComponent<Zombie>();
+        if (zombie && zombie.CanHit())
+            Destroy(zombie.gameObject);
     }
 
     // Update is called once per frame
