@@ -21,7 +21,6 @@ public class WavesManager : MonoBehaviour
         wave++;
         UpdateText();
         SetWave();
-        print("next wave");
     }
 
     void UpdateText()
@@ -40,22 +39,19 @@ public class WavesManager : MonoBehaviour
         switch (wave)
         {
             case 1:
-                zombieSpawner.CancelInvoke();
+                zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.simpleCounter = 10;
-                zombieSpawner.fastCounter = 0;
-                zombieSpawner.ghostCounter = 0;
                 break;
             case 2:
-                zombieSpawner.CancelInvoke();
+                zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 0f, 5f);
                 zombieSpawner.simpleCounter = 10;
                 zombieSpawner.fastCounter = 5;
-                zombieSpawner.ghostCounter = 0;
                 break;
             case 3:
-                zombieSpawner.CancelInvoke();
+                zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 2f, 2f);
                 zombieSpawner.InvokeRepeating("SpawnGhostZombie", 0f, 5f);
@@ -64,7 +60,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.ghostCounter = 5;
                 break;
             case 4:
-                zombieSpawner.CancelInvoke();
+                zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 2f, 2f);
                 zombieSpawner.InvokeRepeating("SpawnGhostZombie", 5f, 3f);

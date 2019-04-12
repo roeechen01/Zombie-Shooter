@@ -53,6 +53,14 @@ public class ZombieSpawner : MonoBehaviour {
             wavesManager.NextWave();
     }
 
+    public void ResetSpawn()
+    {
+        simpleCounter = 0;
+        fastCounter = 0;
+        ghostCounter = 0;
+        CancelInvoke();
+    }
+
     // Update is called once per frame
     void Update () {
         

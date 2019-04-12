@@ -19,7 +19,7 @@ public class Explosion : MonoBehaviour
         Destroy(gameObject);
     }
 
-    virtual protected void OnTriggerEnter2D(Collider2D collider2D)
+    virtual protected void OnTriggerStay2D(Collider2D collider2D)
     {
         Zombie zombie = collider2D.GetComponent<Zombie>();
         if (zombie && zombie.CanHit())
