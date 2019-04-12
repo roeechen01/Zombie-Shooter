@@ -18,9 +18,6 @@ public class ZombieSpawner : MonoBehaviour {
     void Start () {
         wavesManager = FindObjectOfType<WavesManager>();
         portals = FindObjectsOfType<Portal>();
-        InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
-        InvokeRepeating("SpawnFastZombie", 2f, 2f);
-        InvokeRepeating("SpawnGhostZombie", 10f, 10f);
     }
 
     void SpawnSimpleZombie()

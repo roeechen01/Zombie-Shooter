@@ -123,12 +123,22 @@ public class Zombie : MonoBehaviour {
     void CheckForSamePosZombies()
     {
         foreach (Zombie zombie in aliveZombies)
-            if (zombie.transform.position == this.transform.position && zombie != this)
+            if (ClosePosition(this.transform.position, zombie.transform.position, 0.01f) && zombie != this)
             {
                 print("found zombies in same position");
                 Dead();
                 break;
             }
+    }
+
+    bool CloseFloats(float num1, float num2, float closeDiff)
+    {
+        return (num1 + closeDiff >= num2 && num1 - closeDiff <= num2) || (num2 + closeDiff >= num1 && num2 - closeDiff <= num1);
+    }
+
+    bool ClosePosition(Vector3 pos1, Vector3 pos2, float closeDiff)
+    {
+        return CloseFloats(pos1.x, pos2.x, closeDiff) && CloseFloats(pos1.y, pos2.y, closeDiff);
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)
@@ -141,7 +151,6 @@ public class Zombie : MonoBehaviour {
             //InvokeRepeating("DemagingPlayer", 0.2f, 0.8f);
             DemagingPlayer();
             rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
-
         }
     }
 
