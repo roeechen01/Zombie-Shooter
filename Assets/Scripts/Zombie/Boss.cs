@@ -13,7 +13,6 @@ public class Boss : Zombie
         slider = FindObjectOfType<Slider>();
         slider.maxValue = this.life;
         slider.value = this.life;
-        this.boss = true;
     }
 
     public override void HeadShot(int demage)
@@ -29,12 +28,13 @@ public class Boss : Zombie
 
     void UpdateSlider()
     {
+        float demageToFlow = slider.value - life;
         InvokeRepeating("SliderFlow", 0f, 0.0075f);
     }
 
     void SliderFlow()
     {
-        slider.value -= 0.025f;
+        slider.value -= 0.1f;
         if (slider.value <= this.life)
         {
             slider.value = this.life;

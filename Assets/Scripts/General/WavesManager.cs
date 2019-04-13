@@ -7,7 +7,7 @@ public class WavesManager : MonoBehaviour
 {
     public Text waveText;
     private ZombieSpawner zombieSpawner;
-    private int wave = 4;
+    private int wave = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -82,10 +82,10 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnGhostZombie", 5f, 3f);
                 zombieSpawner.InvokeRepeating("SpawnKnifeBossZombie", 5f, 10f);
-                zombieSpawner.fastCounter = 0;
-                zombieSpawner.ghostCounter = 0;
+                zombieSpawner.fastCounter = 20;
+                zombieSpawner.ghostCounter = 10;
                 zombieSpawner.knifeBossCounter = 1;
-                WaitForNextWave(100);
+                WaitForNextWave(75);
                 break;
             default:
                 waveText.text = "YOU WON";

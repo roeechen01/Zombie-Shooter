@@ -15,7 +15,6 @@ public class Zombie : MonoBehaviour {
     protected double demage;
     protected float speed;
     protected bool canHit = true;
-    protected bool boss = false;
 
 
     // Use this for initialization
@@ -109,11 +108,6 @@ public class Zombie : MonoBehaviour {
     public virtual void HeadShot(int demage)
     {
         Hit(demage * 3);
-    }
-
-    public bool IsBoss()
-    {
-        return this.boss;
     }
 
     // Update is called once per frame

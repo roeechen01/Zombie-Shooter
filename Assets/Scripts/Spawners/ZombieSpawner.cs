@@ -49,7 +49,7 @@ public class ZombieSpawner : MonoBehaviour {
 
     void SpawnKnifeBossZombie()
     {
-        if (knifeBossCounter > 0)
+        if (knifeBossCounter > 0 && FindObjectsOfType<KnifeBossZombie>().Length == 0)
         {
             portals[Random.Range(0, portals.Length)].Spawn(prefabKnifeBossZombie);
             knifeBossCounter--;
