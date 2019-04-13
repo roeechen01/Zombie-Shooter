@@ -25,7 +25,7 @@ public class Explosion : MonoBehaviour
         Zombie zombie = collider2D.GetComponent<Zombie>();
         if (zombie && zombie.CanHit() && !demagedZombies.Contains(zombie))
         {
-            zombie.BulletHit(20);
+            zombie.Hit(20);
             demagedZombies.Add(zombie);
         }
 

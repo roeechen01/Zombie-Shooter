@@ -93,7 +93,7 @@ public class Zombie : MonoBehaviour {
         return this.canHit;
     }
 
-    public void BulletHit(int demage)
+    public virtual void Hit(int demage)
     {
         life -= demage;
         if (life <= 0)
@@ -108,7 +108,7 @@ public class Zombie : MonoBehaviour {
 
     public virtual void HeadShot(int demage)
     {
-        BulletHit(demage * 3);
+        Hit(demage * 3);
     }
 
     public bool IsBoss()

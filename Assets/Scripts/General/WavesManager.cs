@@ -82,8 +82,8 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnGhostZombie", 5f, 3f);
                 zombieSpawner.InvokeRepeating("SpawnKnifeBossZombie", 5f, 10f);
-                zombieSpawner.fastCounter = 30;
-                zombieSpawner.ghostCounter = 10;
+                zombieSpawner.fastCounter = 0;
+                zombieSpawner.ghostCounter = 0;
                 zombieSpawner.knifeBossCounter = 1;
                 WaitForNextWave(100);
                 break;

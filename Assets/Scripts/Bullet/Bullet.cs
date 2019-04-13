@@ -134,7 +134,7 @@ public class Bullet : MonoBehaviour
             {
                 if (collider2D.Equals(zombie.head))
                     zombie.HeadShot((int)GetDemageBasedOnHits());
-                else zombie.BulletHit((int)GetDemageBasedOnHits());
+                else zombie.Hit((int)GetDemageBasedOnHits());
                 this.hitsLeft--;
                 if (hitsLeft == 0)
                     Destroy(gameObject);
