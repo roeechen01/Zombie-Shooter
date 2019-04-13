@@ -11,8 +11,9 @@ public class General : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         FindObjectOfType<Slider>().value = 0;
-        //foreach (Text text in FindObjectsOfType<Text>())
-        //    text.font = font;
+        foreach (Text text in FindObjectsOfType<Text>())
+            text.font = font;
+            
 	}
 	
 	// Update is called once per frame
