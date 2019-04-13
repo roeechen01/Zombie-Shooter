@@ -5,7 +5,6 @@ using UnityEngine;
 public class Zombie : MonoBehaviour {
 
     public static List<Zombie> aliveZombies = new List<Zombie>();
-    private ZombieSpawner zombieSpawner;
 
     private PlayerAttack player;
     Rigidbody2D rigidBody2d;
@@ -16,17 +15,17 @@ public class Zombie : MonoBehaviour {
     protected double demage;
     protected float speed;
     protected bool canHit = true;
+    protected bool boss = false;
 
 
     // Use this for initialization
     protected void Start () {
-        zombieSpawner = FindObjectOfType<ZombieSpawner>();
         aliveZombies.Add(this);
         General.MakeSmaller(gameObject);
         CreateZombie();
         player = FindObjectOfType<PlayerAttack>();
         rigidBody2d = GetComponent<Rigidbody2D>();
-        InvokeRepeating("CheckForSamePosZombies", 5f, 5f);
+        InvokeRepeating("CheckForSamePosZombies", 4.765f, 5f);
     }
 
     protected void CreateZombieTypeInfo(int life, double demage, float speed)
@@ -104,13 +103,17 @@ public class Zombie : MonoBehaviour {
     public void Dead()
     {
         aliveZombies.Remove(this);
-        //zombieSpawner.CheckIfFinishedWave();
         Destroy(gameObject);
     }
 
     public virtual void HeadShot(int demage)
     {
         BulletHit(demage * 3);
+    }
+
+    public bool IsBoss()
+    {
+        return this.boss;
     }
 
     // Update is called once per frame
@@ -122,7 +125,7 @@ public class Zombie : MonoBehaviour {
     void CheckForSamePosZombies()
     {
         foreach (Zombie zombie in aliveZombies)
-            if (ClosePosition(this.transform.position, zombie.transform.position, 0.01f) && zombie != this)
+            if (ClosePosition(this.transform.position, zombie.transform.position, 0.01f) && zombie != this && this.name.Equals(zombie.name))
             {
                 print("found zombies in same position");
                 Dead();

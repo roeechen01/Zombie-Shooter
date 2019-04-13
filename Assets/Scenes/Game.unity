@@ -335,9 +335,12 @@ MonoBehaviour:
     type: 3}
   prefabGhostZombie: {fileID: 3622604372688253277, guid: 500c0813942aa5f41814b8528092da93,
     type: 3}
+  prefabKnifeBossZombie: {fileID: 2122791112878626333, guid: b227ad883e7040149a4049dc5dcf7088,
+    type: 3}
   simpleCounter: 0
   fastCounter: 0
   ghostCounter: 0
+  knifeBossCounter: 0
 --- !u!4 &178920246
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public AudioClip explosionClip;
+    List<Zombie> demagedZombies = new List<Zombie>();
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,12 @@ public class Explosion : MonoBehaviour
     virtual protected void OnTriggerStay2D(Collider2D collider2D)
     {
         Zombie zombie = collider2D.GetComponent<Zombie>();
-        if (zombie && zombie.CanHit())
-            zombie.Dead();
+        if (zombie && zombie.CanHit() && !demagedZombies.Contains(zombie))
+        {
+            zombie.BulletHit(20);
+            demagedZombies.Add(zombie);
+        }
+
     }
 
     // Update is called once per frame

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour {
-    private WavesManager wavesManager;
 
     public SimpleZombie prefabSimpleZombie;
     public FastZombie prefabFastZombie;
     public GhostZombie prefabGhostZombie;
+    public KnifeBossZombie prefabKnifeBossZombie;
     Portal[] portals;
 
     public int simpleCounter = 0;
     public int fastCounter = 0;
     public int ghostCounter = 0;
+    public int knifeBossCounter = 0;
 
     // Use this for initialization
     void Start () {
-        wavesManager = FindObjectOfType<WavesManager>();
         portals = FindObjectsOfType<Portal>();
     }
 
@@ -44,6 +44,15 @@ public class ZombieSpawner : MonoBehaviour {
         {
             portals[Random.Range(0, portals.Length)].Spawn(prefabGhostZombie);
             ghostCounter--;
+        }
+    }
+
+    void SpawnKnifeBossZombie()
+    {
+        if (knifeBossCounter > 0)
+        {
+            portals[Random.Range(0, portals.Length)].Spawn(prefabKnifeBossZombie);
+            knifeBossCounter--;
         }
     }
 
