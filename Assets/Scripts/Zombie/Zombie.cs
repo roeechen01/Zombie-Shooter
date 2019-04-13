@@ -100,7 +100,7 @@ public class Zombie : MonoBehaviour {
             Dead();
     }
 
-    public void Dead()
+    public virtual void Dead()
     {
         aliveZombies.Remove(this);
         Destroy(gameObject);

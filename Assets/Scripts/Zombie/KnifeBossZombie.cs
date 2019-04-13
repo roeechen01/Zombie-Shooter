@@ -12,9 +12,7 @@ public class KnifeBossZombie : Zombie
         base.Start();
         slider = FindObjectOfType<Slider>();
         slider.maxValue = this.life;
-        slider.value = this.life;
-        
-       
+        slider.value = this.life;       
     }
 
     protected override void CreateZombie()
@@ -36,9 +34,24 @@ public class KnifeBossZombie : Zombie
 
     void UpdateSlider()
     {
-        if (slider.value > 0)
+        InvokeRepeating("SliderFlow", 0f, 0.005f);
+    }
+
+    void SliderFlow()
+    {
+        slider.value -= 0.02f;
+        if(slider.value <= this.life)
+        {
             slider.value = this.life;
-        else slider.value = 0;
+            CancelInvoke("SliderFlow");
+        }
+        if (slider.value <= 0)
+            base.Dead();
+    }
+
+    public override void Dead()
+    {
+        //base.Dead();
     }
 
 

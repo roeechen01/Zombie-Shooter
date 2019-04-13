@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class General : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        FindObjectOfType<Slider>().value = 0;
 	}
 	
 	// Update is called once per frame
