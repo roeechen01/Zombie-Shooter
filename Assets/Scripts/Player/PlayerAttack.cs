@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour {
 
     public Bullet prefabSimpleBullet, prefabHeavyBullet;
     public AudioSource gunFireAudioSource;
+    public Collider2D body;
 
     private Gun gun;
     private Shotgun shotgun;

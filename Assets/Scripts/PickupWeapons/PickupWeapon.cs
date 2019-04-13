@@ -20,7 +20,7 @@ public class PickupWeapon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player"))
+        if (collider2D.gameObject.tag.Equals("Player") && collider2D == collider2D.gameObject.GetComponent<PlayerAttack>().body)
         {
             Destroy(gameObject);
             FindWeapon();

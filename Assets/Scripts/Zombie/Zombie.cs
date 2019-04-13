@@ -139,7 +139,7 @@ public class Zombie : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player"))
+        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
         {
             SpriteRenderer sr = FindObjectOfType<PlayerAttack>().GetComponent<SpriteRenderer>();
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f);
@@ -152,7 +152,7 @@ public class Zombie : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player"))
+        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
         {
             rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
             DemagingPlayer();

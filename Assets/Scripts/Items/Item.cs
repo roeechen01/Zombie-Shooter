@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player"))
+        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
         {
             Ability();
             AudioSource.PlayClipAtPoint(audioClip, this.transform.position);
