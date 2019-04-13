@@ -28,8 +28,7 @@ public class Boss : Zombie
 
     void UpdateSlider()
     {
-        float demageToFlow = slider.value - life;
-        InvokeRepeating("SliderFlow", 0f, 0.0075f);
+        InvokeRepeating("SliderFlow", 0f, 0.0050f);
     }
 
     void SliderFlow()

@@ -6,9 +6,13 @@ using UnityEngine.UI;
 
 public class General : MonoBehaviour {
 
+    public Font font;
+
 	// Use this for initialization
 	void Start () {
         FindObjectOfType<Slider>().value = 0;
+        //foreach (Text text in FindObjectsOfType<Text>())
+        //    text.font = font;
 	}
 	
 	// Update is called once per frame

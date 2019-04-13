@@ -9,7 +9,7 @@ public class ItemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("RandomItem", 30f, 30f);
+        InvokeRepeating("RandomItem", 15f, 15f);
     }
 
     void SpawnItem(Item item)
