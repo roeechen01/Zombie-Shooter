@@ -47,11 +47,11 @@ public class ZombieSpawner : MonoBehaviour {
         }
     }
 
-    public void CheckIfFinishedWave()
-    {
-        if (simpleCounter <= 0 && fastCounter <= 0 && ghostCounter <= 0 && Zombie.aliveZombies.Count <= 0)
-            wavesManager.NextWave();
-    }
+    //public void CheckIfFinishedWave()
+    //{
+    //    if (simpleCounter <= 0 && fastCounter <= 0 && ghostCounter <= 0 && Zombie.aliveZombies.Count <= 0)
+    //        wavesManager.NextWave();
+    //}
 
     public void ResetSpawn()
     {

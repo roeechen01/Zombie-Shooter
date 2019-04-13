@@ -34,6 +34,11 @@ public class WavesManager : MonoBehaviour
         waveText.text = "";
     }
 
+    void WaitForNextWave (float seconds)
+    {
+        Invoke("NextWave", seconds);
+    }
+
     void SetWave()
     {
         switch (wave)
@@ -42,13 +47,15 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.simpleCounter = 10;
+                WaitForNextWave(15);
                 break;
             case 2:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 0f, 5f);
-                zombieSpawner.simpleCounter = 10;
+                zombieSpawner.simpleCounter = 20;
                 zombieSpawner.fastCounter = 5;
+                WaitForNextWave(35);
                 break;
             case 3:
                 zombieSpawner.ResetSpawn();
@@ -58,6 +65,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.simpleCounter = 20;
                 zombieSpawner.fastCounter = 10;
                 zombieSpawner.ghostCounter = 5;
+                WaitForNextWave(45);
                 break;
             case 4:
                 zombieSpawner.ResetSpawn();
@@ -67,9 +75,10 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.simpleCounter = 30;
                 zombieSpawner.fastCounter = 20;
                 zombieSpawner.ghostCounter = 10;
+                //WaitForNextWave(60);
                 break;
             default:
-                print("Finished");
+                waveText.text = "YOU WON";
                 break;
         }
     }

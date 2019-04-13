@@ -104,7 +104,7 @@ public class Zombie : MonoBehaviour {
     public void Dead()
     {
         aliveZombies.Remove(this);
-        zombieSpawner.CheckIfFinishedWave();
+        //zombieSpawner.CheckIfFinishedWave();
         Destroy(gameObject);
     }
 
