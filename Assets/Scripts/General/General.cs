@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class General : MonoBehaviour {
 
     public Font font;
+    private Slider slider;
 
 	// Use this for initialization
 	void Start () {
-        FindObjectOfType<Slider>().value = 0;
+        slider = FindObjectOfType<Slider>();
+        slider.maxValue = 0;
         foreach (Text text in FindObjectsOfType<Text>())
             text.font = font;
             

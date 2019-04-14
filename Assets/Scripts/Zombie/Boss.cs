@@ -47,7 +47,10 @@ public class Boss : Zombie
             CancelInvoke("SliderFlow");
         }
         if (slider.value <= 0)
+        {
+            slider.maxValue = 0;
             base.Dead();
+        }
     }
 
     public override void Dead() { }

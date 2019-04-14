@@ -65,6 +65,11 @@ public class ZombieSpawner : MonoBehaviour {
         CancelInvoke();
     }
 
+    public bool FinishedWaveCheck()
+    {
+        return simpleCounter == 0 && fastCounter == 0 && ghostCounter == 0 && knifeBossCounter == 0 && FindObjectsOfType<Zombie>().Length == 0;
+    }
+
     // Update is called once per frame
     void Update () {
         
