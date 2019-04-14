@@ -123,7 +123,8 @@ public class PlayerAttack : MonoBehaviour {
                     spriteRenderer.sprite = inventory[0].sprite;
                     weaponIndex = 0;
                 }
-                weapon.WaitBeforeReloadAll();
+                weapon.UpdateAmmoText();
+                //weapon.WaitBeforeReloadAll();
 
             }
         }

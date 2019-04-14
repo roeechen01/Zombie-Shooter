@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour {
         this.playerAttack = playerAttack;
     }
 
-    void UpdateAmmoText()
+    public void UpdateAmmoText()
     {
         if (reloading)
             ammoText.text = "Reloading...";
