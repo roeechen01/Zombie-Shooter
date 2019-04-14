@@ -47,5 +47,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         Movement();
         Rotaion();
+        CameraController();
+    }
+
+    void CameraController()
+    {
+        Camera camera = FindObjectOfType<Camera>();
+        camera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10f);
     }
 }
