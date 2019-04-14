@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   font: {fileID: 12800000, guid: b45f5aa3404529c4897ee9425c06c0cc, type: 3}
+  audioSource: {fileID: 1592251090}
 --- !u!4 &19663428
 Transform:
   m_ObjectHideFlags: 0
@@ -2355,7 +2356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'AMMO: 12'
+  m_Text: 12/60
 --- !u!222 &1479546028
 CanvasRenderer:
   m_ObjectHideFlags: 0

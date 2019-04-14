@@ -8,6 +8,7 @@ public class General : MonoBehaviour {
 
     public Font font;
     private Slider slider;
+    public AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,12 @@ public class General : MonoBehaviour {
         {
             SceneManager.LoadScene("Game");
             Zombie.aliveZombies.Clear();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            else audioSource.Play();
         }
             
 	}

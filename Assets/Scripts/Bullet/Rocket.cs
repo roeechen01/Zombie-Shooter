@@ -26,5 +26,8 @@ public class Rocket : Bullet
             Destroy(gameObject);
         }
 
+        else if (collider2D.tag.Equals("Wall"))
+            Destroy(gameObject);
+
     }
 }

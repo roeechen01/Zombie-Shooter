@@ -66,16 +66,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void OnBecameInvisible()
-    {
-        Invoke("DestroyBullet", 5f);
-    }
-
-    void DestroyBullet()
-    {
-        Destroy(gameObject);
-    }
-
     void SetBulletSpeed()
     {
         float x = rigidBody2d.velocity.x;
@@ -141,6 +131,9 @@ public class Bullet : MonoBehaviour
             }
             
         }
+
+        else if (collider2D.tag.Equals("Wall"))
+            Destroy(gameObject);
     }
 
     double GetDemageBasedOnHits()
