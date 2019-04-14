@@ -35,17 +35,11 @@ public class GhostZombie : Zombie
     {
         if (visible)
         {
-            canHit = false;
-            visible = false;
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f);
-            this.speed *= this.speedFactor;
+            MakeInvisible();
         }
         else
         {
-            canHit = true;
-            visible = true;
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
-            this.speed /= this.speedFactor;
+            MakeVisible();
         }
     }
 
@@ -56,9 +50,24 @@ public class GhostZombie : Zombie
             toggleStarted = true;
             sr = GetComponent<SpriteRenderer>();
             //InvokeRepeating("ChangeModeCounter", 1f, 2f);
-            InvokeRepeating("ToggleVisibility", 1f, 2f);
+            InvokeRepeating("ToggleVisibility", 2f, 2f);
         }
-        
+    }
+
+    void MakeVisible()
+    {
+        canHit = true;
+        visible = true;
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+        this.speed /= this.speedFactor;
+    }
+
+    void MakeInvisible()
+    {
+        canHit = false;
+        visible = false;
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f);
+        this.speed *= this.speedFactor;
     }
 
 }

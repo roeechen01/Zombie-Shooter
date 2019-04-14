@@ -7,6 +7,6 @@ public class KnifeBossZombie : Boss
 {
     protected override void CreateZombie()
     {
-        CreateZombieTypeInfo(100, 30, 3f);
+        CreateZombieTypeInfo(120, 30, 4.5f);
     }
 }
