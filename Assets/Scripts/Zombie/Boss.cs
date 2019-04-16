@@ -13,13 +13,6 @@ public class Boss : Zombie
         slider = FindObjectOfType<Slider>();
         slider.maxValue = this.life;
         slider.value = this.life;
-        slider.onValueChanged.AddListener(delegate { ValueChange(); });
-        print("boss");
-    }
-
-    void ValueChange()
-    {
-        print("changed");
     }
 
     public override void HeadShot(int demage)

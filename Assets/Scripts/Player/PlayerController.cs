@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        General.MakeSmaller(gameObject);
+        SetUpGame.MakeSmaller(gameObject);
         gameCamera = FindObjectOfType<Camera>();
     }
 

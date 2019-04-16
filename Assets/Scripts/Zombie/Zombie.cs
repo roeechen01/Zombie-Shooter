@@ -24,7 +24,7 @@ public class Zombie : MonoBehaviour {
         zombieSpawner = FindObjectOfType<ZombieSpawner>();
         wavesManager = FindObjectOfType < WavesManager>();
         aliveZombies.Add(this);
-        General.MakeSmaller(gameObject);
+        SetUpGame.MakeSmaller(gameObject);
         CreateZombie();
         player = FindObjectOfType<PlayerAttack>();
         rigidBody2d = GetComponent<Rigidbody2D>();

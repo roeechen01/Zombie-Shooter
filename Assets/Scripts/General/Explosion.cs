@@ -10,7 +10,7 @@ public class Explosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        General.MakeSmaller(gameObject);
+        SetUpGame.MakeSmaller(gameObject);
         Invoke("DestoryItself", 1f);
         AudioSource.PlayClipAtPoint(explosionClip, this.transform.position);
     }

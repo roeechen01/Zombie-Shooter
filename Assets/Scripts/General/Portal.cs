@@ -6,7 +6,7 @@ public class Portal : MonoBehaviour
 {
     void Start()
     {
-        General.MakeSmaller(gameObject);
+        SetUpGame.MakeSmaller(gameObject);
     }
     public void Spawn(Zombie zombie)
     {

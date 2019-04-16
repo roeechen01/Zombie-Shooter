@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        General.MakeSmaller(gameObject);
+        SetUpGame.MakeSmaller(gameObject);
         player = FindObjectOfType<PlayerAttack>();
         Invoke("DestroyItself", 30f);
     }
