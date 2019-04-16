@@ -121,7 +121,7 @@ public class Zombie : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    protected void Update () {
             Rotaion();
             SetVelocity();
     }

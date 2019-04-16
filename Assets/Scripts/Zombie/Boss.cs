@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Boss : Zombie
 {
     private Slider slider;
+    private bool flowing = false;
 
     new void Start()
     {
@@ -33,17 +34,26 @@ public class Boss : Zombie
 
     void SliderFlow()
     {
+        flowing = true;
         slider.value -= 0.1f;
         if (slider.value <= this.life)
         {
             slider.value = this.life;
             CancelInvoke("SliderFlow");
+            flowing = false;
         }
         if (slider.value <= 0)
         {
             slider.maxValue = 0;
             base.Dead();
         }
+    }
+
+    new void Update()
+    {
+        base.Update();
+        if (!flowing)
+            slider.value = this.life;
     }
 
     public override void Dead() { }
