@@ -482,8 +482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dbb54573c2a9db4eba34115ecae405c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  font: {fileID: 12800000, guid: b45f5aa3404529c4897ee9425c06c0cc, type: 3}
   audioSource: {fileID: 1140108365}
+  cursorTexture: {fileID: 2800000, guid: b0fd87835f278104b8a3adf8bb47cdfc, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!4 &1254293033
 Transform:
   m_ObjectHideFlags: 0

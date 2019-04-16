@@ -8,8 +8,9 @@ public class General : MonoBehaviour {
 
     public AudioSource audioSource;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Awake () {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         if (FindObjectsOfType<General>().Length > 1)
             Destroy(gameObject);
         else DontDestroyOnLoad(gameObject);            

@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class SetUpGame : MonoBehaviour
 {
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
 
     private Slider slider;
     // Start is called before the first frame update
     void Start()
     {
+        hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         slider = FindObjectOfType<Slider>();
         slider.maxValue = 0;
     }
@@ -21,10 +26,7 @@ public class SetUpGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene("Menu");
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Zombie.aliveZombies.Clear();
-        }
     }
 
     public static void MakeSmaller(GameObject gameObject)

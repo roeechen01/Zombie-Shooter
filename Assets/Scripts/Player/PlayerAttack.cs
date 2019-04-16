@@ -38,6 +38,7 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Zombie.aliveZombies.Clear();
         life = maxLife;
         UpdateText();
         SetComponents();
