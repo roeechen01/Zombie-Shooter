@@ -22,17 +22,17 @@ public class General : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+            SceneManager.LoadScene("Menu");
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Zombie.aliveZombies.Clear();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (audioSource.isPlaying)
-                audioSource.Stop();
-            else audioSource.Play();
+                audioSource.Pause();
+            else audioSource.UnPause();
         }
             
 	}
