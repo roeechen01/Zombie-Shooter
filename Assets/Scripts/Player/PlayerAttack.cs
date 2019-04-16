@@ -29,6 +29,8 @@ public class PlayerAttack : MonoBehaviour {
     public Text ammoText;
     public Text lifeText;
 
+    public AudioClip switchWeaponClip;
+
     public Gun GetGun() { return this.gun; }
     public Shotgun GetShotgun() { return this.shotgun; }
     public Rifle GetRifle() { return this.rifle; }
@@ -112,6 +114,7 @@ public class PlayerAttack : MonoBehaviour {
         {
             if(inventory[1] != null)
             {
+                AudioSource.PlayClipAtPoint(switchWeaponClip, this.transform.position);
                 if (weaponIndex != inventory.Length - 1)
                 {
                     weapon = inventory[++weaponIndex];

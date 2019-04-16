@@ -5,6 +5,8 @@ using UnityEngine;
 public class Zombie : MonoBehaviour {
 
     public static List<Zombie> aliveZombies = new List<Zombie>();
+    private ZombieSpawner zombieSpawner;
+    private WavesManager wavesManager;
 
     private PlayerAttack player;
     Rigidbody2D rigidBody2d;
@@ -19,6 +21,8 @@ public class Zombie : MonoBehaviour {
 
     // Use this for initialization
     protected void Start () {
+        zombieSpawner = FindObjectOfType<ZombieSpawner>();
+        wavesManager = FindObjectOfType < WavesManager>();
         aliveZombies.Add(this);
         General.MakeSmaller(gameObject);
         CreateZombie();
@@ -103,6 +107,12 @@ public class Zombie : MonoBehaviour {
     {
         aliveZombies.Remove(this);
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (zombieSpawner.FinishedWaveCheck() && wavesManager.noMore)
+            wavesManager.Win();
     }
 
     public virtual void HeadShot(int demage)

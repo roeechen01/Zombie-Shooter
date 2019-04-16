@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     private float speed = 0.1f;
+    private Camera gameCamera;
 
 
     // Use this for initialization
     void Start () {
         General.MakeSmaller(gameObject);
-	}
+        gameCamera = FindObjectOfType<Camera>();
+    }
 
     void Movement()
     {
@@ -52,7 +54,6 @@ public class PlayerController : MonoBehaviour {
 
     void CameraController()
     {
-        Camera camera = FindObjectOfType<Camera>();
-        camera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10f);
+        gameCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, gameCamera.transform.position.z);
     }
 }

@@ -8,6 +8,7 @@ public class WavesManager : MonoBehaviour
     public Text waveText;
     private ZombieSpawner zombieSpawner;
     private int wave = 0;
+    public bool noMore = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class WavesManager : MonoBehaviour
         UpdateText();
         SetWave();
     }
+
+
 
     void UpdateText()
     {
@@ -39,7 +42,7 @@ public class WavesManager : MonoBehaviour
         Invoke("NextWave", seconds);
     }
 
-    void SetWave()
+    bool SetWave()
     {
         switch (wave)
         {
@@ -48,7 +51,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.simpleCounter = 10;
                 WaitForNextWave(25);
-                break;
+                return true;
             case 2:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -56,7 +59,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.simpleCounter = 20;
                 zombieSpawner.fastCounter = 5;
                 WaitForNextWave(35);
-                break;
+                return true;
             case 3:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -66,7 +69,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.fastCounter = 10;
                 zombieSpawner.ghostCounter = 5;
                 WaitForNextWave(45);
-                break;
+                return true;
             case 4:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -76,7 +79,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.fastCounter = 20;
                 zombieSpawner.ghostCounter = 10;
                 WaitForNextWave(60);
-                break;
+                return true;
             case 5:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 1f, 1f);
@@ -85,12 +88,17 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.fastCounter = 20;
                 zombieSpawner.ghostCounter = 10;
                 zombieSpawner.knifeBossCounter = 1;
-                WaitForNextWave(75);
-                break;
+                noMore = true;
+                return true;
             default:
                 waveText.text = "YOU WON";
-                break;
+                return false;
         }
+    }
+
+    public void Win()
+    {
+        waveText.text = "YOU WON";
     }
 
     // Update is called once per frame
