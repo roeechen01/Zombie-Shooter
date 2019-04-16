@@ -12,6 +12,9 @@ public class General : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (FindObjectsOfType<MusicPlayer>().Length > 1)
+            Destroy(gameObject);
+        else DontDestroyOnLoad(gameObject);
         slider = FindObjectOfType<Slider>();
         slider.maxValue = 0;
         foreach (Text text in FindObjectsOfType<Text>())
