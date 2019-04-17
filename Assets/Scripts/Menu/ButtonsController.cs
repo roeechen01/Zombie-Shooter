@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class ButtonsController : MonoBehaviour
 {
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void ButtonClicked(string sceneName)
     {
+        audioSource.Play();
         SceneManager.LoadScene(sceneName);
     }
 
@@ -16,3 +23,5 @@ public class ButtonsController : MonoBehaviour
         Application.Quit();
     }
 }
+
+
