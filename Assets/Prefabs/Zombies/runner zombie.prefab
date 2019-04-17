@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8181624883076709271}
   - component: {fileID: 6091415238929904699}
   - component: {fileID: 8159967935486926377}
-  - component: {fileID: 89076377739897550}
+  - component: {fileID: 2880731480253863541}
   m_Layer: 0
   m_Name: runner zombie
   m_TagString: Untagged
@@ -143,8 +143,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0762299, y: 1.4438057}
   m_EdgeRadius: 0
---- !u!60 &89076377739897550
-PolygonCollider2D:
+--- !u!61 &2880731480253863541
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,7 +156,7 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.27972168, y: -0.7479652}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -166,17 +166,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.093034126, y: -0.4517015}
-      - {x: 0.59996927, y: -1.8338951}
-      - {x: -0.108255416, y: -0.8736224}
-      - {x: -0.76952946, y: -1.7718333}
-      - {x: -1.2614762, y: -1.5322087}
-      - {x: -0.35617575, y: -0.8201082}
-      - {x: -0.5124593, y: 0.35910535}
-      - {x: 0.86654717, y: 0.33677894}
-      - {x: 1.2481787, y: -0.13365439}
-      - {x: 0.8014237, y: -0.37632525}
-      - {x: 0.49302423, y: 0.008404031}
-      - {x: 0.17218268, y: 0.11249808}
+  serializedVersion: 2
+  m_Size: {x: 1.632722, y: 2.1840694}
+  m_EdgeRadius: 0

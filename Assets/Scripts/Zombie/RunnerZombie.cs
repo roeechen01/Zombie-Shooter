@@ -4,16 +4,43 @@ using UnityEngine;
 
 public class RunnerZombie : Zombie
 {
+    Vector2 oldPos;
     protected override void CreateZombie()
     {
         CreateZombieTypeInfo(1, 20, 3f);
     }
 
+    void CheckForStayingInSamePos()
+    {
+        if (ClosePosition(this.transform.position, oldPos, 0.1f))
+        {
+            print("found zombie stying in same pos");
+            Dead();
+        }
+    }
+
+    bool CloseFloats(float num1, float num2, float closeDiff)
+    {
+        return (num1 + closeDiff >= num2 && num1 - closeDiff <= num2) || (num2 + closeDiff >= num1 && num2 - closeDiff <= num1);
+    }
+
+    bool ClosePosition(Vector3 pos1, Vector3 pos2, float closeDiff)
+    {
+        return CloseFloats(pos1.x, pos2.x, closeDiff) && CloseFloats(pos1.y, pos2.y, closeDiff);
+    }
+
     new void Start()
     {
         base.Start();
+        SetVelocity();
+        InvokeRepeating("UpdatePos", 0f, 1f);
+        InvokeRepeating("CheckForStayingInSamePos", 1f, 1f);
     }
 
+    void UpdatePos()
+    {
+        oldPos = this.transform.position;
+    }
 
     protected override void Rotaion()
     {
