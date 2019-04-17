@@ -12,8 +12,8 @@ public class RunnerZombie : Zombie
     new void Start()
     {
         base.Start();
-        SetVelocity();
     }
+
 
     protected override void Rotaion()
     {
