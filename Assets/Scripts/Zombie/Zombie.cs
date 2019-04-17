@@ -8,8 +8,8 @@ public class Zombie : MonoBehaviour {
     private ZombieSpawner zombieSpawner;
     private WavesManager wavesManager;
 
-    private PlayerAttack player;
-    Rigidbody2D rigidBody2d;
+    protected PlayerAttack player;
+    protected Rigidbody2D rigidBody2d;
     private Vector3 direction;
     public Collider2D head;
 
@@ -44,7 +44,7 @@ public class Zombie : MonoBehaviour {
 
     }
 
-    void Rotaion()
+    protected virtual void Rotaion()
     {
         Vector3 player_pos = Camera.main.WorldToScreenPoint(player.transform.position);
         Vector3 object_pos = Camera.main.WorldToScreenPoint(transform.position);
@@ -53,7 +53,7 @@ public class Zombie : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    void SetZombieSpeed()
+    protected void SetZombieSpeed()
     {
         float x = rigidBody2d.velocity.x;
         float y = rigidBody2d.velocity.y;
@@ -84,7 +84,7 @@ public class Zombie : MonoBehaviour {
 
     }
 
-    void SetVelocity()
+    protected virtual void SetVelocity()
     {
         direction = Camera.main.ScreenToWorldPoint(player.transform.position) - Camera.main.ScreenToWorldPoint(transform.position);
         rigidBody2d.velocity = new Vector2(direction.x * speed, direction.y * speed);
@@ -147,7 +147,7 @@ public class Zombie : MonoBehaviour {
         return CloseFloats(pos1.x, pos2.x, closeDiff) && CloseFloats(pos1.y, pos2.y, closeDiff);
     }
 
-    void OnTriggerEnter2D(Collider2D collider2D)
+    protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
         {
@@ -160,7 +160,7 @@ public class Zombie : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay2D(Collider2D collider2D)
+    protected virtual void OnTriggerStay2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
         {
@@ -176,7 +176,7 @@ public class Zombie : MonoBehaviour {
         rigidBody2d.constraints = RigidbodyConstraints2D.None;
     }
 
-    void DemagingPlayer()
+    protected void DemagingPlayer()
     {
         if (player.GetVulnerable())
         {

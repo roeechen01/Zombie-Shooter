@@ -338,9 +338,12 @@ MonoBehaviour:
     type: 3}
   prefabKnifeBossZombie: {fileID: 2122791112878626333, guid: b227ad883e7040149a4049dc5dcf7088,
     type: 3}
+  prefabRunnerZombie: {fileID: 8181624883076709271, guid: 779b653d1f1263f48a3bba548871ed32,
+    type: 3}
   simpleCounter: 0
   fastCounter: 0
   ghostCounter: 0
+  runnerCounter: 1
   knifeBossCounter: 0
 --- !u!4 &178920246
 Transform:
@@ -382,7 +385,7 @@ GameObject:
   - component: {fileID: 278313798}
   - component: {fileID: 278313799}
   m_Layer: 0
-  m_Name: left wall
+  m_Name: side wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +540,7 @@ GameObject:
   - component: {fileID: 369870433}
   - component: {fileID: 369870434}
   m_Layer: 0
-  m_Name: right wall
+  m_Name: side wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,7 +1385,7 @@ GameObject:
   - component: {fileID: 676246055}
   - component: {fileID: 676246058}
   m_Layer: 0
-  m_Name: bottom wall
+  m_Name: top wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2373,12 +2376,12 @@ PrefabInstance:
     - target: {fileID: 1577269620499466931, guid: fa3b4f2a1f2628e4f966d5d741e22b5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.8
+      value: 25.65
       objectReference: {fileID: 0}
     - target: {fileID: 1577269620499466931, guid: fa3b4f2a1f2628e4f966d5d741e22b5a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.85
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 1577269620499466931, guid: fa3b4f2a1f2628e4f966d5d741e22b5a,
         type: 3}
