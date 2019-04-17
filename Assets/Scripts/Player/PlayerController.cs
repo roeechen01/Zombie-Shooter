@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     private float speed = 0.1f;
     private Camera gameCamera;
+    bool canFreeze = true;
 
 
     // Use this for initialization
@@ -55,5 +56,31 @@ public class PlayerController : MonoBehaviour {
     void CameraController()
     {
         gameCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, gameCamera.transform.position.z);
+    }
+
+    public void Freeze (float seconds)
+    {
+        if (canFreeze)
+        {
+            canFreeze = false;
+            speed = 0;
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            sr.color = new Color(0f, 0.3f, 0.8f);
+            Invoke("SetNormalSpeed", seconds);
+        }
+        
+    }
+
+    void SetNormalSpeed()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = new Color(1f, 1f, 1f);
+        speed = 0.1f;
+        Invoke("SetCanFreeze", 1.5f);
+    }
+
+    void SetCanFreeze()
+    {
+        canFreeze = true;
     }
 }

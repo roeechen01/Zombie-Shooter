@@ -340,11 +340,14 @@ MonoBehaviour:
     type: 3}
   prefabRunnerZombie: {fileID: 8181624883076709271, guid: 779b653d1f1263f48a3bba548871ed32,
     type: 3}
+  prefabIceZombie: {fileID: 5418356742139291711, guid: aeff5a96aa202f349b0f4c0d06f96a2e,
+    type: 3}
   simpleCounter: 0
   fastCounter: 0
   ghostCounter: 0
-  runnerCounter: 1
+  runnerCounter: 0
   knifeBossCounter: 0
+  iceCounter: 0
 --- !u!4 &178920246
 Transform:
   m_ObjectHideFlags: 0

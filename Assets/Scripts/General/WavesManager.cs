@@ -7,7 +7,7 @@ public class WavesManager : MonoBehaviour
 {
     public Text waveText;
     private ZombieSpawner zombieSpawner;
-    private int wave = 1;
+    private int wave = 5;
     public bool noMore = false;
 
     // Start is called before the first frame update
@@ -99,6 +99,19 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.runnerCounter = 10;
                 zombieSpawner.ghostCounter = 10;
                 zombieSpawner.knifeBossCounter = 1;
+                noMore = true;
+                return true;
+            case 6:
+                zombieSpawner.ResetSpawn();
+                zombieSpawner.InvokeRepeating("SpawnIceZombie", 1f, 1f);
+                zombieSpawner.InvokeRepeating("SpawnFastZombie", 1f, 1f);
+                zombieSpawner.InvokeRepeating("SpawnRunnerZombie", 2f, 2f);
+                zombieSpawner.InvokeRepeating("SpawnGhostZombie", 5f, 3f);
+                zombieSpawner.InvokeRepeating("SpawnKnifeBossZombie", 5f, 10f);
+                zombieSpawner.iceCounter = 10;
+                zombieSpawner.fastCounter = 15;
+                zombieSpawner.runnerCounter = 15;
+                zombieSpawner.ghostCounter = 12;
                 noMore = true;
                 return true;
             default:
