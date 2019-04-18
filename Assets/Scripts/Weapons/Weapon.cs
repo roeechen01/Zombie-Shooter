@@ -120,7 +120,14 @@ public class Weapon : MonoBehaviour {
 
     public void AddToAmmo(int ammo)
     {
-        this.ammoLeft += ammo;
+        if (IsInvoking("ReloadAll"))
+        {
+            CancelInvoke("ReloadAll");
+            this.ammoLeft += ammo;
+            ReloadAll();
+        }
+        
+        else this.ammoLeft += ammo;
     }
 
     public int GetAmmoMax()

@@ -8,7 +8,7 @@ public class AmmoPack : Item
     {
         Weapon weapon = player.GetWeapon();
         weapon.AddToAmmo(weapon.GetStackMax() * 3);
-        if (weapon.GetAmmoLeft() > weapon.GetAmmoMax())
+        if (weapon.GetAmmoLeft() > weapon.GetAmmoMax()  - weapon.GetStackMax())
             weapon.SetAmmoToMax();
         weapon.UpdateAmmoText();
 

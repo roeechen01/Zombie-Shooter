@@ -24,7 +24,7 @@ public class RunnerZombie : Zombie
     protected override void SetVelocity()
     {
         rigidBody2d.velocity = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
-        rigidBody2d.velocity = new Vector2(rigidBody2d.velocity.x, rigidBody2d.velocity.x + Random.Range(-rigidBody2d.velocity.x / 5, rigidBody2d.velocity.x / 5));
+        rigidBody2d.velocity = new Vector2(rigidBody2d.velocity.x, rigidBody2d.velocity.x + Random.Range(-rigidBody2d.velocity.x / 3, rigidBody2d.velocity.x / 3));
         SetZombieSpeed();
 
     }

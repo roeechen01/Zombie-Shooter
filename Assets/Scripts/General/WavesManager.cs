@@ -111,7 +111,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.fastCounter = 15;
                 zombieSpawner.runnerCounter = 15;
                 zombieSpawner.ghostCounter = 12;
-                WaitForNextWave(70);
+                WaitForNextWave(60);
                 return true;
             case 7:
                 zombieSpawner.ResetSpawn();
@@ -136,11 +136,5 @@ public class WavesManager : MonoBehaviour
     public void Win()
     {
         waveText.text = "YOU WON";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
