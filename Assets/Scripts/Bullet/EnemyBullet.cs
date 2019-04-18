@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
 
     protected int demageMax;
@@ -12,23 +12,22 @@ public class Bullet : MonoBehaviour
 
     protected Vector3 shootDirection;
     protected Rigidbody2D rigidBody2d;
-    public Weapon weapon;
 
     public bool randomRange = false;
     public Vector2 range = new Vector2(0, 0);
 
-    void Start() {
+    void Start()
+    {
         SetUpGame.MakeSmaller(gameObject);
         rigidBody2d = GetComponent<Rigidbody2D>();
         hitsLeft = hitsMax;
     }
 
-    protected void CreateBulletTypeInfo(Weapon weapon, int demage, float speed, Vector2 range, bool randomRange, int hitsLeft)
+    protected void CreateBulletTypeInfo(int demage, float speed, Vector2 range, bool randomRange, int hitsLeft)
     {
         this.demageMax = demage;
         this.speed = speed;
         this.range = range;
-        this.weapon = weapon;
         this.randomRange = randomRange;
         this.hitsMax = hitsLeft;
         SetVelocity();
@@ -37,7 +36,7 @@ public class Bullet : MonoBehaviour
     virtual protected void SetVelocity()
     {
         rigidBody2d = GetComponent<Rigidbody2D>();
-        shootDirection = FixVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        shootDirection = FixVelocity(FindObjectOfType<PlayerController>().transform.position - transform.position);
         ChangeRange();
         rigidBody2d.velocity = FixVelocity(new Vector2(shootDirection.x, shootDirection.y));
         SetBulletSpeed();
@@ -99,31 +98,31 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public virtual void CreateBullet(Weapon weapon ,Vector2 range, bool random)
+    public virtual void CreateBullet(Vector2 range, bool random)
     {
-
+        CreateBulletTypeInfo(5, 12f, range, random, 1);
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (collider2D.GetComponent<Zombie>())
-        {
-            Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
-            if (zombie.CanHit())
-            {
-                if (collider2D.Equals(zombie.head))
-                    zombie.HeadShot((int)GetDemageBasedOnHits());
-                else zombie.Hit((int)GetDemageBasedOnHits());
-                this.hitsLeft--;
-                if (hitsLeft == 0)
-                    Destroy(gameObject);
-            }
-            
-        }
+    //protected virtual void OnTriggerEnter2D(Collider2D collider2D)
+    //{
+    //    if (collider2D.GetComponent<Zombie>())
+    //    {
+    //        Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
+    //        if (zombie.CanHit())
+    //        {
+    //            if (collider2D.Equals(zombie.head))
+    //                zombie.HeadShot((int)GetDemageBasedOnHits());
+    //            else zombie.Hit((int)GetDemageBasedOnHits());
+    //            this.hitsLeft--;
+    //            if (hitsLeft == 0)
+    //                Destroy(gameObject);
+    //        }
 
-        else if (collider2D.tag.Equals("Wall"))
-            Destroy(gameObject);
-    }
+    //    }
+
+    //    else if (collider2D.tag.Equals("Wall"))
+    //        Destroy(gameObject);
+    //}
 
     double GetDemageBasedOnHits()
     {

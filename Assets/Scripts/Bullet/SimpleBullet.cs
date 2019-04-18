@@ -10,4 +10,6 @@ public class SimpleBullet : Bullet {
         CreateBulletTypeInfo(weapon ,1, 12f, range, random, 1);
     }
 
+    
+
 }

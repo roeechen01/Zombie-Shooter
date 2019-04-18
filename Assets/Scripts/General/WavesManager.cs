@@ -7,7 +7,7 @@ public class WavesManager : MonoBehaviour
 {
     public Text waveText;
     private ZombieSpawner zombieSpawner;
-    private int wave = 5;
+    private int wave = 0;
     public bool noMore = false;
 
     // Start is called before the first frame update
@@ -48,10 +48,12 @@ public class WavesManager : MonoBehaviour
         {
             case 1:
                 zombieSpawner.ResetSpawn();
+                zombieSpawner.InvokeRepeating("SpawnOldZombie", 0f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 0f, 5f);
-                zombieSpawner.simpleCounter = 10;
-                zombieSpawner.fastCounter = 5;
+                zombieSpawner.oldCounter = 1;
+                //zombieSpawner.simpleCounter = 10;
+                //zombieSpawner.fastCounter = 5;
                 WaitForNextWave(25);
                 return true;
             case 2:
@@ -99,16 +101,15 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.runnerCounter = 10;
                 zombieSpawner.ghostCounter = 10;
                 zombieSpawner.knifeBossCounter = 1;
-                noMore = true;
+                WaitForNextWave(60);
                 return true;
             case 6:
                 zombieSpawner.ResetSpawn();
-                zombieSpawner.InvokeRepeating("SpawnIceZombie", 1f, 1f);
+                zombieSpawner.InvokeRepeating("SpawnIceZombie", 0.5f, 0.75f);
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 1f, 1f);
                 zombieSpawner.InvokeRepeating("SpawnRunnerZombie", 2f, 2f);
                 zombieSpawner.InvokeRepeating("SpawnGhostZombie", 5f, 3f);
-                zombieSpawner.InvokeRepeating("SpawnKnifeBossZombie", 5f, 10f);
-                zombieSpawner.iceCounter = 10;
+                zombieSpawner.iceCounter = 12;
                 zombieSpawner.fastCounter = 15;
                 zombieSpawner.runnerCounter = 15;
                 zombieSpawner.ghostCounter = 12;

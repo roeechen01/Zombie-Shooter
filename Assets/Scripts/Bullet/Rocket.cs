@@ -12,7 +12,7 @@ public class Rocket : Bullet
     public override void CreateBullet(Weapon weapon ,Vector2 range, bool random)
     {
         rpg = weapon.gameObject.GetComponent<Rpg>();
-        CreateBulletTypeInfo(weapon, demage, speed, range, random);
+        CreateBulletTypeInfo(weapon, demage, speed, range, random, 1);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)

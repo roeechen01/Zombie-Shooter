@@ -10,6 +10,7 @@ public class ZombieSpawner : MonoBehaviour {
     public KnifeBossZombie prefabKnifeBossZombie;
     public RunnerZombie prefabRunnerZombie;
     public IceZombie prefabIceZombie;
+    public OldZombie prefabOldZombie;
     Portal[] portals;
 
     public int simpleCounter = 0;
@@ -18,6 +19,7 @@ public class ZombieSpawner : MonoBehaviour {
     public int runnerCounter = 0;
     public int knifeBossCounter = 0;
     public int iceCounter = 0;
+    public int oldCounter = 0;
 
 
     // Use this for initialization
@@ -67,6 +69,15 @@ public class ZombieSpawner : MonoBehaviour {
         {
             portals[Random.Range(0, portals.Length)].Spawn(prefabIceZombie);
             iceCounter--;
+        }
+    }
+
+    void SpawnOldZombie()
+    {
+        if (oldCounter > 0)
+        {
+            portals[Random.Range(0, portals.Length)].Spawn(prefabOldZombie);
+            oldCounter--;
         }
     }
 
