@@ -14,16 +14,18 @@ public class OldZombie : Zombie
 
     void Shoot()
     {
-        Instantiate(bullet, this.transform.position, Quaternion.identity).CreateBullet(new Vector2(0f, 0f), false);
+        Instantiate(bullet, this.transform.position, Quaternion.identity).CreateBullet(new Vector2(0.3f, 0.3f), true);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
-        //base.OnTriggerEnter2D(collider2D);
+        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
+        {
+            rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
 
     protected override void OnTriggerStay2D(Collider2D collider2D)
     {
-        //base.OnTriggerStay2D(collider2D);
     }
 }

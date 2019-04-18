@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour
         ChangeRange();
         rigidBody2d.velocity = FixVelocity(new Vector2(shootDirection.x, shootDirection.y));
         SetBulletSpeed();
+        
     }
 
     protected void ChangeRange()

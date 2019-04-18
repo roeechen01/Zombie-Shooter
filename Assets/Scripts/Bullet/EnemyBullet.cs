@@ -5,10 +5,8 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
 
-    protected int demageMax;
+    protected int demage;
     protected float speed;
-    protected int hitsMax = 1;
-    protected int hitsLeft;
 
     protected Vector3 shootDirection;
     protected Rigidbody2D rigidBody2d;
@@ -20,16 +18,14 @@ public class EnemyBullet : MonoBehaviour
     {
         SetUpGame.MakeSmaller(gameObject);
         rigidBody2d = GetComponent<Rigidbody2D>();
-        hitsLeft = hitsMax;
     }
 
     protected void CreateBulletTypeInfo(int demage, float speed, Vector2 range, bool randomRange, int hitsLeft)
     {
-        this.demageMax = demage;
+        this.demage = demage;
         this.speed = speed;
         this.range = range;
         this.randomRange = randomRange;
-        this.hitsMax = hitsLeft;
         SetVelocity();
     }
 
@@ -40,6 +36,8 @@ public class EnemyBullet : MonoBehaviour
         ChangeRange();
         rigidBody2d.velocity = FixVelocity(new Vector2(shootDirection.x, shootDirection.y));
         SetBulletSpeed();
+        var angle = Mathf.Atan2(rigidBody2d.velocity.y, rigidBody2d.velocity.x) * Mathf.Rad2Deg;
+        rigidBody2d.MoveRotation(angle);
     }
 
     protected void ChangeRange()
@@ -100,32 +98,23 @@ public class EnemyBullet : MonoBehaviour
 
     public virtual void CreateBullet(Vector2 range, bool random)
     {
-        CreateBulletTypeInfo(5, 12f, range, random, 1);
+        CreateBulletTypeInfo(5, 10f, range, random, 1);
     }
 
-    //protected virtual void OnTriggerEnter2D(Collider2D collider2D)
-    //{
-    //    if (collider2D.GetComponent<Zombie>())
-    //    {
-    //        Zombie zombie = collider2D.gameObject.GetComponent<Zombie>();
-    //        if (zombie.CanHit())
-    //        {
-    //            if (collider2D.Equals(zombie.head))
-    //                zombie.HeadShot((int)GetDemageBasedOnHits());
-    //            else zombie.Hit((int)GetDemageBasedOnHits());
-    //            this.hitsLeft--;
-    //            if (hitsLeft == 0)
-    //                Destroy(gameObject);
-    //        }
-
-    //    }
-
-    //    else if (collider2D.tag.Equals("Wall"))
-    //        Destroy(gameObject);
-    //}
-
-    double GetDemageBasedOnHits()
+    protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
-        return demageMax * (double)hitsLeft / hitsMax;
+        if (collider2D.GetComponent<PlayerAttack>())
+        {
+            PlayerAttack player = collider2D.gameObject.GetComponent<PlayerAttack>();
+            if (player.GetVulnerable())
+            {
+                player.Demage(demage);
+                Destroy(gameObject);
+            }
+
+        }
+
+        else if (collider2D.tag.Equals("Wall"))
+            Destroy(gameObject);
     }
 }
