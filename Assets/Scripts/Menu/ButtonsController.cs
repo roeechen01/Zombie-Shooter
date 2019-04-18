@@ -20,6 +20,7 @@ public class ButtonsController : MonoBehaviour
 
     public void ExitGame()
     {
+        //FindObjectOfType<MusicPlayer>().GetComponent<AudioSource>().Stop();
         Application.Quit();
     }
 }

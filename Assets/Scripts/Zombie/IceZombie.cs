@@ -12,6 +12,7 @@ public class IceZombie : Zombie
     protected override void DemagingPlayer()
     {
         PlayerController player = FindObjectOfType<PlayerController>();
-        player.Freeze(2);
+        if(player.GetComponent<PlayerAttack>().GetVulnerable())
+            player.Freeze(2);
     }
 }

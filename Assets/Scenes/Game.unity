@@ -1747,6 +1747,8 @@ MonoBehaviour:
     type: 3}
   smallHealthPack: {fileID: 6206528963422191052, guid: 9f9bcf3d3baec8f4685802bfe5d8b5bf,
     type: 3}
+  invisibilityPotion: {fileID: 4124100799146391440, guid: 961006c75ee40ea4c88be2213fe3465c,
+    type: 3}
 --- !u!1 &798621575
 GameObject:
   m_ObjectHideFlags: 0

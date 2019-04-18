@@ -89,12 +89,19 @@ public class PlayerAttack : MonoBehaviour {
     {
         //this.life -= demage;
         //UpdateText();
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.4f);
+        MakeUnvulnerable(2f);
         this.life -= demage;
         UpdateText();
-        Invoke("MakeVulnerable", 2f);
+        
+    }
+
+    public void MakeUnvulnerable(float seconds)
+    {
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.4f);
+        Invoke("MakeVulnerable", seconds);
         vulnerable = false;
     }
+
 
     void MakeVulnerable()
     {
