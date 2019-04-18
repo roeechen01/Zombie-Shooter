@@ -77,7 +77,7 @@ public class Weapon : MonoBehaviour {
     {
         if (ammoLeft == 0)
             PlayNoAmmoClip();
-        if (ammoOnStack != stackMax && ammoLeft > 0)
+        if (ammoOnStack < stackMax && ammoLeft > 0)
         {
 
             reloading = true;
@@ -116,6 +116,30 @@ public class Weapon : MonoBehaviour {
             reloading = false;
             UpdateAmmoText();
         //}
+    }
+
+    public void AddToAmmo(int ammo)
+    {
+        this.ammoLeft += ammo;
+    }
+
+    public int GetAmmoMax()
+    {
+        return this.ammoMax;
+    }
+
+    public int GetStackMax()
+    {
+        return this.stackMax;
+    }
+
+    public int GetAmmoLeft()
+    {
+        return this.ammoLeft;
+    }
+    public void SetAmmoToMax()
+    {
+        this.ammoLeft = this.ammoMax - this.stackMax;
     }
 
     void Awake()

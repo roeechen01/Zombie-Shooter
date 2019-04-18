@@ -7,6 +7,7 @@ public class ItemSpawner : MonoBehaviour
     public HealthPack healthPack;
     public SmallHealthPack smallHealthPack;
     public InvisibilityPotion invisibilityPotion;
+    public AmmoPack ammoPack;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class ItemSpawner : MonoBehaviour
         int rnd = Random.Range(1, 101);
         if (rnd > 80)
             SpawnItem(invisibilityPotion);
+        else if (rnd > 21)
+            SpawnItem(ammoPack);
         else if (rnd > 20)
             SpawnItem(smallHealthPack);
         else SpawnItem(healthPack);

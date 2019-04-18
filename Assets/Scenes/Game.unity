@@ -1749,6 +1749,8 @@ MonoBehaviour:
     type: 3}
   invisibilityPotion: {fileID: 4124100799146391440, guid: 961006c75ee40ea4c88be2213fe3465c,
     type: 3}
+  ammoPack: {fileID: 5893358844626504561, guid: ff9c453240ac0d747beff790a627f52b,
+    type: 3}
 --- !u!1 &798621575
 GameObject:
   m_ObjectHideFlags: 0
