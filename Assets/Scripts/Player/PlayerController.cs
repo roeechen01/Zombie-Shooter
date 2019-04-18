@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    private float speed = 0.1f;
+    private float speed = 6f;
     private Camera gameCamera;
     bool canFreeze = true;
 
@@ -19,19 +19,19 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.position = new Vector3(this.transform.position.x - speed, this.transform.position.y, 0f);
+            this.transform.position = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, 0f);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - speed, 0f);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - speed * Time.deltaTime, 0f);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            this.transform.position = new Vector3(this.transform.position.x + speed, this.transform.position.y, 0f);
+            this.transform.position = new Vector3(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y, 0f);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + speed, 0f);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + speed * Time.deltaTime, 0f);
         }
     }
 
