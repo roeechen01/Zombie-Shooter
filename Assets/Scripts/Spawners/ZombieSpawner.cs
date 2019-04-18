@@ -96,6 +96,8 @@ public class ZombieSpawner : MonoBehaviour {
         fastCounter = 0;
         ghostCounter = 0;
         runnerCounter = 0;
+        iceCounter = 0;
+        oldCounter = 0;
         knifeBossCounter = 0;
         CancelInvoke();
     }
