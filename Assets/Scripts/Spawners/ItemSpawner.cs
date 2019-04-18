@@ -24,11 +24,12 @@ public class ItemSpawner : MonoBehaviour
         int rnd = Random.Range(1, 101);
         if (rnd > 80)
             SpawnItem(invisibilityPotion);
-        else if (rnd > 21)
+        else if (rnd > 60)
             SpawnItem(ammoPack);
         else if (rnd > 20)
             SpawnItem(smallHealthPack);
-        else SpawnItem(healthPack);
+        else
+            SpawnItem(healthPack);
     }
 
 }

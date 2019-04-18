@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    private float originalSpeed;
     private float speed = 6f;
     private Camera gameCamera;
     bool canFreeze = true;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        originalSpeed = speed;
         SetUpGame.MakeSmaller(gameObject);
         gameCamera = FindObjectOfType<Camera>();
     }
@@ -75,7 +77,7 @@ public class PlayerController : MonoBehaviour {
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = new Color(1f, 1f, 1f);
-        speed = 0.1f;
+        speed = originalSpeed;
         Invoke("SetCanFreeze", 1.5f);
     }
 
