@@ -18,6 +18,8 @@ public class Zombie : MonoBehaviour {
     protected float speed;
     protected bool canHit = true;
 
+    public Vector2 velocity;
+
 
     // Use this for initialization
     protected void Start () {
@@ -82,6 +84,13 @@ public class Zombie : MonoBehaviour {
             }
         }
 
+        if (rigidBody2d.velocity.x == 0 || rigidBody2d.velocity.y == 0 && this is RunnerZombie)
+        {
+            print(gameObject.name);
+            Destroy(gameObject);
+        }
+            
+
     }
 
     protected virtual void SetVelocity()
@@ -124,6 +133,7 @@ public class Zombie : MonoBehaviour {
     protected void Update () {
             Rotaion();
             SetVelocity();
+        velocity = rigidBody2d.velocity;
     }
 
     void CheckForSamePosZombies()
