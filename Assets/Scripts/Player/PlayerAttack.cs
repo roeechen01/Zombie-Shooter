@@ -213,19 +213,18 @@ public class PlayerAttack : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.E))
             SwitchWeapn();
         if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
-            Death();
+            Dead();
     }
 
-    void Death()
+    void Dead()
     {
         Zombie[] zombies = FindObjectsOfType<Zombie>();
         foreach (Zombie zombie in zombies)
             Destroy(zombie.gameObject);
-        Bullet[] bullets = FindObjectsOfType<Bullet>();
-        foreach (Bullet bullet in bullets)
-            Destroy(bullet.gameObject);
         Destroy(FindObjectOfType<ZombieSpawner>());
         Destroy(FindObjectOfType<WeaponSpawner>());
+        Destroy(FindObjectOfType<ItemSpawner>());
+        Destroy(weapon.GetAmmoText().gameObject);
         Destroy(gameObject);
     }
 

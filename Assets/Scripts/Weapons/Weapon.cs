@@ -22,6 +22,11 @@ public class Weapon : MonoBehaviour {
     protected int reloadTime;
     protected float rangeRatio;
 
+    public Text GetAmmoText()
+    {
+        return this.ammoText;
+    }
+
     void PlayNoAmmoClip()
     {
         AudioSource.PlayClipAtPoint(noAmmoClip, this.transform.position);

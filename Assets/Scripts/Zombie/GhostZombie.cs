@@ -13,7 +13,7 @@ public class GhostZombie : Zombie
 
     protected override void CreateZombie()
     {
-        CreateZombieTypeInfo(1, 25, 4f);
+        CreateZombieTypeInfo(2, 25, 4f);
     }
 
     //void ChangeModeCounter()

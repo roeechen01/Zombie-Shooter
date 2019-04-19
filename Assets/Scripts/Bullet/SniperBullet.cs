@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnipertBullet : Bullet
+public class SniperBullet : Bullet
 {
     public override void CreateBullet(Weapon weapon, Vector2 range, bool random)
     {
