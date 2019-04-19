@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour {
     private Shotgun shotgun;
     private Rifle rifle;
     private Rpg rpg;
+    private Sniper sniper;
 
     private double life;
     private double maxLife = 100;
@@ -35,6 +36,7 @@ public class PlayerAttack : MonoBehaviour {
     public Shotgun GetShotgun() { return this.shotgun; }
     public Rifle GetRifle() { return this.rifle; }
     public Rpg GetRpg() { return this.rpg; }
+    public Sniper GetSniper() { return this.sniper; }
 
     // Use this for initialization
     void Start () {
@@ -46,11 +48,13 @@ public class PlayerAttack : MonoBehaviour {
         weapons.Add(shotgun);
         weapons.Add(rifle);
         weapons.Add(rpg);
+        weapons.Add(sniper);
 
         foreach (Weapon weapon in weapons)
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
         inventory[0] = weapon;
+        inventory[1] = sniper;
         spriteRenderer.sprite = weapons[0].sprite;
         weapon.WaitBeforeReloadAll();
     }
@@ -82,6 +86,7 @@ public class PlayerAttack : MonoBehaviour {
         shotgun = GetComponent<Shotgun>();
         rifle = GetComponent<Rifle>();
         rpg = GetComponent<Rpg>();
+        sniper = GetComponent<Sniper>();
     }
 
 

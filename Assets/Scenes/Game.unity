@@ -1906,6 +1906,7 @@ GameObject:
   - component: {fileID: 1165173297}
   - component: {fileID: 1165173296}
   - component: {fileID: 1165173298}
+  - component: {fileID: 1165173301}
   - component: {fileID: 1165173299}
   - component: {fileID: 1165173300}
   m_Layer: 0
@@ -2284,6 +2285,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9819472, y: 2.1197772}
   m_EdgeRadius: 0
+--- !u!114 &1165173301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7486c2833c0d3324f9f61baaf9c9bc3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3981263581468562228, guid: 1997b0e16b45e1d4bb388ef8e4994e03, type: 3}
+  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
+  reloadClip: {fileID: 8300000, guid: 051415c550b3f2740b70ae37fb3f10ed, type: 3}
+  sprite: {fileID: 21300000, guid: dad75cd5c9f9bd845abc40f43011bf14, type: 3}
+  noAmmoClip: {fileID: 8300000, guid: 2794e381ccd3c2f4e801b9fd48409e72, type: 3}
+  laser: {fileID: 6835984521472360450, guid: cbc8225fd9bbe2e4ab9f1acf5aabc7f0, type: 3}
 --- !u!1 &1293592334
 GameObject:
   m_ObjectHideFlags: 0
