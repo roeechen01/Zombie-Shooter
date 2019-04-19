@@ -98,7 +98,7 @@ public class EnemyBullet : MonoBehaviour
 
     public virtual void CreateBullet(Vector2 range, bool random)
     {
-        CreateBulletTypeInfo(5, 10f, range, random, 1);
+        CreateBulletTypeInfo(10, 10f, range, random, 1);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider2D)
