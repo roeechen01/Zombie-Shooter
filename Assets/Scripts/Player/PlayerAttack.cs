@@ -116,6 +116,18 @@ public class PlayerAttack : MonoBehaviour {
 
     public Weapon GetWeapon() { return this.weapon; }
 
+    public Weapon GetSecondaryWeapon()
+    {
+        if (inventory[1] != null)
+        {
+            if (weapon == inventory[0])
+                return inventory[1];
+            else return inventory[0];
+        }
+        else return null;
+        
+    }
+
     void SwitchWeapn()
     {
         if (!weapon.IsReloading())

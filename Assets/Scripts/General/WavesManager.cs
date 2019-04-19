@@ -42,7 +42,7 @@ public class WavesManager : MonoBehaviour
         Invoke("NextWave", seconds);
     }
 
-    bool SetWave()
+    void SetWave()
     {
         switch (wave)
         {
@@ -53,7 +53,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.simpleCounter = 10;
                 zombieSpawner.fastCounter = 5;
                 WaitForNextWave(25);
-                return true;
+                break;
             case 2:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -62,9 +62,8 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.simpleCounter = 20;
                 zombieSpawner.fastCounter = 5;
                 zombieSpawner.runnerCounter = 5;
-
                 WaitForNextWave(35);
-                return true;
+                break;
             case 3:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -76,7 +75,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.fastCounter = 10;
                 zombieSpawner.ghostCounter = 5;
                 WaitForNextWave(45);
-                return true;
+                break;
             case 4:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -86,7 +85,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.fastCounter = 20;
                 zombieSpawner.ghostCounter = 10;
                 WaitForNextWave(60);
-                return true;
+                break;
             case 5:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnSimpleZombie", 1f, 1f);
@@ -100,7 +99,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.ghostCounter = 10;
                 zombieSpawner.knifeBossCounter = 1;
                 WaitForNextWave(60);
-                return true;
+                break;
             case 6:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnIceZombie", 0.5f, 0.75f);
@@ -112,7 +111,7 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.runnerCounter = 15;
                 zombieSpawner.ghostCounter = 12;
                 WaitForNextWave(60);
-                return true;
+                break;
             case 7:
                 zombieSpawner.ResetSpawn();
                 zombieSpawner.InvokeRepeating("SpawnFastZombie", 1f, 1f);
@@ -126,10 +125,10 @@ public class WavesManager : MonoBehaviour
                 zombieSpawner.runnerCounter = 15;
                 zombieSpawner.ghostCounter = 8;
                 noMore = true;
-                return true;
+                break;
             default:
                 waveText.text = "YOU WON";
-                return false;
+                break;
         }
     }
 
