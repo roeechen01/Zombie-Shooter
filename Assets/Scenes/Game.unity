@@ -2298,8 +2298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3981263581468562228, guid: 1997b0e16b45e1d4bb388ef8e4994e03, type: 3}
-  gunfire: {fileID: 8300000, guid: 2a5f0ddd09bf3e04fbc90423a19e4e64, type: 3}
-  reloadClip: {fileID: 8300000, guid: 051415c550b3f2740b70ae37fb3f10ed, type: 3}
+  gunfire: {fileID: 8300000, guid: f233c982eefb0d0488d1c1e5293abf96, type: 3}
+  reloadClip: {fileID: 8300000, guid: 3c85c9b367515fb4fb0a4a8808645920, type: 3}
   sprite: {fileID: 21300000, guid: dad75cd5c9f9bd845abc40f43011bf14, type: 3}
   noAmmoClip: {fileID: 8300000, guid: 2794e381ccd3c2f4e801b9fd48409e72, type: 3}
   laser: {fileID: 6835984521472360450, guid: cbc8225fd9bbe2e4ab9f1acf5aabc7f0, type: 3}

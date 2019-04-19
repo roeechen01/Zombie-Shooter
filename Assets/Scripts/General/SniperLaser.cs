@@ -7,10 +7,11 @@ public class SniperLaser : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private Sprite laser;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         laser = spriteRenderer.sprite;
+        spriteRenderer.sprite = null;
     }
 
     public void Invisible()
