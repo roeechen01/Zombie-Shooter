@@ -3002,6 +3002,8 @@ MonoBehaviour:
     type: 3}
   pickupRpg: {fileID: 175917108266524139, guid: ec450b5cd6ca35c42ad319072bd15c2e,
     type: 3}
+  pickupSniper: {fileID: 4478455625923782248, guid: 601d7bcdf70b6c14cb6c2a73108d435e,
+    type: 3}
   pickupSound: {fileID: 8300000, guid: 02af31ee4f754114daa6147c632a8551, type: 3}
 --- !u!4 &2082329097
 Transform:

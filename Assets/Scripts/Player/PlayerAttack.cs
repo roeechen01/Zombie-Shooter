@@ -54,7 +54,6 @@ public class PlayerAttack : MonoBehaviour {
             weapon.SetPlayerAttack(this);
         weapon = weapons[0];
         inventory[0] = weapon;
-        inventory[1] = sniper;
         spriteRenderer.sprite = weapons[0].sprite;
         weapon.WaitBeforeReloadAll();
     }

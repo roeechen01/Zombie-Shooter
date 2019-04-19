@@ -9,6 +9,7 @@ public class WeaponSpawner : MonoBehaviour
     public PickupShotgun pickupShotgun;
     public PickupRifle pickupRifle;
     public PickupRpg pickupRpg;
+    public PickupSniper pickupSniper;
     public AudioClip pickupSound;
 
     // Start is called before the first frame update
@@ -19,12 +20,7 @@ public class WeaponSpawner : MonoBehaviour
         pickupShotgun.pickupClip = pickupSound;
         pickupRifle.pickupClip = pickupSound;
         pickupRpg.pickupClip = pickupSound;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        pickupSniper.pickupClip = pickupSound;
     }
 
     void SpawnWeapon(PickupWeapon pickupWeapon)
@@ -35,13 +31,15 @@ public class WeaponSpawner : MonoBehaviour
     void RandomWeapon()
     {
         int rnd = Random.Range(1, 101);
-        if (rnd > 60)
+        if (rnd > 70)
             SpawnWeapon(pickupGun);
-        else if (rnd > 30)
+        else if (rnd > 50)
             SpawnWeapon(pickupShotgun);
-        else if (rnd > 10)
+        else if (rnd > 30)
             SpawnWeapon(pickupRifle);
-        else 
+        else if (rnd > 10)
+            SpawnWeapon(pickupSniper);
+        else
             SpawnWeapon(pickupRpg);
     }
 }
