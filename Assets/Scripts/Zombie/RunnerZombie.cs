@@ -6,7 +6,7 @@ public class RunnerZombie : Zombie
 {
     protected override void CreateZombie()
     {
-        CreateZombieTypeInfo(1, 20, 3f);
+        CreateZombieTypeInfo(1, 15, 3f);
     }
 
     new void Start()

@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour {
     protected bool onCoolddown = false;
     protected float cooldownTime;
     bool reloading = false;
-    protected int reloadTime;
+    protected float reloadTime;
     protected float rangeRatio;
 
     public Text GetAmmoText()

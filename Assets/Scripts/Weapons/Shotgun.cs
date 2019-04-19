@@ -9,9 +9,9 @@ public class Shotgun : Weapon {
         cooldownTime = 1f;
         ammoOnStack = 12;
         shotsAmount = 3;
-        reloadTime = 2;
+        reloadTime = 1.5f;
         rangeRatio = 0.35f;
-        SetAmmo(36, 12);
+        SetAmmo(48, 12);
     }
 
     public override void Fire()

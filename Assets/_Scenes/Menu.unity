@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 276914718}
   - component: {fileID: 276914717}
   m_Layer: 5
-  m_Name: ControlsHeader
+  m_Name: credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,7 +442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64b7bf7ee245da4cb6ba352812f8b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: e688b28e54a1fa340aa28e2ff2265d31, type: 3}
 --- !u!82 &428218724
 AudioSource:
   m_ObjectHideFlags: 0
