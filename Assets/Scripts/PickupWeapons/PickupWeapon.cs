@@ -20,6 +20,7 @@ public class PickupWeapon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
+        PlayerAttack player = FindObjectOfType<PlayerAttack>();
         if (collider2D.gameObject.tag.Equals("Player") && collider2D == collider2D.gameObject.GetComponent<PlayerAttack>().body)
         {
             Destroy(gameObject);
@@ -28,6 +29,9 @@ public class PickupWeapon : MonoBehaviour
                 weapon.SetUpWeapon(true);
             else weapon.SetUpWeapon(false);
             AudioSource.PlayClipAtPoint(pickupClip, this.transform.position);
+            InventoryWeapon[] inventoryWeapons = FindObjectsOfType<InventoryWeapon>();
+            foreach (InventoryWeapon inventoryWeapon in inventoryWeapons)
+                inventoryWeapon.Change(player.inventory);
         }
     }
     protected virtual void FindWeapon() { }

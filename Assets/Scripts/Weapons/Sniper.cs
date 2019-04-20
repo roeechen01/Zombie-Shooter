@@ -7,6 +7,7 @@ public class Sniper : Weapon
     public SniperLaser laser;
     void Start()
     {
+        name = "Sniper";
         cooldownTime = 1f;
         ammoOnStack = 4;
         shotsAmount = 1;

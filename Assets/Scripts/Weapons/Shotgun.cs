@@ -6,6 +6,7 @@ public class Shotgun : Weapon {
 
     void Start()
     {
+        name = "Shotgun";
         cooldownTime = 1f;
         ammoOnStack = 12;
         shotsAmount = 3;

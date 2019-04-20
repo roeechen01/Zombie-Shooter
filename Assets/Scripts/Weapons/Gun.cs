@@ -6,6 +6,7 @@ public class Gun : Weapon {
 
     void Start()
     {
+        name = "Gun";
         shotsAmount = 1;
         reloadTime = 1;
         SetAmmo(72, 12);

@@ -6,6 +6,7 @@ public class Rpg : Weapon
 {
     void Start()
     {
+        name = "Rpg";
         shotsAmount = 1;
         reloadTime = 3;
         cooldownTime = 2f;

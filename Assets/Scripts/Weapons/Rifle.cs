@@ -10,6 +10,7 @@ public class Rifle : Weapon {
 
     void Start()
     {
+        name = "Rifle";
         cooldownTime = 0.1f;
         ammoOnStack = 50;
         shotsAmount = 1;
