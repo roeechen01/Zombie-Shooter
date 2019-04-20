@@ -16,6 +16,7 @@ public class Blood : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = null;
     }
 
+
     public bool Exist()
     {
         return GetComponent<SpriteRenderer>().sprite != null;
@@ -28,8 +29,8 @@ public class Blood : MonoBehaviour
 
     void Update()
     {
-        if (!zombie)
-            SelfDestroy();
+        //if (!zombie)
+        //    SelfDestroy();
 
 
 

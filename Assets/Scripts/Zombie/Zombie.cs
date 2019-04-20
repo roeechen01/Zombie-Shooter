@@ -120,11 +120,9 @@ public class Zombie : MonoBehaviour {
         
         this.CancelInvoke();
         aliveZombies.Remove(this);
-        for(int i = 0; i < bloods.Count; i++)
-        {
-            if (bloods[i].Exist())
-                bloods[i].SelfDestroy();
-        }
+        foreach(Blood blood in bloods)
+            if (blood.Exist())
+                blood.SelfDestroy();
         Destroy(gameObject);
     }
 
