@@ -18,7 +18,6 @@ public class InventoryWeapon : MonoBehaviour
         image = this.GetComponent<Image>();
         if (image.sprite == null)
             image.color = new Color();
-        image.SetNativeSize();
         foreach(InventoryAmmo ammo in FindObjectsOfType<InventoryAmmo>())
         {
             if(this.index == ammo.index)
