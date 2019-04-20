@@ -57,9 +57,7 @@ public class PlayerAttack : MonoBehaviour {
         weapon = weapons[0];
         inventory[0] = weapon;
         spriteRenderer.sprite = weapons[0].sprite;
-        InventoryWeapon[] inventoryWeapons = FindObjectsOfType<InventoryWeapon>();
-        foreach (InventoryWeapon inventoryWeapon in inventoryWeapons)
-            inventoryWeapon.Change(this.inventory);
+        InventoryWeapon.ChangeInventory(this.inventory);
     }
 
     public void AddLife(double life, bool all)
@@ -155,7 +153,7 @@ public class PlayerAttack : MonoBehaviour {
                     weaponIndex = 0;
                 }
                 weapon.UpdateAmmoText();
-                //weapon.WaitBeforeReloadAll();
+                InventoryWeapon.ChangeInventory(this.inventory);
 
             }
         }

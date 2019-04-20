@@ -6,6 +6,7 @@ public class InvisibilityPotion : Item
 {
     protected override void Ability()
     {
+        player.CancelInvoke("MakeVulnerable");
         player.MakeUnvulnerable(5);
     }
 }

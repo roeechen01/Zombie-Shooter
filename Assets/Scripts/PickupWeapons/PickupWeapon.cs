@@ -29,9 +29,7 @@ public class PickupWeapon : MonoBehaviour
                 weapon.SetUpWeapon(true);
             else weapon.SetUpWeapon(false);
             AudioSource.PlayClipAtPoint(pickupClip, this.transform.position);
-            InventoryWeapon[] inventoryWeapons = FindObjectsOfType<InventoryWeapon>();
-            foreach (InventoryWeapon inventoryWeapon in inventoryWeapons)
-                inventoryWeapon.Change(player.inventory);
+            InventoryWeapon.ChangeInventory(player.inventory);
         }
     }
     protected virtual void FindWeapon() { }
