@@ -17,6 +17,7 @@ public class AmmoPack : Item
             secondary.AddToAmmo(weapon.GetStackMax() * 2);
             if (secondary.GetAmmoLeft() > secondary.GetAmmoMax() - secondary.GetStackMax())
                 secondary.SetAmmoToMax();
+            secondary.UpdateAmmoText();
         }
         
 
