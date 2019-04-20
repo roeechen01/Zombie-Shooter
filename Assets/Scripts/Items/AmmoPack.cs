@@ -14,7 +14,7 @@ public class AmmoPack : Item
         Weapon secondary = player.GetSecondaryWeapon();
         if (secondary != null)
         {
-            secondary.AddToAmmo(weapon.GetStackMax() * 2);
+            secondary.AddToAmmo(secondary.GetStackMax() * 2);
             if (secondary.GetAmmoLeft() > secondary.GetAmmoMax() - secondary.GetStackMax())
                 secondary.SetAmmoToMax();
             secondary.UpdateAmmoText();

@@ -140,12 +140,14 @@ public class Zombie : MonoBehaviour {
     void CheckForSamePosZombies()
     {
         foreach (Zombie zombie in aliveZombies)
-            if (ClosePosition(this.transform.position, zombie.transform.position, 0.03f) && zombie != this && this.name.Equals(zombie.name))
+            if (zombie && ClosePosition(this.transform.position, zombie.transform.position, 0.03f) && zombie != this && this.name.Equals(zombie.name))
             {
                 print("found zombies in same position");
                 Dead();
                 break;
             }
+
+
     }
 
     bool CloseFloats(float num1, float num2, float closeDiff)

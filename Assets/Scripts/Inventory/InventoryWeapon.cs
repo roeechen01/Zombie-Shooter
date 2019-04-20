@@ -67,7 +67,7 @@ public class InventoryWeapon : MonoBehaviour
             if(player.GetWeapon() == inventory[index])
                 image.color = new Color(1f, 1f, 1f, 1f);
             else image.color = new Color(1f, 1f, 1f, 0.5f);
-            ChangeTextVisibility(inventory[index].GetName());
+            ChangeTextVisibility();
            
         }
         image.preserveAspect = true;
@@ -93,9 +93,8 @@ public class InventoryWeapon : MonoBehaviour
         return null;
     }
 
-    public void ChangeTextVisibility(string name)
+    public void ChangeTextVisibility()
     {
-        print(name + ": " + this.image.color.a);
         this.ammoText.text.color = this.image.color;
     }
 
