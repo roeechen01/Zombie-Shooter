@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 6507139996876818449, guid: b0138d3d4aa57b14b9cbb7984a0be8fd, type: 3}
+  bloods: []
   head: {fileID: 8159967935486926377}
   velocity: {x: 0, y: 0}
 --- !u!50 &6091415238929904699

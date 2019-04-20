@@ -26,13 +26,4 @@ public class Blood : MonoBehaviour
     {
         this.zombie = zombie;
     }
-
-    void Update()
-    {
-        //if (!zombie)
-        //    SelfDestroy();
-
-
-
-    }
 }

@@ -179,7 +179,7 @@ public class Zombie : MonoBehaviour {
         }
 
         Bullet bullet = collider2D.gameObject.GetComponent<Bullet>();
-        if (bullet)
+        if (bullet && canHit)
         {
             Blood tempBlood = Instantiate(blood, new Vector3(bullet.transform.position.x, bullet.transform.position.y, -1f), Quaternion.identity);
             bloods.Add(tempBlood);

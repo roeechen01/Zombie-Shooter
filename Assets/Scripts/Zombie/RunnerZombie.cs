@@ -49,6 +49,14 @@ public class RunnerZombie : Zombie
             }
             SetZombieSpeed();
         }
+
+        Bullet bullet = collider2D.gameObject.GetComponent<Bullet>();
+        if (bullet && canHit)
+        {
+            Blood tempBlood = Instantiate(blood, new Vector3(bullet.transform.position.x, bullet.transform.position.y, -1f), Quaternion.identity);
+            bloods.Add(tempBlood);
+            tempBlood.SetZombie(this);
+        }
     }
 
     protected override void OnTriggerStay2D(Collider2D collider2D)
