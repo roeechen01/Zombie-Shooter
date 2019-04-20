@@ -58,6 +58,9 @@ public class PlayerAttack : MonoBehaviour {
         inventory[0] = weapon;
         spriteRenderer.sprite = weapons[0].sprite;
         InventoryWeapon.ChangeInventory(this.inventory);
+        foreach(Weapon weapon in inventory)
+            if(weapon)
+                weapon.UpdateAmmoText();
     }
 
     public void AddLife(double life, bool all)
@@ -143,14 +146,17 @@ public class PlayerAttack : MonoBehaviour {
                 AudioSource.PlayClipAtPoint(switchWeaponClip, this.transform.position);
                 if (weaponIndex != inventory.Length - 1)
                 {
-                    weapon = inventory[++weaponIndex];
+                    weapon = inventory[1];
+                    InventoryWeapon.activeIndex = 1;
+                    weaponIndex = 1;
                     spriteRenderer.sprite = inventory[weaponIndex].sprite;
                 }
                 else
                 {
                     weapon = inventory[0];
-                    spriteRenderer.sprite = inventory[0].sprite;
+                    InventoryWeapon.activeIndex = 0;
                     weaponIndex = 0;
+                    spriteRenderer.sprite = inventory[weaponIndex].sprite;
                 }
                 weapon.UpdateAmmoText();
                 InventoryWeapon.ChangeInventory(this.inventory);
@@ -228,7 +234,6 @@ public class PlayerAttack : MonoBehaviour {
         Destroy(FindObjectOfType<ZombieSpawner>());
         Destroy(FindObjectOfType<WeaponSpawner>());
         Destroy(FindObjectOfType<ItemSpawner>());
-        Destroy(weapon.GetAmmoText().gameObject);
         Destroy(FindObjectOfType<SniperLaser>());
         Destroy(gameObject);
     }

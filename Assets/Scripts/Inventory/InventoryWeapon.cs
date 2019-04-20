@@ -8,7 +8,9 @@ public class InventoryWeapon : MonoBehaviour
     public int index;
     private Image image;
     public Sprite gun, shotgun, rifle, sniper, rpg;
-    private PlayerAttack player;
+    private static PlayerAttack player;
+    private InventoryAmmo ammoText;
+    public static int activeIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,14 @@ public class InventoryWeapon : MonoBehaviour
         if (image.sprite == null)
             image.color = new Color();
         image.SetNativeSize();
+        foreach(InventoryAmmo ammo in FindObjectsOfType<InventoryAmmo>())
+        {
+            if(this.index == ammo.index)
+            {
+                this.ammoText = ammo;
+                break;
+            }
+        }
     }
 
     public static void ChangeInventory(Weapon[] inventory)
@@ -61,5 +71,29 @@ public class InventoryWeapon : MonoBehaviour
 
         }
 
+    }
+
+    public Text GetAmmoText(Weapon weapon)
+    {
+        if(weapon == player.GetWeapon())
+        {
+            if (this.index == activeIndex)
+                return this.ammoText.text;
+        }
+        else
+        {
+            if (this.index != activeIndex)
+                return this.ammoText.text;
+        }
+        return null;
+    }
+
+    public static Text GetText(Weapon weapon)
+    {
+        InventoryWeapon[] inventoryWeapons = FindObjectsOfType<InventoryWeapon>();
+        foreach (InventoryWeapon inventoryWeapon in inventoryWeapons)
+            if(inventoryWeapon.GetAmmoText(weapon) != null)
+                return inventoryWeapon.GetAmmoText(weapon);
+        return null;
     }
 }

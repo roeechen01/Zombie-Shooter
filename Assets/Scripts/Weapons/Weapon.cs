@@ -12,10 +12,8 @@ public class Weapon : MonoBehaviour {
     public AudioClip reloadClip;
     private bool playing;
     public Sprite sprite;
-    private Text ammoText;
     public AudioClip noAmmoClip;
     protected string weaponName;
-
 
     protected bool onCoolddown = false;
     protected float cooldownTime;
@@ -28,10 +26,6 @@ public class Weapon : MonoBehaviour {
         return this.weaponName;
     }
 
-    public Text GetAmmoText()
-    {
-        return this.ammoText;
-    }
 
     void PlayNoAmmoClip()
     {
@@ -80,8 +74,8 @@ public class Weapon : MonoBehaviour {
     public void UpdateAmmoText()
     {
         if (reloading)
-            ammoText.text = "Reloading...";
-        else ammoText.text = ammoOnStack + "/" + ammoLeft;
+            InventoryWeapon.GetText(this).text = "Reloading...";
+        else InventoryWeapon.GetText(this).text = ammoOnStack + "/" + ammoLeft;
     }
 
     public void WaitBeforeReloadAll()
@@ -160,11 +154,6 @@ public class Weapon : MonoBehaviour {
         this.ammoLeft = this.ammoMax - this.stackMax;
     }
 
-    void Awake()
-    {
-        ammoText = FindObjectOfType<PlayerAttack>().ammoText;
-    }
-
    protected void SetAmmo(int ammoMax, int stackMax)
     {
         this.ammoMax = ammoMax;
@@ -182,7 +171,12 @@ public class Weapon : MonoBehaviour {
             ReloadAll();
             UpdateAmmoText();
         }
-        else playerAttack.PickupWeapon(this);
+        else
+        {
+            playerAttack.PickupWeapon(this);
+            UpdateAmmoText();
+        }
+        
     }
 
     void PlayReloadClip()
