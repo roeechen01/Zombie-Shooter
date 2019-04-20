@@ -14,10 +14,4 @@ public class InventoryAmmo : MonoBehaviour
         text = GetComponent<Text>();
         this.text.text = "";
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

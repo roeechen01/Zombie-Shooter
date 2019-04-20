@@ -67,6 +67,7 @@ public class InventoryWeapon : MonoBehaviour
             if(player.GetWeapon() == inventory[index])
                 image.color = new Color(1f, 1f, 1f, 1f);
             else image.color = new Color(1f, 1f, 1f, 0.5f);
+            ChangeTextVisibility();
             image.preserveAspect = true;
 
         }
@@ -78,14 +79,23 @@ public class InventoryWeapon : MonoBehaviour
         if(weapon == player.GetWeapon())
         {
             if (this.index == activeIndex)
+            {
                 return this.ammoText.text;
+            }
         }
         else
         {
             if (this.index != activeIndex)
+            {
                 return this.ammoText.text;
+            }
         }
         return null;
+    }
+
+    public void ChangeTextVisibility()
+    {
+        this.ammoText.text.color = this.image.color;
     }
 
     public static Text GetText(Weapon weapon)
