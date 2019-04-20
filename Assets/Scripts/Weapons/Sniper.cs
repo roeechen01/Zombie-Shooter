@@ -12,7 +12,7 @@ public class Sniper : Weapon
         shotsAmount = 1;
         reloadTime = 2;
         rangeRatio = 0f;
-        SetAmmo(12, 4);
+        SetAmmo(16, 4);
         laser = Instantiate(laser, this.transform.position, Quaternion.identity);
     }
 

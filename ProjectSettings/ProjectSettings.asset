@@ -639,10 +639,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 6a9235a5-4d1f-4fb2-8592-08b04257f726
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Zombie Shooter
+  organizationId: roeechen01
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

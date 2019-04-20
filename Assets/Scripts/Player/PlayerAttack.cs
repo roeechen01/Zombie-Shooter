@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour {
     private Rpg rpg;
     private Sniper sniper;
 
+    public Bomb bomb;
+
     private double life;
     private double maxLife = 100;
     private bool vulnerable = true;
@@ -214,6 +216,8 @@ public class PlayerAttack : MonoBehaviour {
             SwitchWeapn();
         if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
             Dead();
+        //if (Input.GetMouseButtonDown((2)))
+        //    Instantiate(bomb, this.transform.position, Quaternion.identity);
     }
 
     void Dead()
@@ -225,6 +229,7 @@ public class PlayerAttack : MonoBehaviour {
         Destroy(FindObjectOfType<WeaponSpawner>());
         Destroy(FindObjectOfType<ItemSpawner>());
         Destroy(weapon.GetAmmoText().gameObject);
+        Destroy(FindObjectOfType<SniperLaser>());
         Destroy(gameObject);
     }
 
