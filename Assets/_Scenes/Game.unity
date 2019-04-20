@@ -1877,7 +1877,7 @@ GameObject:
   - component: {fileID: 819948472}
   - component: {fileID: 819948471}
   m_Layer: 5
-  m_Name: Image
+  m_Name: inventory0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1899,8 +1899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -828, y: -276}
-  m_SizeDelta: {x: 104.8, y: 84.6}
+  m_AnchoredPosition: {x: -840, y: -295}
+  m_SizeDelta: {x: 149, y: 64.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819948471
 MonoBehaviour:
@@ -1970,7 +1970,7 @@ GameObject:
   - component: {fileID: 930738677}
   - component: {fileID: 930738676}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: inventory1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,8 +1992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -828, y: -164}
-  m_SizeDelta: {x: 104.8, y: 84.6}
+  m_AnchoredPosition: {x: -840, y: -209.79999}
+  m_SizeDelta: {x: 149, y: 64.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930738676
 MonoBehaviour:

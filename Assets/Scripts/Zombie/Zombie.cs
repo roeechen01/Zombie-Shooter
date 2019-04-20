@@ -114,6 +114,7 @@ public class Zombie : MonoBehaviour {
 
     public virtual void Dead()
     {
+        this.CancelInvoke();
         aliveZombies.Remove(this);
         Destroy(gameObject);
     }

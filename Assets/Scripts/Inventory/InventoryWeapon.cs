@@ -32,12 +32,7 @@ public class InventoryWeapon : MonoBehaviour
             image.color = new Color();
         else
         {
-            bool active = false;
-            if (player.GetWeapon() == inventory[index])
-                active = true;
-            string name = inventory[index].GetName();
-            print(name);
-            switch (name)
+            switch (inventory[index].GetName())
             {
                 case "Gun":
                     image.sprite = gun;
@@ -58,7 +53,8 @@ public class InventoryWeapon : MonoBehaviour
                     image.color = new Color();
                     break;
             }
-            if(active)
+
+            if(player.GetWeapon() == inventory[index])
                 image.color = new Color(1f, 1f, 1f, 1f);
             else image.color = new Color(1f, 1f, 1f, 0.5f);
             image.preserveAspect = true;

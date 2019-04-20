@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour {
     public Sprite sprite;
     private Text ammoText;
     public AudioClip noAmmoClip;
-    protected string name;
+    protected string weaponName;
 
 
     protected bool onCoolddown = false;
@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour {
 
     public string GetName()
     {
-        return this.name;
+        return this.weaponName;
     }
 
     public Text GetAmmoText()
