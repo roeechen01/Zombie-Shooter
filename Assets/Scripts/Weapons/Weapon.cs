@@ -169,13 +169,12 @@ public class Weapon : MonoBehaviour {
         if (alreadyWeapon)
         {
             ReloadAll();
-            UpdateAmmoText();
         }
         else
         {
             playerAttack.PickupWeapon(this);
-            UpdateAmmoText();
         }
+        UpdateAmmoText();
         
     }
 

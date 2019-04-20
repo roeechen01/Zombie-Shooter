@@ -41,6 +41,7 @@ public class InventoryWeapon : MonoBehaviour
             image.color = new Color();
         else
         {
+            image.sprite = null;
             switch (inventory[index].GetName())
             {
                 case "Gun":
@@ -66,10 +67,10 @@ public class InventoryWeapon : MonoBehaviour
             if(player.GetWeapon() == inventory[index])
                 image.color = new Color(1f, 1f, 1f, 1f);
             else image.color = new Color(1f, 1f, 1f, 0.5f);
-            ChangeTextVisibility();
-            image.preserveAspect = true;
-
+            ChangeTextVisibility(inventory[index].GetName());
+           
         }
+        image.preserveAspect = true;
 
     }
 
@@ -92,8 +93,9 @@ public class InventoryWeapon : MonoBehaviour
         return null;
     }
 
-    public void ChangeTextVisibility()
+    public void ChangeTextVisibility(string name)
     {
+        print(name + ": " + this.image.color.a);
         this.ammoText.text.color = this.image.color;
     }
 

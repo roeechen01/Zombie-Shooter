@@ -19,7 +19,5 @@ public class AmmoPack : Item
                 secondary.SetAmmoToMax();
             secondary.UpdateAmmoText();
         }
-        
-
     }
 }
