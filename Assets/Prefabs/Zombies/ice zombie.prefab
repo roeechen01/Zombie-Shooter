@@ -173,4 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d317b3141c9734d8c022bba9e245b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 6507139996876818449, guid: b0138d3d4aa57b14b9cbb7984a0be8fd, type: 3}
   head: {fileID: 7193443899762331094}
+  velocity: {x: 0, y: 0}

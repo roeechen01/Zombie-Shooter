@@ -8,6 +8,9 @@ public class Zombie : MonoBehaviour {
     private ZombieSpawner zombieSpawner;
     private WavesManager wavesManager;
 
+    public Blood blood;
+    public List<Blood> bloods = new List<Blood>();
+
     protected PlayerAttack player;
     protected Rigidbody2D rigidBody2d;
     private Vector3 direction;
@@ -114,8 +117,14 @@ public class Zombie : MonoBehaviour {
 
     public virtual void Dead()
     {
+        
         this.CancelInvoke();
         aliveZombies.Remove(this);
+        for(int i = 0; i < bloods.Count; i++)
+        {
+            if (bloods[i].Exist())
+                bloods[i].SelfDestroy();
+        }
         Destroy(gameObject);
     }
 
@@ -132,9 +141,12 @@ public class Zombie : MonoBehaviour {
 
     // Update is called once per frame
     protected void Update () {
-            Rotaion();
-            SetVelocity();
+        Rotaion();
+        SetVelocity();
         velocity = rigidBody2d.velocity;
+        foreach (Blood blood in bloods)
+            if(blood.Exist())
+                blood.GetComponent<Rigidbody2D>().velocity = this.rigidBody2d.velocity;
     }
 
     void CheckForSamePosZombies()
@@ -164,12 +176,18 @@ public class Zombie : MonoBehaviour {
     {
         if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
         {
-            
-            //CancelInvoke("DemagingPlayer");
-            //InvokeRepeating("DemagingPlayer", 0.2f, 0.8f);
             DemagingPlayer();
             rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+
+        Bullet bullet = collider2D.gameObject.GetComponent<Bullet>();
+        if (bullet)
+        {
+            Blood tempBlood = Instantiate(blood, new Vector3(bullet.transform.position.x, bullet.transform.position.y, -1f), Quaternion.identity);
+            bloods.Add(tempBlood);
+            tempBlood.SetZombie(this);
+        }
+
     }
 
     protected virtual void OnTriggerStay2D(Collider2D collider2D)

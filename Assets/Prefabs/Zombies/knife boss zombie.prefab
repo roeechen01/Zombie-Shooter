@@ -95,7 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cacf9d5b1dc7442b9d63da6bb5b357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 6507139996876818449, guid: b0138d3d4aa57b14b9cbb7984a0be8fd, type: 3}
   head: {fileID: 2122791112878626334}
+  velocity: {x: 0, y: 0}
 --- !u!50 &2122791112878626332
 Rigidbody2D:
   serializedVersion: 4

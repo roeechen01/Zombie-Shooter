@@ -6,18 +6,15 @@ public class AmmoPack : Item
 {
     protected override void Ability()
     {
-        Weapon weapon = player.GetWeapon();
-        weapon.AddToAmmo(weapon.GetStackMax() * 2);
-        if (weapon.GetAmmoLeft() > weapon.GetAmmoMax()  - weapon.GetStackMax())
-            weapon.SetAmmoToMax();
-        weapon.UpdateAmmoText();
-        Weapon secondary = player.GetSecondaryWeapon();
-        if (secondary != null)
+        foreach (Weapon weapon in player.inventory)
         {
-            secondary.AddToAmmo(secondary.GetStackMax() * 2);
-            if (secondary.GetAmmoLeft() > secondary.GetAmmoMax() - secondary.GetStackMax())
-                secondary.SetAmmoToMax();
-            secondary.UpdateAmmoText();
+            if (weapon)
+            {
+                weapon.AddToAmmo(weapon.GetStackMax() * 2);
+                if (weapon.GetAmmoLeft() > weapon.GetAmmoMax() - weapon.GetStackMax())
+                    weapon.SetAmmoToMax();
+                weapon.UpdateAmmoText();
+            }
         }
     }
 }

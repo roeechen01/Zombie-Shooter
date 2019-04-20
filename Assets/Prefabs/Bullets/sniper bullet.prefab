@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c988d21f9ce54e4d8268e4395b5be65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 6507139996876818449, guid: b0138d3d4aa57b14b9cbb7984a0be8fd, type: 3}
   weapon: {fileID: 0}
   randomRange: 0
   range: {x: 0, y: 0}

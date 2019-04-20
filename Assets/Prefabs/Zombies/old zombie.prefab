@@ -116,7 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2514c3b05d95fe34f98d7a93d8b7f5c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 6507139996876818449, guid: b0138d3d4aa57b14b9cbb7984a0be8fd, type: 3}
   head: {fileID: 1559817365969546579}
+  velocity: {x: 0, y: 0}
   bullet: {fileID: 8172443831070681359, guid: 3308219d5b968dc48ad60cf9aae2f7c5, type: 3}
 --- !u!61 &1559817365969546579
 BoxCollider2D:
