@@ -143,8 +143,11 @@ public class Zombie : MonoBehaviour {
         SetVelocity();
         velocity = rigidBody2d.velocity;
         foreach (Blood blood in bloods)
-            if(blood.Exist())
+            if (blood.Exist())
+            {
                 blood.GetComponent<Rigidbody2D>().velocity = this.rigidBody2d.velocity;
+                blood.GetComponent<Rigidbody2D>().constraints = this.rigidBody2d.constraints;
+            }
     }
 
     void CheckForSamePosZombies()
