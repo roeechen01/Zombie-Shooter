@@ -231,10 +231,10 @@ public class PlayerAttack : MonoBehaviour {
         Zombie[] zombies = FindObjectsOfType<Zombie>();
         foreach (Zombie zombie in zombies)
             Destroy(zombie.gameObject);
-        Destroy(FindObjectOfType<ZombieSpawner>());
-        Destroy(FindObjectOfType<WeaponSpawner>());
-        Destroy(FindObjectOfType<ItemSpawner>());
-        Destroy(FindObjectOfType<SniperLaser>());
+        Destroy(FindObjectOfType<ZombieSpawner>().gameObject);
+        Destroy(FindObjectOfType<WeaponSpawner>().gameObject);
+        Destroy(FindObjectOfType<ItemSpawner>().gameObject);
+        Destroy(FindObjectOfType<SniperLaser>().gameObject);
         Destroy(gameObject);
     }
 

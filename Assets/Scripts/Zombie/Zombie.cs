@@ -89,7 +89,6 @@ public class Zombie : MonoBehaviour {
 
         if (rigidBody2d.velocity.x == 0 || rigidBody2d.velocity.y == 0 && this is RunnerZombie)
         {
-            print(gameObject.name);
             Destroy(gameObject);
         }
             
@@ -155,7 +154,6 @@ public class Zombie : MonoBehaviour {
         foreach (Zombie zombie in aliveZombies)
             if (zombie && ClosePosition(this.transform.position, zombie.transform.position, 0.03f) && zombie != this && this.name.Equals(zombie.name))
             {
-                print("found zombies in same position");
                 Dead();
                 break;
             }
