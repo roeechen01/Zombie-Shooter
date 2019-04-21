@@ -18,6 +18,7 @@ public class SetUpGame : MonoBehaviour
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         slider = FindObjectOfType<Slider>();
         slider.maxValue = 0;
+        InventoryWeapon.activeIndex = 0;
     }
 
     // Update is called once per frame
