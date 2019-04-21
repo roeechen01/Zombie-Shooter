@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class ButtonsController : MonoBehaviour
 {
     private AudioSource audioSource;
+    private Toggle toggle;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        toggle = FindObjectOfType<Toggle>();
+        toggle.isOn = Blood.active;
+        ToggleBlood();
     }
     public void ButtonClicked(string sceneName)
     {
@@ -22,6 +27,14 @@ public class ButtonsController : MonoBehaviour
     {
         //FindObjectOfType<MusicPlayer>().GetComponent<AudioSource>().Stop();
         Application.Quit();
+    }
+
+    public void ToggleBlood()
+    {
+        if (toggle.isOn)
+            Blood.active = true;
+        else Blood.active = false;
+
     }
 }
 

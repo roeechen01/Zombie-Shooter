@@ -6,10 +6,15 @@ public class Blood : MonoBehaviour
 {
     public Zombie zombie;
     bool invoked = false;
+    public static bool active = true;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("SelfDestroy", 0.2f);
+        
+        if (!active)
+            SelfDestroy();
+        else Invoke("SelfDestroy", 0.2f);
+
     }
 
     public void SelfDestroy()
