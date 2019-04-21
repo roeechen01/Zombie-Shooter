@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Blood : MonoBehaviour
 {
-    private Zombie zombie;
+    public Zombie zombie;
+    bool invoked = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,19 @@ public class Blood : MonoBehaviour
     public void SetZombie(Zombie zombie)
     {
         this.zombie = zombie;
+    }
+
+    void Update()
+    {
+        if (!zombie && !invoked)
+        {
+            invoked = true;
+            Invoke("RealDestroy", 0.2f);
+        }
+    }
+
+    void RealDestroy()
+    {
+        Destroy(gameObject);
     }
 }

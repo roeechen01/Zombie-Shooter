@@ -3,7 +3,15 @@ guid: a1194244b202c1842877798e0993b85e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabSimpleBullet: {instanceID: 0}
+  - prefabHeavyBullet: {instanceID: 0}
+  - gunFireAudioSource: {instanceID: 0}
+  - body: {instanceID: 0}
+  - bomb: {fileID: 2525703100401190665, guid: 4855a5214a6a32647ac63d1f7ecab5a5, type: 3}
+  - ammoText: {instanceID: 0}
+  - lifeText: {instanceID: 0}
+  - switchWeaponClip: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -119,7 +119,6 @@ public class Bullet : MonoBehaviour
                 if (hitsLeft == 0)
                     Destroy(gameObject);
             }
-            
         }
 
         else if (collider2D.tag.Equals("Wall"))
