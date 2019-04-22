@@ -24,6 +24,11 @@ public class WavesManager : MonoBehaviour
         SetWave();
     }
 
+    public void Dead()
+    {
+        this.wave = int.MaxValue;
+    }
+
 
 
     void UpdateText()
@@ -127,7 +132,7 @@ public class WavesManager : MonoBehaviour
                 noMore = true;
                 break;
             default:
-                waveText.text = "YOU WON";
+                waveText.text = "";
                 break;
         }
     }

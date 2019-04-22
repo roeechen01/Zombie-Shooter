@@ -152,7 +152,7 @@ public class Zombie : MonoBehaviour {
     void CheckForSamePosZombies()
     {
         foreach (Zombie zombie in aliveZombies)
-            if (zombie && ClosePosition(this.transform.position, zombie.transform.position, 0.03f) && zombie != this && this.name.Equals(zombie.name))
+            if (zombie && ClosePosition(this.transform.position, zombie.transform.position, 0.05f) && zombie != this && this.name.Equals(zombie.name))
             {
                 Dead();
                 break;

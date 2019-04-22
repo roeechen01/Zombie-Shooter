@@ -228,6 +228,7 @@ public class PlayerAttack : MonoBehaviour {
 
     void Dead()
     {
+        FindObjectOfType<WavesManager>().Dead();
         Zombie[] zombies = FindObjectsOfType<Zombie>();
         foreach (Zombie zombie in zombies)
             Destroy(zombie.gameObject);
