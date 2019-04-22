@@ -10,6 +10,8 @@ public class SetUpGame : MonoBehaviour
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     public static bool onPause;
+    public Text waveText;
+    private string oldWaveText = "";
 
     private Slider slider;
     // Start is called before the first frame update
@@ -44,11 +46,15 @@ public class SetUpGame : MonoBehaviour
         {
             Time.timeScale = 1f;
             onPause = false;
+            waveText.text = oldWaveText;
+            
         }
         else
         {
             Time.timeScale = 0f;
             onPause = true;
+            oldWaveText = waveText.text;
+            waveText.text = "PAUSE";
         }
     }
 }

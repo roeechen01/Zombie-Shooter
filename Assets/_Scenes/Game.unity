@@ -727,6 +727,7 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: 46c322fa70519534e9eb50062d74b342, type: 3}
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
+  waveText: {fileID: 472965364}
 --- !u!4 &409686371
 Transform:
   m_ObjectHideFlags: 0
@@ -845,7 +846,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0, y: 214.3}
-  m_SizeDelta: {x: 626.6, y: 133.8}
+  m_SizeDelta: {x: 1502.5, y: 428.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472965364
 MonoBehaviour:
