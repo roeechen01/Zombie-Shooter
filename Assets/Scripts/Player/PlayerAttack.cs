@@ -235,6 +235,7 @@ public class PlayerAttack : MonoBehaviour {
         Destroy(FindObjectOfType<WeaponSpawner>().gameObject);
         Destroy(FindObjectOfType<ItemSpawner>().gameObject);
         Destroy(FindObjectOfType<SniperLaser>().gameObject);
+        Destroy(FindObjectOfType<Slider>().gameObject);
         Destroy(gameObject);
     }
 
