@@ -9,6 +9,7 @@ public class SetUpGame : MonoBehaviour
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+    public static bool onPause;
 
     private Slider slider;
     // Start is called before the first frame update
@@ -28,10 +29,26 @@ public class SetUpGame : MonoBehaviour
             SceneManager.LoadScene("Menu");
         if (Input.GetKeyDown(KeyCode.Space))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (Input.GetKeyDown(KeyCode.Tab))
+            TogglePause();
     }
 
     public static void MakeSmaller(GameObject gameObject)
     {
         gameObject.transform.localScale *= 0.9f;
+    }
+
+    void TogglePause()
+    {
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            onPause = false;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            onPause = true;
+        }
     }
 }

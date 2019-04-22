@@ -215,15 +215,19 @@ public class PlayerAttack : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        FireCheck();
-        if (Input.GetKeyDown(KeyCode.R))
-            weapon.WaitBeforeReloadAll();
-        if(Input.GetKeyDown(KeyCode.E))
-            SwitchWeapn();
-        if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
-            Dead();
-        //if (Input.GetMouseButtonDown((2)))
-        //    Instantiate(bomb, this.transform.position, Quaternion.identity);
+        if (!SetUpGame.onPause)
+        {
+            FireCheck();
+            if (Input.GetKeyDown(KeyCode.R))
+                weapon.WaitBeforeReloadAll();
+            if (Input.GetKeyDown(KeyCode.E))
+                SwitchWeapn();
+            if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
+                Dead();
+            //if (Input.GetMouseButtonDown((2)))
+            //    Instantiate(bomb, this.transform.position, Quaternion.identity);
+        }
+
     }
 
     void Dead()

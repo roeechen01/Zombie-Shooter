@@ -26,4 +26,6 @@ public class General : MonoBehaviour {
             else audioSource.UnPause();
         }
 	}
+
+    
 }

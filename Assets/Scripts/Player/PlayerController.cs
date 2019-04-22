@@ -50,9 +50,13 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Movement();
-        Rotaion();
-        CameraController();
+        if (!SetUpGame.onPause)
+        {
+
+            Movement();
+            Rotaion();
+            CameraController();
+        }
     }
 
     void CameraController()
