@@ -17,6 +17,8 @@ public class SetUpGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (onPause)
+            TogglePause();
         hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         slider = FindObjectOfType<Slider>();
