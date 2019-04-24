@@ -11,6 +11,14 @@ public class LifeText : MonoBehaviour {
     // Use this for initialization
     void Start () {
         text = GetComponent<Text>();
+        foreach(PlayerAttack player in FindObjectsOfType<PlayerAttack>())
+        {
+            if (player.GetComponent<PlayerNetwork>().localPlayer)
+            {
+                this.player = player;
+                break;
+            }
+        }
         player = FindObjectOfType<PlayerAttack>();
 	}
 	

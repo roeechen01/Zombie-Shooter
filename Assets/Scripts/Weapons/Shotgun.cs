@@ -15,7 +15,7 @@ public class Shotgun : Weapon {
         SetAmmo(48, 12);
     }
 
-    public override void Fire()
+    public override void CmdFire()
     {
         if (!onCoolddown)
         {

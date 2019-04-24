@@ -19,7 +19,7 @@ public class Rifle : Weapon {
         rangeRatio = 0.08f;
     }
 
-    public override void Fire()
+    public override void CmdFire()
     {
         fireActive = true;
         

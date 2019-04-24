@@ -18,7 +18,7 @@ public class Sniper : Weapon
         laser = Instantiate(laser, this.transform.position, Quaternion.identity);
     }
 
-    public override void Fire()
+    public override void CmdFire()
     {
         if (!onCoolddown)
         {

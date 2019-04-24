@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Bullet : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Bullet : MonoBehaviour
         SetUpGame.MakeSmaller(gameObject);
         rigidBody2d = GetComponent<Rigidbody2D>();
         hitsLeft = hitsMax;
+        gameObject.AddComponent<NetworkTransform>();
+        gameObject.AddComponent<NetworkIdentity>();
     }
 
     protected void CreateBulletTypeInfo(Weapon weapon, int demage, float speed, Vector2 range, bool randomRange, int hitsLeft)

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class Weapon : MonoBehaviour {
+public class Weapon : NetworkBehaviour {
 
     public Bullet bullet;
     protected PlayerAttack playerAttack;
@@ -61,7 +62,7 @@ public class Weapon : MonoBehaviour {
         Invoke("CooldownOver", cooldownTime);
     }
 
-    public virtual void Fire()
+    public virtual void CmdFire()
     {
 
     }

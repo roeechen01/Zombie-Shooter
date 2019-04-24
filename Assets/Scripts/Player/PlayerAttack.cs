@@ -221,7 +221,7 @@ public class PlayerAttack : MonoBehaviour {
             {
                 if (weapon.CanFire())
                 {
-                    weapon.Fire();
+                    weapon.CmdFire();
                 }
                 else
                 {

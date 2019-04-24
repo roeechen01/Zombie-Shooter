@@ -13,7 +13,7 @@ public class Rpg : Weapon
         SetAmmo(6, 2);
     }
 
-    public override void Fire()
+    public override void CmdFire()
     {
         if (!onCoolddown)
         {
