@@ -27,13 +27,18 @@ public class Zombie : MonoBehaviour {
     // Use this for initialization
     protected void Start () {
         zombieSpawner = FindObjectOfType<ZombieSpawner>();
-        wavesManager = FindObjectOfType < WavesManager>();
+        wavesManager = FindObjectOfType <WavesManager>();
         aliveZombies.Add(this);
         SetUpGame.MakeSmaller(gameObject);
         CreateZombie();
-        player = FindObjectOfType<PlayerAttack>();
+        TargetNewPlayer();
         rigidBody2d = GetComponent<Rigidbody2D>();
         InvokeRepeating("CheckForSamePosZombies", 4.765f, 5f);
+    }
+
+    void TargetNewPlayer()
+    {
+        player = FindObjectsOfType<PlayerAttack>()[Random.Range(0, FindObjectsOfType<PlayerAttack>().Length)];
     }
 
     protected void CreateZombieTypeInfo(int life, double demage, float speed)
