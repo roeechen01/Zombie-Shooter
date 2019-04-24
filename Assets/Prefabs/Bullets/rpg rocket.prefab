@@ -141,7 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02dd5765167810f48998c61863aeff9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
   randomRange: 0
   range: {x: 0, y: 0}
   explosion: {fileID: 5537893259030736997, guid: e11a78cadde419b4ea68c38c947b76ea,
     type: 3}
+  rpg: {fileID: 0}

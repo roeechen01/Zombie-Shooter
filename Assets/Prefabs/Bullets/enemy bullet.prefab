@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97fd9a3af97a2143bcf1a721a1de5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
   randomRange: 0
   range: {x: 0, y: 0}
 --- !u!50 &8172443831070681358

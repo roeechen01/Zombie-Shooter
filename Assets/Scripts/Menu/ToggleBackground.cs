@@ -22,10 +22,4 @@ public class ToggleBackground : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         background = GetComponent<Image>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

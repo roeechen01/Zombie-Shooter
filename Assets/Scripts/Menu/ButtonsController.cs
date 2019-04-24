@@ -15,8 +15,9 @@ public class ButtonsController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         toggle = FindObjectOfType<Toggle>();
-        toggle.isOn = Blood.active;
-        ToggleBlood();
+        if (toggle)
+            toggle.isOn = Blood.active;
+
     }
     public void ButtonClicked(string sceneName)
     {
@@ -30,12 +31,9 @@ public class ButtonsController : MonoBehaviour
         Application.Quit();
     }
 
-    public void ToggleBlood()
+    public void SetBlood()
     {
-        if (toggle.isOn)
-            Blood.active = true;
-        else Blood.active = false;
-
+        Blood.active = toggle.isOn;
     }
 }
 
