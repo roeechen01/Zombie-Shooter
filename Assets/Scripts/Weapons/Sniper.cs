@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sniper : Weapon
 {
@@ -30,12 +31,17 @@ public class Sniper : Weapon
 
     void Update()
     {
-        laser.transform.position = this.transform.position;
-        if (playerAttack.GetWeapon() == this)
+        if (SceneManager.GetActiveScene().name.Equals("Game"))
         {
-            laser.Visible();
+            laser.transform.position = this.transform.position;
+            if (playerAttack && playerAttack.GetWeapon() == this)
+            {
+                laser.Visible();
+                laser.transform.rotation = playerAttack.transform.rotation;
+
+            }
+            else laser.Invisible();
         }
-        else laser.Invisible();
-        laser.transform.rotation = playerAttack.transform.rotation;
+        
     }
 }

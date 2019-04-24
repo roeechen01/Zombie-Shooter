@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour {
 
     public Bullet prefabSimpleBullet, prefabHeavyBullet;
     public AudioSource gunFireAudioSource;
     public Collider2D body;
+    private PlayerNetwork net;
 
     private Gun gun;
     private Shotgun shotgun;
@@ -21,6 +23,14 @@ public class PlayerAttack : MonoBehaviour {
     private double maxLife = 100;
     private bool vulnerable = true;
 
+    public int GetLifeToText()
+    {
+        double lifeIn100 = life / maxLife * 100;
+        print(lifeIn100);
+        if ((int)lifeIn100 <= 0)
+            return 0;
+        else return (int)lifeIn100;
+    }
 
     private List<Weapon> weapons = new List<Weapon>();
     SpriteRenderer spriteRenderer;
@@ -42,25 +52,44 @@ public class PlayerAttack : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Zombie.aliveZombies.Clear();
-        life = maxLife;
-        UpdateText();
-        SetComponents();
-        weapons.Add(gun);
-        weapons.Add(shotgun);
-        weapons.Add(rifle);
-        weapons.Add(rpg);
-        weapons.Add(sniper);
+        net = GetComponent<PlayerNetwork>();
+        if (net.localPlayer)
+        {
+            SetComponents();
+            weapons.Add(gun);
+            weapons.Add(shotgun);
+            weapons.Add(rifle);
+            weapons.Add(sniper);
+            weapons.Add(rpg);
+            foreach (Weapon weapon in weapons)
+            {
+                weapon.SetPlayerAttack(this);
 
-        foreach (Weapon weapon in weapons)
-            weapon.SetPlayerAttack(this);
-        weapon = weapons[0];
-        inventory[0] = weapon;
-        spriteRenderer.sprite = weapons[0].sprite;
-        InventoryWeapon.ChangeInventory(this.inventory);
-        foreach(Weapon weapon in inventory)
-            if(weapon)
-                weapon.UpdateAmmoText();
+            }
+            spriteRenderer.sprite = weapons[0].sprite;
+            weapon = weapons[0];
+            inventory[0] = weapon;
+        }
+       
+    }
+
+    public bool gameStart = false;
+    void GameStart()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("Game") && net.localPlayer)
+        {
+            gameStart = true;
+
+            Zombie.aliveZombies.Clear();
+            life = maxLife;
+            UpdateText();
+            
+            InventoryWeapon.ChangeInventory(this.inventory);
+            foreach (Weapon weapon in inventory)
+                if (weapon)
+                    weapon.UpdateAmmoText();
+        }
+        
     }
 
     public void AddLife(double life, bool all)
@@ -76,6 +105,7 @@ public class PlayerAttack : MonoBehaviour {
     void UpdateText()
     {
         double lifeIn100 = life / maxLife * 100;
+        print(lifeIn100);
         if ((int)lifeIn100 <= 0)
             lifeText.text = "DEAD";
         else lifeText.text = "LIFE: " + (int)lifeIn100;
@@ -215,20 +245,25 @@ public class PlayerAttack : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (!SetUpGame.onPause)
+        if (SceneManager.GetActiveScene().name.Equals("Game") && net.localPlayer)
         {
-            FireCheck();
-            if (Input.GetKeyDown(KeyCode.R))
-                weapon.WaitBeforeReloadAll();
-            if (Input.GetKeyDown(KeyCode.E))
-                SwitchWeapn();
-            if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
-                Dead();
-            //if (Input.GetMouseButtonDown((2)))
-            //    Instantiate(bomb, this.transform.position, Quaternion.identity);
+            if (!gameStart)
+                GameStart();
+            if (!SetUpGame.onPause)
+            {
+                FireCheck();
+                if (Input.GetKeyDown(KeyCode.R))
+                    weapon.WaitBeforeReloadAll();
+                if (Input.GetKeyDown(KeyCode.E))
+                    SwitchWeapn();
+                if ((int)life / maxLife * 100 <= 0)//The life on the screen is precentage of the life left.
+                    Dead();
+                //if (Input.GetMouseButtonDown((2)))
+                //    Instantiate(bomb, this.transform.position, Quaternion.identity);
+            }
         }
-
     }
+        
 
     void Dead()
     {

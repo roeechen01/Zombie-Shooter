@@ -30,9 +30,15 @@ public class SetUpGame : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
             SceneManager.LoadScene("Menu");
+            Destroy(FindObjectOfType<PlayerController>().gameObject);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FindObjectOfType<PlayerAttack>().gameStart = false;
+        }
         if (Input.GetKeyDown(KeyCode.Tab))
             TogglePause();
     }

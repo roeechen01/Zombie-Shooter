@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -8,13 +9,19 @@ public class PlayerController : MonoBehaviour {
     private float speed = 6f;
     private Camera gameCamera;
     bool canFreeze = true;
+    private PlayerNetwork net;
 
 
     // Use this for initialization
     void Start () {
-        originalSpeed = speed;
-        SetUpGame.MakeSmaller(gameObject);
-        gameCamera = FindObjectOfType<Camera>();
+        net = GetComponent<PlayerNetwork>();
+        if (net.localPlayer)
+        {
+            originalSpeed = speed;
+            SetUpGame.MakeSmaller(gameObject);
+            gameCamera = FindObjectOfType<Camera>();
+        }
+        
     }
 
     void Movement()
@@ -52,16 +59,20 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (!SetUpGame.onPause)
         {
-
-            Movement();
-            Rotaion();
-            CameraController();
+            if (net.localPlayer)
+            {
+                Movement();
+                Rotaion();
+                CameraController();
+            }
+            
         }
     }
 
     void CameraController()
     {
         gameCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, gameCamera.transform.position.z);
+        gameCamera.transform.rotation = Quaternion.identity;
     }
 
     public void Freeze (float seconds)
