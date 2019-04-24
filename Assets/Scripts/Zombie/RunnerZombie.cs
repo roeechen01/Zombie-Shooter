@@ -31,11 +31,12 @@ public class RunnerZombie : Zombie
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
+        PlayerAttack player = collider2D.gameObject.GetComponent<PlayerAttack>();
+        if (player && player.body == collider2D)
         {
             SpriteRenderer sr = FindObjectOfType<PlayerAttack>().GetComponent<SpriteRenderer>();
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f);
-            DemagingPlayer();
+            DemagingPlayer(player);
         }
         if (collider2D.gameObject.tag.Equals("Wall"))
         {

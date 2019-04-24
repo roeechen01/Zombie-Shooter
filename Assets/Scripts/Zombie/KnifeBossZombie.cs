@@ -55,11 +55,13 @@ public class KnifeBossZombie : Boss
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
+        PlayerAttack player = collider2D.gameObject.GetComponent<PlayerAttack>();
+
+        if (player && player.body == collider2D)
         {
             if (player.GetVulnerable())
             {
-                DemagingPlayer();
+                DemagingPlayer(player);
                 this.transform.localScale = new Vector3(transform.localScale.x * 1.2f, transform.localScale.y * 1.2f);
                 demage += 10f;
                 speedFactor += 0.2f;

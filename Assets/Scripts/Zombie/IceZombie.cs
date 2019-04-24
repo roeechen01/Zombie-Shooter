@@ -9,10 +9,10 @@ public class IceZombie : Zombie
         CreateZombieTypeInfo(1, 0, 3.5f);
     }
 
-    protected override void DemagingPlayer()
+    protected override void DemagingPlayer(PlayerAttack player)
     {
-        PlayerController player = FindObjectOfType<PlayerController>();
-        if(player.GetComponent<PlayerAttack>().GetVulnerable())
-            player.Freeze(2);
+        PlayerController playerConroller = player.GetComponent<PlayerController>();
+        if(playerConroller.GetComponent<PlayerAttack>().GetVulnerable())
+            playerConroller.Freeze(2);
     }
 }

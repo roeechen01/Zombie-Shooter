@@ -19,7 +19,8 @@ public class OldZombie : Zombie
 
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag.Equals("Player") && player.body == collider2D)
+        PlayerAttack player = collider2D.gameObject.GetComponent<PlayerAttack>();
+        if (player && player.body == collider2D)
         {
             rigidBody2d.constraints = RigidbodyConstraints2D.FreezeAll;
         }
