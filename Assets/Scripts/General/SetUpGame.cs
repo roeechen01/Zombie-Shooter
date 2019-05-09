@@ -32,7 +32,12 @@ public class SetUpGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene("Menu");
         if (Input.GetKeyDown(KeyCode.Space))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        {
+            if (onPause)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            else TogglePause();
+
+        }
         if (Input.GetKeyDown(KeyCode.Tab))
             TogglePause();
     }
@@ -56,7 +61,7 @@ public class SetUpGame : MonoBehaviour
             Time.timeScale = 0f;
             onPause = true;
             oldWaveText = waveText.text;
-            waveText.text = "PAUSE";
+            waveText.text = "PAUSE\nRESTART (SPACE)\nRESUME (TAB)";
         }
     }
 }
