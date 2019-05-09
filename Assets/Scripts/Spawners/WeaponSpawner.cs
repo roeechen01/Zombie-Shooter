@@ -25,7 +25,7 @@ public class WeaponSpawner : MonoBehaviour
 
     void SpawnWeapon(PickupWeapon pickupWeapon)
     {
-        Instantiate(pickupWeapon, new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0f), Quaternion.identity);
+        Instantiate(pickupWeapon, new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 1f), Quaternion.identity);
     }
 
     void RandomWeapon()

@@ -16,7 +16,7 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItem(Item item)
     {
-        Instantiate(item, new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0f), Quaternion.identity);
+        Instantiate(item, new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 1f), Quaternion.identity);
     }
 
     void RandomItem()

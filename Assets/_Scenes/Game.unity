@@ -2402,7 +2402,6 @@ MonoBehaviour:
     type: 3}
   gunFireAudioSource: {fileID: 0}
   body: {fileID: 1165173290}
-  bomb: {fileID: 2525703100401190665, guid: 4855a5214a6a32647ac63d1f7ecab5a5, type: 3}
   inventory:
   - {fileID: 0}
   - {fileID: 0}

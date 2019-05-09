@@ -19,7 +19,7 @@ public class Rpg : Weapon
         {
             GetGunFireAudioSource().clip = gunfire;
             GetGunFireAudioSource().Play();
-            Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, 1f), transform.rotation).CreateBullet(this ,new Vector2(0.3f, 0.3f), true);
+            Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, 0.5f), transform.rotation).CreateBullet(this ,new Vector2(0.3f, 0.3f), true);
             AmmoChange(-shotsAmount);
             Cooldwon();
         }

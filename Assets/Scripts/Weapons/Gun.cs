@@ -16,7 +16,7 @@ public class Gun : Weapon {
     public override void Fire()
     {
         AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-        Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, 1f), transform.rotation).CreateBullet(this, new Vector2(0f, 0f), false);
+        Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, 0.5f), transform.rotation).CreateBullet(this, new Vector2(0f, 0f), false);
         AmmoChange(-shotsAmount);
     }
 

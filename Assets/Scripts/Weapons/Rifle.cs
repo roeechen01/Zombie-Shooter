@@ -32,7 +32,7 @@ public class Rifle : Weapon {
             if (!onCoolddown)
             {
                 AudioSource.PlayClipAtPoint(gunfire, this.transform.position);
-                Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, 1f), transform.rotation).CreateBullet(this ,new Vector2(rangeRatio + rangeRatioIncrease, rangeRatio + rangeRatioIncrease), true);
+                Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, 0.5f), transform.rotation).CreateBullet(this ,new Vector2(rangeRatio + rangeRatioIncrease, rangeRatio + rangeRatioIncrease), true);
                 AmmoChange(-shotsAmount);
                 rangeRatioIncrease += 0.02f;
                 Cooldwon();
