@@ -76,7 +76,13 @@ public class PlayerAttack : MonoBehaviour {
         double lifeIn100 = life / maxLife * 100;
         if ((int)lifeIn100 <= 0)
             lifeText.text = "DEAD";
-        else lifeText.text = "LIFE: " + (int)lifeIn100;
+        else
+        {
+            lifeText.text = "LIFE: " + (int)lifeIn100;
+            if (lifeIn100 <= 25)
+                lifeText.color = new Color(1f, 0f, 0f, 1f);
+            else lifeText.color = new Color(1f, 1f, 1f, 1f);
+        }
     }
 
     void SetComponents()

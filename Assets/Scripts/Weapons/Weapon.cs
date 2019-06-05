@@ -105,8 +105,6 @@ public class Weapon : MonoBehaviour {
 
     void ReloadAll()
     {
-        //if (ammoOnStack != stackMax)
-        //{
             int bulletsToReload = stackMax - ammoOnStack;
             if (bulletsToReload <= ammoLeft)
             {
@@ -120,7 +118,6 @@ public class Weapon : MonoBehaviour {
             }
             reloading = false;
             UpdateAmmoText();
-        //}
     }
 
     public void AddToAmmo(int ammo)
