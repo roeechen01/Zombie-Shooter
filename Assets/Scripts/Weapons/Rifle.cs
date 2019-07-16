@@ -27,7 +27,7 @@ public class Rifle : Weapon {
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && ammoOnStack >= shotsAmount && fireActive)
+        if (Input.GetMouseButton(0) && ammoOnStack >= shotsAmount && fireActive && playerAttack.GetWeapon().Equals(this))
         {
             if (!onCoolddown)
             {
