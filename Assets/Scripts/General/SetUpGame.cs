@@ -30,7 +30,9 @@ public class SetUpGame : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadScene("Menu");
+            if (onPause)
+                SceneManager.LoadScene("Menu");
+            else TogglePause();
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (onPause)
