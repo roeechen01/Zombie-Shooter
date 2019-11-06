@@ -33,7 +33,7 @@ public class WavesManager : MonoBehaviour
 
     void UpdateText()
     {
-        waveText.text = "Wave " + this.wave;
+        waveText.text = "Wave " + this.wave + "\n\n\n";
         Invoke("EmptyText", 1f);
     }
 
