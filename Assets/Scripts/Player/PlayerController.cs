@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     private float originalSpeed;
-    private float speed = 6f;
+    private float speed = 6.5f;
     private Camera gameCamera;
     bool canFreeze = true;
+    public bool changeSpeedIfNotStraight = true;
 
 
     // Use this for initialization
@@ -17,8 +18,20 @@ public class PlayerController : MonoBehaviour {
         gameCamera = FindObjectOfType<Camera>();
     }
 
+    void SetSpeedCorrectlyIfNotGoingStraight()
+    {
+        if ((Input.GetKey(KeyCode.A) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) ||
+            (Input.GetKey(KeyCode.D) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) ||
+            (Input.GetKey(KeyCode.W) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))) ||
+            (Input.GetKey(KeyCode.S) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))))))
+            speed = originalSpeed / Mathf.Sqrt(2);
+        else speed = originalSpeed;
+    }
+
     void Movement()
     {
+        if(changeSpeedIfNotStraight)
+            SetSpeedCorrectlyIfNotGoingStraight();
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.position = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, 0f);
