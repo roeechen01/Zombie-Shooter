@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
     private float speed = 6.5f;
     private Camera gameCamera;
     bool canFreeze = true;
-    public bool changeSpeedIfNotStraight = true;
 
 
     // Use this for initialization
@@ -30,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 
     void Movement()
     {
-        if(changeSpeedIfNotStraight)
+        if(speed != 0)
             SetSpeedCorrectlyIfNotGoingStraight();
         if (Input.GetKey(KeyCode.A))
         {
@@ -65,7 +64,6 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (!SetUpGame.onPause)
         {
-
             Movement();
             Rotaion();
             CameraController();
